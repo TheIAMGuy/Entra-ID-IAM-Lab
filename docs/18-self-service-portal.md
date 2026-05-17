@@ -1,409 +1,495 @@
 ---
-title: Self-Service Portal - User Empowerment and Administration
+title: Self-Service Portal - User Self-Service Capabilities
 part: 9
 section: Operations & Administration
 difficulty: Intermediate
-estimated_reading_time: 30
+estimated_reading_time: 25
 estimated_lab_time: 30
 prerequisites:
-  - 01-user-provisioning-joiner.md
   - 03-role-based-access-control.md
+  - 07-authentication-fundamentals.md
 learning_objectives:
-  - Understand self-service identity portal concepts
-  - Design user self-service workflows
-  - Implement access request and approval
-  - Configure profile management
-  - Measure self-service adoption and impact
+  - Understand self-service portal capabilities
+  - Design self-service workflows
+  - Implement password reset, profile management, access requests
+  - Monitor self-service adoption and metrics
+  - Optimize user experience
 ---
 
-# Self-Service Portal: User Empowerment and Administration
+# Self-Service Portal: User Self-Service Capabilities
 
 ## Introduction
 
-Self-service identity portals empower users to manage their own identity and access requests without contacting IT. Instead of submitting a ticket for password reset, users reset themselves. Instead of requesting system access through a 5-day ticket process, users request through the portal with automatic approval (if policy allows). This reduces IT burden, improves user experience, and enables scale. This document explains self-service portal concepts, capabilities, and implementation.
+Self-service portals reduce IT workload and improve user experience. Instead of calling help desk "I forgot my password" (50% of calls), users reset themselves. Instead of submitting access requests to IT, users request and managers approve. Self-service scales: 1 admin supporting 10,000 users (vs. 1:500 with manual process). This document explains self-service portal capabilities, implementation, and metrics.
 
 **Learning Objectives:**
-- Understand self-service portal use cases
-- Design access request workflows
-- Implement profile management
-- Configure automation and approvals
-- Measure success metrics
+- Design self-service portal
+- Implement password reset, profile management, access requests
+- Set up approval workflows
+- Monitor adoption and metrics
+- Optimize user experience
 
-## Self-Service Portal Use Cases
+## Self-Service Portal Capabilities
 
-### Use Case 1: Password Reset
+### Capability 1: Self-Service Password Reset (SSPR)
 
-**Traditional:**
-```
-User forgets password
-  → Calls helpdesk
-  → Verifies identity (security questions)
-  → Resets password
-  → Emails temporary password
-  → User signs in and changes password
-Timeline: 30 minutes to 2 hours
-Cost: $15-20 per reset (IT time)
-```
-
-**Self-Service:**
-```
-User forgets password
-  → Goes to password reset portal
-  → Verifies identity (security questions OR email OR phone)
-  → Sets new password
-  → Signs in immediately
-Timeline: 2 minutes
-Cost: $0.50 (infrastructure)
-```
-
-**Impact:** If 1000 users/year reset password, savings = $15,000/year
-
-### Use Case 2: Access Request
-
-**Traditional:**
-```
-User needs access to new system
-  → Submits helpdesk ticket
-  → Manager approves (manual email)
-  → IT provisioning team provisions (2-3 days)
-  → User gets access
-Timeline: 3-5 days
-Cost: 2 hours IT time per request = ~$100/request
-```
-
-**Self-Service:**
-```
-User requests access through portal
-  → Portal checks policy (auto-approve if meets criteria)
-  → If auto-approve: Access granted immediately
-  → If requires approval: Manager gets notification, approves with 1 click
-  → System auto-provisions if possible
-Timeline: Seconds (auto-approve) or 1 hour (manager approval)
-Cost: $5 (infrastructure)
-```
-
-**Impact:** If 50 access requests/month, savings = 100 hours/year IT time = ~$3,000/year
-
-### Use Case 3: Profile Management
-
-**Self-Service:**
-```
-User can update:
-  - Phone number
-  - Address
-  - Display name
-  - Preferences (language, time zone)
-  - Linked identities (add Google account to corporate)
-
-User CANNOT change (read-only from HR):
-  - Email address
-  - Department
-  - Job title
-  - Manager
-```
-
-**Benefits:**
-- Reduces IT helpdesk questions
-- Keeps profile current
-- Users take ownership
-- HR system remains source of truth (not user-edited)
-
-## Self-Service Portal Features
-
-### 1. Password Management
-
-**Capabilities:**
-- Reset forgotten password
-- Change password (user knows old)
-- Security questions for verification
-- Email verification option
-- Phone verification (SMS/call)
-- Biometric verification (if supported)
-
-**Workflow:**
+**User resets their own password without help desk:**
 
 ```
-1. User clicks "Forgot Password"
-2. Enters username/email
-3. Verification:
-   - Answer security questions (pre-configured)
-   - OR Verify phone (SMS code)
-   - OR Verify email (link in email)
-4. Set new password (complexity requirements)
-5. Redirect to sign-in
-```
-
-### 2. Access Request
-
-**Capabilities:**
-- Browse available applications
-- Request access with business justification
-- Auto-approve if policy allows
-- Manager approval if policy requires
-- Automatic provisioning
-- Notification of approval/denial
-
-**Workflow:**
-
-```
-1. User browses available applications
-2. Clicks "Request Access" for desired app
-3. Enter business justification:
-   - "Need for Q1 project planning"
-   - "Required to support new customer account"
-4. Portal evaluates policy:
-   - If policy allows auto-approval: Access granted
-   - If requires manager approval: Manager notified
-   - If requires security review: Security team notified
-5. User notified of result
-6. System provisions access if approved
-```
-
-**Auto-Approval Policy Example:**
-
-```yaml
-Policy: "Software developers can access dev databases"
-Condition:
-  - User role: Developer
-  - Requested resource: Dev database
-  - User: Not on probation
-Action: Auto-approve (no manager approval needed)
----
-Policy: "Developers can access production database"
-Condition:
-  - User role: Developer
-  - Requested resource: Production database
-Action: Require manager approval (manual step)
----
-Policy: "Finance staff can access shared reports"
-Condition:
-  - User department: Finance
-  - Requested resource: Finance reports
-  - Resource sensitivity: Medium
-Action: Auto-approve (low risk)
-```
-
-### 3. Profile Management
-
-**User can update:**
-
-```
-Personal:
-  [ ] Display name
-  [ ] Phone number
-  [ ] Mobile phone
-  [ ] Office location
-  [ ] Preferred language
-
-Preferences:
-  [ ] Time zone
-  [ ] Communication preferences (email frequency)
-  [ ] Linked accounts (Google, Microsoft account)
-
-Read-Only (from HR):
-  [!] Email address
-  [!] Department
-  [!] Job title
-  [!] Manager
-  [!] Cost center
-```
-
-**Implementation:**
-
-```javascript
-// User profile update endpoint
-POST /api/profile/update
-{
-  "phone": "+1-555-0123",
-  "location": "New York",
-  "timezone": "America/New_York"
-}
-
-// Validation: HR data cannot be changed
-if (field in ['email', 'department', 'jobTitle']) {
-  return { error: "Cannot modify HR-linked field" };
-}
-
-// Update profile
-profile.phone = request.phone;
-profile.location = request.location;
-```
-
-### 4. Approvals
-
-**Manager approves requests:**
-
-```
-Manager notification:
-"John Smith requested access to Salesforce"
-Business justification: "New customer account support"
-Date requested: 2024-01-15
-Decision required by: 2024-01-18
-[Approve] [Deny] [More info]
-```
-
-**Approval workflow:**
-
-```
-Step 1: Request created
-  → Manager notified (email)
-  → Portal shows "Pending approval"
-
-Step 2: Manager reviews (within 3 days)
-  → Clicks "Approve"
-  → Optional comment
-
-Step 3: Automatic provisioning
-  → System provisions access
-  → User notified "Access granted"
-  → Audit log recorded
-
-Alternative:
-Step 2: Timeout (3 days, no response)
-  → Escalate to manager's manager
-  → Auto-deny if no response in 7 days
-```
-
-## Implementation Examples
-
-### Azure Portal: My Access
-
-**Built-in Entra ID self-service:**
-
-```
-Portal: https://myaccess.microsoft.com/
-User can:
-1. View profile (read-only info)
-2. Change password
-3. Manage security info (MFA methods)
-4. Request access to applications
-5. View group memberships
-```
-
-### ServiceNow Employee Center
-
-**ITSM self-service portal:**
-
-```
-Portal: https://company.service-now.com/
-User can:
-1. Submit helpdesk tickets
-2. Request access (auto-routed to manager)
-3. View pending approvals
-4. View provisioning status
-5. Check service status
-```
-
-### Custom Portal (Node.js + React)
-
-```javascript
-// Access request endpoint
-app.post('/api/requests', async (req, res) => {
-  const { userId, resourceId, justification } = req.body;
+Current State (Manual):
+  1. User forgets password
+  2. User calls help desk
+  3. Help desk: Verify identity (security questions, email verification)
+  4. Help desk: Reset password, send temporary password
+  5. User: Change temporary to new password
   
-  // Create request
-  const request = await createAccessRequest({
-    userId,
-    resourceId,
-    justification,
-    status: 'pending'
-  });
+  Time: 20-30 minutes
+  Cost: ~$5 per reset (labor)
+  User experience: Frustrating (wait time)
+
+With SSPR (Self-Service):
+  1. User clicks: "I forgot my password"
+  2. User verifies identity (email, phone, or security questions)
+  3. System: Sends reset link to verified email
+  4. User: Clicks link, sets new password
+  5. Password changed immediately
   
-  // Check auto-approval policy
-  const policy = await getAutoApprovalPolicy(userId, resourceId);
-  if (policy && policy.autoApprove) {
-    // Auto-approve
-    request.status = 'approved';
-    request.approvedAt = new Date();
-    // Trigger provisioning
-    await provisionAccess(userId, resourceId);
-  } else {
-    // Get manager for approval
-    const manager = await getManager(userId);
-    // Send manager notification
-    await sendApprovalNotification(manager, request);
-  }
+  Time: 2-5 minutes
+  Cost: ~$0.10 (automation)
+  User experience: Immediate, convenient
+
+Volume Impact:
+  50 users × 50% forgot password rate = 25 resets/month
+  Manual: 25 × 30 min = 12.5 hours/month (0.06 FTE)
+  Self-service: 25 × 5 min = 2 hours/month (IT monitoring)
+  Savings: ~10 hours/month = $1,200/year per 50 users
+```
+
+### Capability 2: Profile Management
+
+**User updates their own profile (address, phone, preferences):**
+
+```
+Allowed self-updates:
+  ✓ Phone number (mobile, office)
+  ✓ Physical address (home, office)
+  ✓ Alternative email (personal)
+  ✓ Preferred language
+  ✓ Timezone
+  ✓ Profile photo
+
+Restricted (read-only, IT only):
+  ✗ Email address (primary)
+  ✗ UPN (username)
+  ✗ Name (from HR system)
+  ✗ Department (from HR system)
+  ✗ Manager (from HR system)
+  ✗ Job title (from HR system)
+
+Example Portal:
+  [User Profile]
+  Email: john.smith@company.com (read-only)
+  Name: John Smith (read-only - John cannot change)
+  Department: Sales (read-only - from HR)
   
-  res.json({ requestId: request.id, status: request.status });
-});
+  [Update Your Info]
+  Mobile: [•••••••••••••] → [Editable field]
+  Office phone: [Not set] → [Add phone]
+  Address: [Editable field]
+  Timezone: [UTC-5 Eastern] → [Dropdown to change]
+  Language: [English] → [Dropdown for other languages]
+  Photo: [Upload new photo]
+  
+  [Save] [Cancel]
+```
+
+### Capability 3: Access Request Portal
+
+**User requests access to applications/groups:**
+
+```
+Access Request Flow:
+
+Step 1: User submits request
+  Action: Click "Request Access"
+  Select: Application or group (Salesforce, Finance Reports, etc.)
+  Reason: "Need access for new project"
+  Justification: "Working on Q1 revenue forecast"
+  Duration: "3 months" (optional time-bound)
+
+Step 2: Routing to approver
+  System determines approver:
+    - Manager (default for app access)
+    - Application owner (for specific groups)
+    - Security team (for sensitive apps)
+  
+  Notification: Email to approver
+    "John Smith requesting Finance Reports access"
+    "Reason: Q1 forecast project"
+    [Approve] [Deny] [Request More Info]
+
+Step 3: Approval/Denial
+  Scenario A - Approve:
+    Manager clicks [Approve]
+    System: Automatically provisions access
+    User notified: "Access granted, available now"
+    Timeline: 5 minutes
+  
+  Scenario B - Deny:
+    Manager clicks [Deny]
+    System: Logs denial, notifies user
+    User notified: "Access denied. Contact manager for details."
+    Timeline: 5 minutes
+  
+  Scenario C - Timeout:
+    No response after 3 days
+    System: Escalates to manager's manager
+    If still no response: Auto-deny after 5 days
+    User notified: "Request timed out. Resubmit if still needed."
+
+Step 4: Access provisioning
+  If approved:
+    - Add user to group
+    - Provision application account
+    - Send access confirmation
+    - Log approval and timestamp
+  
+  Timeline: Immediate (minutes)
+
+Volume Impact:
+  500 users × 0.5 access requests/month = 250 requests/month
+  Manual: IT reviews all → 250 × 10 min = 2,500 hours/year (1.2 FTE)
+  Self-service: Managers approve, IT just monitors → 250 × 2 min = 500 hours/year (0.24 FTE)
+  Savings: ~1 FTE
+```
+
+### Capability 4: Account Status and Activity
+
+**User views their account status and activity:**
+
+```
+Dashboard: "My Account"
+
+Account Status:
+  ✓ Account active and healthy
+  ✓ Password last changed: 90 days ago
+  ✓ MFA enabled: Yes (Authenticator app)
+  ✓ Last sign-in: Today at 9:30 AM (laptop)
+  ✓ Devices registered: 3 (laptop, phone, tablet)
+
+Recent Activity:
+  "Recent sign-ins:"
+  2024-01-15 09:30 AM - Corporate network
+  2024-01-15 08:15 AM - WiFi (home)
+  2024-01-14 17:45 PM - Corporate network
+  2024-01-14 14:20 PM - VPN
+  
+  "Recent changes:"
+  2024-01-10 - Timezone changed to UTC-5
+  2024-01-08 - Phone number updated
+  2024-01-05 - Added MFA
+
+Security Alerts:
+  ⚠ Unusual location: Sign-in from Tokyo detected
+     [This was me] [This wasn't me - Secure account]
+```
+
+## Self-Service Portal Implementation
+
+### Platform Options
+
+```
+Platform 1: Azure AD Self-Service
+  Features: SSPR, profile mgmt, access reviews, app gallery
+  Cost: Included in Azure AD Premium (user licensing)
+  Customization: Low (cloud-native)
+  Example: azure.microsoft.com/myaccount
+  
+Platform 2: ServiceNow Service Portal
+  Features: SSPR, access requests, catalog, approvals, chat
+  Cost: ServiceNow licensing + customization
+  Customization: High (flexible platform)
+  Best for: Organizations already using ServiceNow
+  
+Platform 3: Custom Application (Node.js/React)
+  Features: Whatever you build
+  Cost: Development + hosting + support
+  Customization: Complete (you control everything)
+  Best for: Unique requirements
+  Example tech stack:
+    Frontend: React, TypeScript
+    Backend: Node.js, Express
+    DB: Azure SQL
+    Auth: Azure AD (OIDC)
+```
+
+### Portal Architecture
+
+```
+User Portal
+  ├─ Authentication (Azure AD, OIDC)
+  ├─ Self-Service Password Reset
+  │  └─ Verify identity → Reset password → Confirm
+  │
+  ├─ Profile Management
+  │  └─ Edit allowed fields, save to Azure AD
+  │
+  ├─ Access Request
+  │  ├─ Browse applications/groups
+  │  ├─ Submit request (with justification)
+  │  ├─ Route to approver
+  │  └─ Provision on approval
+  │
+  ├─ Account Status
+  │  ├─ Devices
+  │  ├─ Sign-in history
+  │  ├─ Groups and access
+  │  └─ Security alerts
+  │
+  └─ Help & Support
+     ├─ FAQ
+     ├─ Chat (human agent)
+     └─ Ticket submission
+
+Backend APIs
+  ├─ Azure AD Graph (user data, groups)
+  ├─ Password reset service
+  ├─ Workflow engine (approvals)
+  ├─ Audit logging
+  └─ Notifications (email, SMS)
+```
+
+## Self-Service Best Practices
+
+### Good User Experience
+
+```
+Design Principles:
+  ✓ Simple: 3 clicks max for common tasks
+  ✓ Clear: No jargon, explain what each field does
+  ✓ Fast: <2 second response times
+  ✓ Accessible: Works on mobile, supports screen readers
+  ✓ Helpful: In-context help, chat support
+
+Bad UX to Avoid:
+  ✗ Complex workflows (5+ screens)
+  ✗ Unclear terminology ("Enumerate your group memberships")
+  ✗ Slow loading (>5 seconds)
+  ✗ Desktop-only (mobile not supported)
+  ✗ No help (user gets stuck, gives up)
+```
+
+### Security Considerations
+
+```
+SSPR Security:
+  Challenge 1: Verify identity without password
+  Solution: Multi-factor verification
+    - Email verification (email code)
+    - Phone verification (SMS code)
+    - Security questions (predefined answers)
+    - Device verification (recognized device)
+  
+  Requirement: At least 2 factors
+  Example: "Verify with email OR SMS OR security question"
+  
+  Attack Prevention:
+    ✓ Rate limiting (max 3 attempts per hour)
+    ✓ Account lockout (after 5 failed attempts)
+    ✓ Log all reset attempts
+    ✓ Alert on suspicious activity
+
+Access Request Security:
+  ✓ Require business justification
+  ✓ Route to authorized approver
+  ✓ Log all requests and approvals
+  ✓ Require periodic re-approval
+  ✓ Detect and block policy violations
+    Example: User requesting access to sensitive app
+             System checks: Is user admin? No → Route to manager
+             Manager must approve, not auto-approved
 ```
 
 ## Self-Service Metrics
 
 ### Adoption Metrics
 
-| Metric | Target | Impact |
-|--------|--------|--------|
-| **Password resets via self-service** | >90% | Reduce helpdesk calls |
-| **Access requests via portal** | >80% | Faster provisioning |
-| **Profile self-updates** | >50% | Improved data quality |
+```
+Metric 1: SSPR Adoption
+  Definition: % of users who have registered for SSPR
+  Target: >80%
+  Baseline: 30%
+  Actions: Email campaign, manager encouragement, easy signup
+  
+  Monthly tracking:
+    January: 30% (baseline)
+    February: 40% (email campaign)
+    March: 55% (manager push)
+    April: 75% (incentive program)
+    May: 85% ✓ (target reached)
 
-### Efficiency Metrics
+Metric 2: SSPR Usage
+  Definition: % of password resets done via self-service
+  Target: >60% (vs. help desk)
+  Baseline: 5%
+  
+  Current: 100 password resets/month
+    5 via SSPR (5%)
+    95 via help desk (95%)
+  
+  Target: 60 via SSPR, 40 via help desk
 
-| Metric | Target | Impact |
-|--------|--------|--------|
-| **Avg time to reset password** | <5 min | User satisfaction |
-| **Avg time to request access** | <5 min | User satisfaction |
-| **Access request approval time** | <1 day | Fast provisioning |
+Metric 3: Access Request Automation
+  Definition: % of access requests handled through self-service portal
+  Target: >70%
+  Current: 30% (70% still submitted via email)
+  
+  Action: Migrate users to portal, retire email process
 
-### Cost Metrics
+Metric 4: Help Desk Ticket Reduction
+  Definition: % reduction in help desk tickets
+  Target: 25% reduction (mainly SSPR-related)
+  Expected: ~50 tickets/month reduction
+  Cost savings: ~$5,000/month (labor, assuming $100/ticket cost)
+```
 
-| Metric | Baseline | With Self-Service |
-|--------|----------|---|
-| **Cost per password reset** | $20 | $0.50 |
-| **Cost per access request** | $100 | $5 |
-| **Helpdesk tickets (annual)** | 5,000 | 1,000 |
-| **IT time on ID requests** | 500 hours | 100 hours |
+### User Satisfaction Metrics
 
-## Self-Service Best Practices
+```
+Survey Question: "Is the self-service portal easy to use?"
+  Target: >85% agree/strongly agree
+  
+Portal NPS (Net Promoter Score):
+  Target: >50 (promoters - detractors)
+  Current: 20 (33% promoters, 13% detractors)
+  Action: Improve UX based on user feedback
 
-1. **Minimal Friction** - 3 clicks or less for common tasks
-2. **Clear Policies** - Users understand what auto-approves
-3. **Mobile-Friendly** - Portal works on phones
-4. **Verification** - Multi-factor verification for password reset
-5. **Immediate Feedback** - User knows status immediately
-6. **Fallback** - Option to contact helpdesk if needed
-7. **Analytics** - Track adoption and pain points
-8. **Security** - Prevent abuse (rate limiting, unusual patterns)
-9. **Integration** - Connect to backend provisioning systems
-10. **Support** - Help docs and demos for common tasks
+Common Feedback:
+  Positive:
+    ✓ "Fast and convenient"
+    ✓ "Better than calling help desk"
+    ✓ "Saved me time"
+  
+  Negative:
+    ✗ "Confusing interface"
+    ✗ "Didn't work, had to call help desk anyway"
+    ✗ "Hard to find what I need"
+  
+  Actions:
+    - Redesign interface (clearer)
+    - Improve troubleshooting help
+    - Add search functionality
+    - Add live chat support
+```
+
+## Hands-On Lab: Self-Service Portal
+
+**Estimated Time:** 30 minutes
+
+**Prerequisites:** Azure AD tenant, Azure portal access
+
+**Lab Objectives:**
+- Enable self-service password reset
+- Configure profile management
+- Test user experience
+
+### Step 1: Enable SSPR (5 min)
+
+```bash
+# Enable SSPR in Azure AD
+az ad user update --id <user-id> \
+  --password-reset-required false
+
+# Configure password reset policy
+# Azure Portal → Azure Active Directory → Password reset
+# → Enable self-service password reset: Yes
+# → Require MFA for reset: Yes
+# → Verification methods: Email, Security questions, Phone
+```
+
+### Step 2: Customize Portal (10 min)
+
+```
+Azure Portal → Azure AD → Company branding
+  - Logo: Upload company logo
+  - Sign-in page: Customize colors, text
+  - Footer: Add privacy/support links
+  
+Result: Branded portal users recognize as company
+```
+
+### Step 3: Test as User (10 min)
+
+```
+Test scenario: Password reset
+  1. Log in as test user
+  2. Click "I forgot my password"
+  3. Enter email address
+  4. Verify identity (choose method: email/phone/questions)
+  5. Reset password
+  6. Verify new password works
+
+Test scenario: Profile update
+  1. Go to myaccount.microsoft.com
+  2. Click "Edit Profile"
+  3. Update phone, address
+  4. Save
+  5. Verify changes saved
+```
+
+### Step 4: Monitor Usage (5 min)
+
+```bash
+# View SSPR usage
+az ad password-reset-report --days 30
+# Shows: # resets, # successful, # failures, common errors
+```
+
+## Best Practices
+
+1. **Easy Signup** - Make SSPR registration a first-day task
+2. **Multiple Methods** - Email, phone, questions (user choice)
+3. **Mobile Support** - Portal must work on mobile devices
+4. **Clear Help** - In-context help for every feature
+5. **Live Support** - Chat/phone for users who get stuck
+6. **Monitor Usage** - Track adoption, address barriers
+7. **Communicate** - Email campaign encouraging adoption
+8. **Measure Impact** - Verify help desk ticket reduction
+9. **Iterate** - Improve based on user feedback
+10. **Accessibility** - WCAG compliant for users with disabilities
 
 ## Related Documents
 
 **Prerequisites:**
-- [Provisioning](./01-user-provisioning-joiner.md) - Access provisioning
-- [RBAC](./03-role-based-access-control.md) - Role-based access
+- [RBAC](./03-role-based-access-control.md) - Access control basis
+- [Authentication](./07-authentication-fundamentals.md) - Identity verification
 
 **Next Steps:**
-- [Delegation](./18a-delegation.md) - Manager delegation and approval
-- [Identity Reporting](./19-identity-reporting-analytics.md) - Portal metrics and analytics
+- [Delegation](./18a-delegation-administration.md) - Manager approvals
+- [Reporting](./19-identity-reporting-analytics.md) - Self-service metrics
 
 ## FAQ
 
-**Q: Isn't self-service a security risk?**
+**Q: Is SSPR secure?**
 
-A: Not if policy is well-designed. Verification prevents abuse. Auto-approve only for low-risk access.
+A: Yes, if multi-factor verification required. Email + phone + questions = secure.
 
-**Q: What if user requests access they shouldn't have?**
+**Q: What if user forgets security questions?**
 
-A: Policy controls this. Manager reviews if required. IGA access reviews detect inappropriate access.
+A: Fallback to phone or email verification. Or call help desk.
 
-**Q: What about compliance with self-service?**
+**Q: Can we auto-approve access requests?**
 
-A: Self-service creates audit trail (better than helpdesk tickets). Compliance team can review decisions.
-
-**Q: Can we fully automate approvals?**
-
-A: For low-risk access, yes. High-risk access requires human review (compliance requirement).
+A: Yes, for low-risk applications. Auto-approve < 1 hour, require manager approval for sensitive apps.
 
 ## Next Steps
 
-1. Select self-service platform
-2. Define auto-approval policies
-3. Pilot with user group
-4. Gather feedback
-5. Expand to company-wide
+1. Enable SSPR in Azure AD
+2. Configure profile management
+3. Set up access request portal
+4. Test end-to-end workflows
+5. Launch user awareness campaign
 6. Monitor adoption metrics
-7. Continuously improve UX
+7. Continuously improve based on feedback
 
-Self-service reduces IT burden and improves user experience simultaneously.
+Self-service portal reduces IT workload, improves user experience, and enables scalability.

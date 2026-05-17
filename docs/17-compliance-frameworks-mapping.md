@@ -1,313 +1,197 @@
 ---
-title: Compliance Frameworks - HIPAA, GDPR, PCI DSS, SOC 2 Alignment
+title: Compliance Frameworks Mapping - Identity Controls Aligned with Standards
 part: 8
 section: Compliance & Audit
 difficulty: Advanced
-estimated_reading_time: 45
+estimated_reading_time: 35
 estimated_lab_time: N/A
 prerequisites:
   - 00a-nist-gartner-frameworks.md
-  - 00b-enterprise-iam-maturity.md
 learning_objectives:
   - Understand major compliance frameworks
-  - Map IAM domains to compliance requirements
-  - Assess compliance gaps
-  - Plan compliance remediation
-  - Document compliance posture
+  - Map identity controls to compliance requirements
+  - Implement controls for each framework
+  - Align identity governance with regulatory standards
+  - Prepare for compliance audits
 ---
 
-# Compliance Frameworks: Regulatory Requirements for IAM
+# Compliance Frameworks Mapping: Identity Controls Aligned with Standards
 
 ## Introduction
 
-Identity and Access Management is critical to compliance with industry regulations. HIPAA requires strong authentication for healthcare data. GDPR mandates user rights and audit trails. PCI DSS demands access control for payment systems. SOC 2 requires documented security controls. This document maps compliance frameworks to IAM domains and shows how to achieve and demonstrate compliance.
+Compliance frameworks (HIPAA, GDPR, PCI DSS, SOC 2, ISO 27001, FedRAMP) define security requirements organizations must meet. Each framework has identity-related requirements: "Implement role-based access control" (HIPAA), "Delete personal data on user request" (GDPR), "Unique user IDs" (PCI). Identity programs must map controls to frameworks to demonstrate compliance. This document maps major frameworks to identity controls.
 
 **Learning Objectives:**
-- Understand major compliance frameworks
-- Map IAM domains to compliance requirements
-- Assess your compliance gaps
-- Plan compliance implementation
-- Document compliance evidence
+- Understand six major compliance frameworks
+- Map identity domains to compliance requirements
+- Implement controls for each framework
+- Track compliance status
+- Prepare for audits
 
-## Major Compliance Frameworks
+## Compliance Framework Overview
 
-### HIPAA (Health Insurance Portability & Accountability Act)
-
-**Scope:** Healthcare organizations, health plans, healthcare clearinghouses
-
-**IAM Requirements:**
-- Authentication: MFA required for administrative access
-- Access Control: Role-based, principle of least privilege
-- Audit Logging: All access to protected health information (PHI)
-- Encryption: Data in transit and at rest
-- User Management: Provisioning, deprovisioning, access reviews
-
-**Relevant IAM Domains:**
-- Domain 10 (Authentication): MFA required
-- Domain 4 (RBAC): Core requirement
-- Domain 13 (Audit): Comprehensive logging
-- Domain 12 (IGA): Access reviews at least annually
-
-**Maturity Level Required:** Level 3 minimum
-
-### GDPR (General Data Protection Regulation)
-
-**Scope:** Organizations processing EU resident data
-
-**IAM Requirements:**
-- User Rights: Right to access, delete, portability (user-controlled)
-- Consent: Explicit consent for data processing
-- Data Protection: Encryption, anonymization
-- Breach Notification: Report compromised identities within 72 hours
-- Audit Trail: Document all data access
-
-**Relevant IAM Domains:**
-- Domain 12 (IGA): User rights, access reviews
-- Domain 13 (Audit): Audit trails for all data access
-- Domain 11 (Identity Verification): Verify user identity for right-to-access
-- Domain 3 (Deprovisioning): Handle "right to be forgotten"
-
-**Maturity Level Required:** Level 3
-
-### PCI DSS (Payment Card Industry Data Security Standard)
-
-**Scope:** Organizations processing payment card data
-
-**IAM Requirements:**
-- Authentication: MFA for admin access
-- Access Control: Role-based, restrict to need-to-know
-- Unique Accountability: Unique user IDs, no shared accounts
-- Audit Logging: Track all access to cardholder data
-- Password Management: Strong passwords, regular changes
-
-**Relevant IAM Domains:**
-- Domain 10 (Authentication): MFA for admins
-- Domain 4 (RBAC): Core requirement
-- Domain 7 (Least Privilege): Core requirement
-- Domain 13 (Audit): Comprehensive logging
-
-**Maturity Level Required:** Level 3
-
-### SOC 2 Type II (Service Organization Control)
-
-**Scope:** SaaS providers, cloud services, service organizations
-
-**IAM Requirements:**
-- Access Control: Documented policies, enforced technically
-- Change Management: Approvals, documentation
-- Segregation of Duties: Prevent unauthorized modifications
-- Logical Access: Authentication, authorization
-- Monitoring: Detect and respond to unauthorized access
-
-**Relevant IAM Domains:**
-- Domain 4-7 (Access Control): Core requirement
-- Domain 12 (IGA): Documented policies, reviewed regularly
-- Domain 13 (Audit): Comprehensive monitoring
-- Domain 8 (Conditional Access): Risk-based access
-
-**Maturity Level Required:** Level 3
-
-### ISO 27001:2022 (Information Security Management)
-
-**Scope:** Any organization seeking comprehensive security
-
-**IAM Requirements:**
-- User Registration: Documented provisioning
-- Access Review: Periodic reviews of access appropriateness
-- Access Rights Removal: Documented deprovisioning
-- User Authentication: MFA for sensitive systems
-- User Responsibilities: Security awareness, password policy
-
-**Relevant IAM Domains:**
-- Domain 1-3 (Lifecycle): Provisioning, management, deprovisioning
-- Domain 10 (Authentication): MFA
-- Domain 12 (IGA): Reviews, responsibility
-- Domain 13 (Audit): Documentation
-
-**Maturity Level Required:** Level 3
-
-### FedRAMP (Federal Risk and Authorization Management Program)
-
-**Scope:** Cloud services used by US Federal Government
-
-**IAM Requirements:**
-- FISMA Compliance: Federal Information Security Modernization Act
-- MFA: Required for all access
-- PKI: Certificate-based authentication
-- Zero Trust: Assume compromise, continuous verification
-- Audit: Comprehensive, immutable logs
-- PAM: Privileged access management (Domain 6)
-
-**Relevant IAM Domains:**
-- All 17 domains required at high maturity
-
-**Maturity Level Required:** Level 4
-
-## Compliance Assessment Framework
-
-### Step 1: Identify Applicable Frameworks
-
-| Industry | Frameworks | Scope |
-|----------|-----------|-------|
-| Healthcare | HIPAA | All patient data |
-| Financial | PCI DSS, SOX | Payment/banking data |
-| EU Operations | GDPR | All EU resident data |
-| SaaS Provider | SOC 2 | Customer data access |
-| Government | FedRAMP, NIST | Federal data |
-
-### Step 2: Map to IAM Domains
-
-**Example: HIPAA Compliance Mapping**
-
-| HIPAA Requirement | IAM Domain | Implementation |
-|------------------|-----------|----------------|
-| MFA for admins | Domain 10 | Enforce MFA policy |
-| Role-based access | Domain 4 | RBAC with job roles |
-| Least privilege | Domain 7 | Remove unnecessary permissions |
-| Access reviews | Domain 12 | Quarterly access reviews |
-| Audit logs | Domain 13 | Log all PHI access |
-| User provisioning | Domain 1 | Automated from HR |
-| User termination | Domain 3 | Immediate access removal |
-
-### Step 3: Gap Analysis
-
-**Process:**
-
-1. **Document Current State**
-   - What controls are implemented?
-   - How are they documented?
-   - How are they enforced?
-
-2. **Identify Gaps**
-   - What's missing?
-   - What's not fully implemented?
-   - What's not documented?
-
-3. **Prioritize Remediation**
-   - Critical gaps (high risk, required for compliance)
-   - Important gaps (should implement)
-   - Nice-to-have (good practice, not required)
-
-**Example Gap Analysis:**
+### Six Major Frameworks
 
 ```
-Current State: Password-based authentication
-HIPAA Requirement: MFA for administrative access
-Gap: MFA not enforced
-Risk: Non-compliance, potential audit finding
-Remediation: Implement MFA policy, enforce immediately
-Timeline: 30 days
+Framework 1: HIPAA (Health Insurance Portability and Accountability Act)
+  Jurisdiction: USA (healthcare)
+  Scope: Protected Health Information (PHI)
+  Relevant sections:
+    - 45 CFR 164.308(a)(4) - Access control
+    - 45 CFR 164.308(a)(5) - Audit controls
+    - 45 CFR 164.312(a)(2) - User identification and authentication
+  Key controls: RBAC, MFA, audit logging, access reviews
+
+Framework 2: GDPR (General Data Protection Regulation)
+  Jurisdiction: EU (all organizations processing EU residents' data)
+  Scope: Personal data
+  Relevant articles:
+    - Article 32 - Security measures
+    - Article 5 - Data principles (integrity, confidentiality, availability)
+    - Article 17 - Right to be forgotten (deletion)
+  Key controls: Data minimization, retention, user rights, deletion on request
+
+Framework 3: PCI DSS (Payment Card Industry Data Security Standard)
+  Jurisdiction: Global (card payment industry)
+  Scope: Cardholder data
+  Relevant requirements:
+    - Requirement 7 - Restrict access to cardholder data
+    - Requirement 8 - User identification and authentication
+    - Requirement 10 - Logging and monitoring
+  Key controls: Unique user IDs, strong authentication, access reviews
+
+Framework 4: SOC 2 (Service Organization Control)
+  Jurisdiction: Global (service providers)
+  Scope: Security, availability, confidentiality
+  Trust service criteria:
+    - CC6 - Logical and physical access controls
+    - CC7 - System monitoring
+  Key controls: Access controls, monitoring, audit trail
+
+Framework 5: ISO 27001 (Information Security Management)
+  Jurisdiction: Global (all organizations)
+  Scope: Information security
+  Relevant controls:
+    - A.5 - Organizational controls
+    - A.6 - People management
+    - A.7 - Access control
+  Key controls: User registration, access review, RBAC
+
+Framework 6: FedRAMP (Federal Risk and Authorization Management Program)
+  Jurisdiction: USA (federal agencies)
+  Scope: Cloud services
+  Control categories:
+    - AC (Access Control) - 22 controls
+    - AU (Audit) - 12 controls
+    - IA (Identification and Authentication) - 4 controls
+  Key controls: RBAC, MFA, audit, access reviews, segregation of duties
 ```
 
-### Step 4: Implementation Plan
+## HIPAA Compliance Mapping
 
-**Plan Steps:**
-
-1. **Design Compliance Controls**
-   - Which IAM domains to implement?
-   - How will they be enforced?
-   - How will compliance be demonstrated?
-
-2. **Implement Technical Controls**
-   - Configure Entra ID policies
-   - Enable MFA, audit logging, access reviews
-   - Test thoroughly
-
-3. **Document Policies & Procedures**
-   - Write formal security policies
-   - Document processes (provisioning, access reviews, etc.)
-   - Train staff
-
-4. **Audit & Assess**
-   - Internal audit of compliance
-   - Third-party audit (if required)
-   - Address findings
-
-## Compliance Evidence Collection
-
-### Documentation to Maintain
-
-1. **Policies**
-   - Access control policy
-   - Password policy
-   - Multi-factor authentication policy
-   - Audit policy
-
-2. **Evidence**
-   - MFA enforcement logs
-   - Access review documentation
-   - Role assignment records
-   - Audit logs (preserved)
-
-3. **Risk Assessment**
-   - Data classification (what data is sensitive?)
-   - Risk assessment (what could go wrong?)
-   - Mitigation controls (how do we protect?)
-
-### Audit Logs as Evidence
+### HIPAA Requirements and Identity Controls
 
 ```
-Azure AD Sign-in Logs:
-- User authentication events
-- MFA success/failure
-- Conditional Access policy application
+HIPAA Requirement: 45 CFR 164.308(a)(4)
+  "Implement policies and procedures for granting access to ePHI"
+  
+  Identity Controls:
+    ✓ Domain 4 (RBAC): Define roles for healthcare staff
+      Example: Clinician role → Access to patient records
+               Administrator role → Access to audit logs
+               Finance role → Access to billing data
+    
+    ✓ Domain 7 (Least Privilege): Grant minimal access
+      Example: Nurse can view patient vitals, not prescriptions
+               Pharmacy can view prescriptions, not vitals
+    
+    ✓ Domain 12 (IGA): Quarterly access reviews
+      Example: Verify each user still needs their access
+               Remove access no longer needed
+    
+    ✓ Domain 13 (Audit): Log all access to PHI
+      Example: User A viewed Patient Record X at Time T
+               User B accessed Lab Results at Time T
+  
+  Evidence for audit:
+    - Access control policy (approved by compliance officer)
+    - Role definitions and access assignments
+    - Access review documentation (quarterly)
+    - Audit logs (6+ months retained)
 
-Audit Logs:
-- User provisioning/deprovisioning
-- Role assignments
-- Policy changes
-- Administrator actions
+Compliance status: COMPLIANT (if all controls implemented)
+Verified: Annual HIPAA audit
 ```
 
-## Compliance Maturity by Framework
+## GDPR Compliance Mapping
 
-| Framework | Level 2 | Level 3 | Level 4 | Level 5 |
-|-----------|---------|---------|---------|---------|
-| HIPAA | Basic auth | MFA, RBAC, logs | Advanced controls | Predictive threat detection |
-| GDPR | Basic privacy | Full user rights, reviews | Advanced governance | Privacy-by-design automation |
-| PCI DSS | Passwords, logs | MFA, RBAC, reviews | Advanced controls | Real-time threat detection |
-| SOC 2 | Basic controls | Documented, enforced | Continuous monitoring | AI-driven detection |
-| ISO 27001 | Basic controls | Full implementation | Continuous improvement | Maturity excellence |
+### GDPR User Rights Implementation
+
+```
+GDPR Article 17: Right to Erasure
+  "Data subject has right to erasure of personal data"
+  
+  Implementation:
+    ✓ User deletion process
+    ✓ Data retention policy
+    ✓ Deletion automation post-departure
+
+Evidence:
+  - Data retention policy
+  - Deletion procedures
+  - User deletion logs
+```
+
+## PCI DSS Compliance Mapping
+
+### PCI DSS Access Control
+
+```
+PCI DSS Requirement 8: User Identification
+  "Assign unique ID to each person"
+  
+  Identity Controls:
+    ✓ Unique usernames (one per employee)
+    ✓ MFA enforcement
+    ✓ Password policies
+    ✓ Audit logging of access
+
+Evidence:
+  - User listing (verify uniqueness)
+  - MFA implementation documentation
+  - Access review records
+  - Audit logs
+```
+
+## Best Practices
+
+1. Map each framework to identity controls
+2. Document evidence as you implement
+3. Conduct quarterly reviews
+4. Maintain audit trails for 6+ years
+5. Train staff on compliance requirements
 
 ## Related Documents
 
 **Prerequisites:**
-- [NIST & Gartner Frameworks](./00a-nist-gartner-frameworks.md) - Framework context
-- [Enterprise IAM Maturity](./00b-enterprise-iam-maturity.md) - Maturity model
+- [NIST/Gartner Frameworks](./00a-nist-gartner-frameworks.md)
 
 **Next Steps:**
-- [Audit & Compliance Logging](./06b-governance-workflows.md) - Logging implementation
-- [Identity Governance Administration](./17a-identity-governance-administration.md) - IGA platforms
+- [IGA Platforms](./17a-identity-governance-administration.md)
+- [GRC Integration](./17b-grc-integration.md)
 
 ## FAQ
 
-**Q: Do we need to comply with all frameworks?**
+**Q: Which framework applies to us?**
 
-A: Only those applicable to your business. Assess which apply to you.
-
-**Q: How do we prepare for compliance audit?**
-
-A: Document policies, maintain audit logs, conduct gap analysis, remediate findings.
-
-**Q: Is maturity level 3 sufficient for compliance?**
-
-A: For most frameworks (HIPAA, GDPR, PCI DSS, SOC 2), yes. FedRAMP requires Level 4+.
-
-**Q: How often should we audit compliance?**
-
-A: Minimum annually. Quarterly or continuous preferred.
-
-**Q: Can we outsource compliance management?**
-
-A: Compliance responsibility can't be outsourced (it's on you), but compliance work can be.
+A: Depends on industry. Most organizations need ISO 27001 plus one other.
 
 ## Next Steps
 
-1. Identify applicable compliance frameworks
-2. Map to IAM domains
-3. Assess current maturity
-4. Document gaps
-5. Plan remediation
-6. Maintain ongoing compliance
+1. Determine applicable frameworks
+2. Map controls to requirements
+3. Identify gaps
+4. Remediate
+5. Audit
 
-Compliance is continuous, not one-time. Plan for ongoing management.
+Compliance frameworks drive identity control requirements.
