@@ -1,345 +1,248 @@
 # Content Template: Standard Document Structure
 
-**Use this template for all 70-75 documents in the Entra-ID-IAM-Lab knowledge base.**
+This template defines the standard structure for all documents in the Entra-ID-IAM-Lab knowledge base. Use this as your foundation for writing new content.
+
+## Document Structure (11 Sections)
+
+### 1. Introduction (500-800 words)
+- **Objective**: Set context and expectations
+- **Include**:
+  - Clear statement of what this document covers
+  - Learning objectives (3-5 bullet points)
+  - Prerequisites or recommended reading
+  - How this fits into the broader IAM landscape
+  - Estimated reading and lab time (if applicable)
+
+### 2. Core Concept Section 1 (1200-1800 words)
+- **Objective**: Introduce primary concepts
+- **Include**:
+  - Concept definitions with context
+  - Real-world business scenarios demonstrating the concept
+  - Microsoft Entra ID specific implementation details
+  - Comparison with industry alternatives (when relevant)
+  - Visual diagrams or ASCII art representations
+
+### 3. Core Concept Section 2 (1200-1800 words)
+- **Objective**: Expand on intermediate concepts
+- **Include**:
+  - Build on concepts from Section 2
+  - Configuration and implementation patterns
+  - Common design patterns and best practices
+  - Performance and scaling considerations
+  - Security implications
+
+### 4. Core Concept Section 3 (1200-1800 words)
+- **Objective**: Advanced topics and practical applications
+- **Include**:
+  - Integration with other identity components
+  - Troubleshooting common issues
+  - Advanced scenarios and edge cases
+  - Monitoring and health checks
+  - Optimization techniques
+
+### 5. Hands-on Lab (OPTIONAL - 1500-3000 words)
+- **Objective**: Practical implementation experience
+- **Include**:
+  - Lab prerequisites and setup requirements
+  - Step-by-step instructions with screenshots
+  - Expected outputs at each step
+  - Common issues and solutions
+  - Lab cleanup procedures
+  - Variations and extensions for advanced users
+
+### 6. Advanced Topics (OPTIONAL - 800-1500 words)
+- **Objective**: Deep-dive into specialized scenarios
+- **Include**:
+  - Advanced configurations
+  - Performance tuning
+  - Scaling considerations
+  - Integration with third-party systems
+  - Custom development scenarios
+
+### 7. Compliance & Standards (400-800 words)
+- **Objective**: Map to compliance frameworks
+- **Include**:
+  - NIST Cybersecurity Framework alignment
+  - ISO 27001 Annex A.5 & A.9 alignment
+  - SANS best practices alignment
+  - Regulatory considerations (HIPAA, GDPR, SOC 2, etc.)
+  - Audit and compliance validation points
+
+### 8. Related Documents (200-400 words)
+- **Objective**: Guide reader through prerequisite and follow-up content
+- **Include**:
+  - **Prerequisites**: Documents that should be read first
+  - **Next Steps**: Documents that naturally follow
+  - **Related Topics**: Cross-references to adjacent concepts
+  - **Format**: Use the cross-reference format defined in WRITING_GUIDELINES.md
+
+### 9. Further Reading (200-400 words)
+- **Objective**: Point to external resources
+- **Include**:
+  - Microsoft official documentation links
+  - Industry whitepapers
+  - Standards documents
+  - Recommended blogs/articles
+  - Academic resources (where applicable)
+  - **Note**: Include brief 1-2 sentence descriptions of each resource
+
+### 10. FAQ (300-600 words)
+- **Objective**: Answer common questions
+- **Include**:
+  - 5-8 frequently asked questions
+  - Clear, concise answers
+  - References to sections for deeper information
+  - Common misconceptions to address
+
+### 11. Next Steps (200-300 words)
+- **Objective**: Provide clear path forward
+- **Include**:
+  - Recommended next document or learning path
+  - Implementation roadmap if applicable
+  - Key takeaways summary
+  - Resources for continued learning
 
----
+## Document Length Guidelines
 
-## DOCUMENT TEMPLATE (Copy & Customize)
+- **Minimum**: 8-10 pages (2500-3000 words)
+- **Target**: 12-15 pages (4000-5000 words)
+- **Maximum**: 18-20 pages (6000-7000 words)
+- **Exception**: Shorter documents (6-8 pages) acceptable for specialized topics if all required sections are covered
 
-```markdown
-# [Document Title]
+## Part-Specific Template Variations
 
-**Part:** [Part X — Part Name]  
-**Domain:** [Which of the 17 IAM domains]  
-**Level:** Beginner | Intermediate | Advanced  
-**Time to Read:** X minutes  
-
----
-
-## INTRODUCTION
-
-### What This Document Covers
-[1-2 sentence overview of what the reader will learn]
-
-### Why This Matters
-[2-3 sentences explaining business/technical importance]
-
-### Learning Objectives
-- [ ] Objective 1
-- [ ] Objective 2
-- [ ] Objective 3
-- [ ] Objective 4
-
-### Prerequisites
-[What should readers know before starting this doc?]
-- Prerequisite 1 (link to prerequisite doc)
-- Prerequisite 2 (link to prerequisite doc)
-
----
-
-## SECTION 1: [MAIN CONCEPT]
-
-### Overview
-[Clear explanation of the concept, suitable for someone hearing it for the first time]
-
-### Key Principles
-1. **Principle 1** — [Explanation]
-2. **Principle 2** — [Explanation]
-3. **Principle 3** — [Explanation]
-
-### How It Works
-
-[Diagram or visual representation if helpful]
-
-#### Step-by-Step Flow
-```
-Step 1: [What happens first]
-  ↓
-Step 2: [What happens next]
-  ↓
-Step 3: [Final step]
-```
-
-### Real-World Example
-**Scenario:** [Realistic business scenario]
-
-**In Entra ID:**
-```
-[Configuration steps or code examples]
-```
-
-**Result:** [What the user achieves]
-
----
-
-## SECTION 2: [SECOND MAJOR CONCEPT]
-
-### Overview
-[Explanation of second concept]
-
-### Comparison with Related Concepts
-
-| Feature | [Concept A] | [Concept B] | [Concept C] |
-|---------|-----------|-----------|-----------|
-| Use Case | | | |
-| Complexity | | | |
-| Best For | | | |
-
-### Implementation Patterns
-
-#### Pattern 1: [Pattern Name]
-- **When to use:** [When this pattern applies]
-- **Steps:** [How to implement]
-- **Example in Entra ID:** [Code or config]
-- **Considerations:** [Important notes]
-
-#### Pattern 2: [Pattern Name]
-- **When to use:** [When this pattern applies]
-- **Steps:** [How to implement]
-- **Example in Entra ID:** [Code or config]
-- **Considerations:** [Important notes]
-
----
-
-## SECTION 3: HANDS-ON LAB (Optional for technical docs)
-
-### Lab Scenario
-**Goal:** [What the user will accomplish]  
-**Time:** [Estimated time]  
-**Prerequisites:** [What you need before starting]
-
-### Lab Steps
-
-**Step 1: [Action]**
-1. Go to [Azure Portal location]
-2. Click [specific button/link]
-3. Configure [setting name]
-4. Expected result: [What you should see]
-
-**Step 2: [Action]**
-[Continue steps...]
-
-### Verification
-How to confirm the lab worked:
-```
-[Command or verification step]
-Expected output: [What success looks like]
-```
-
-### Troubleshooting
-| Issue | Solution |
-|-------|----------|
-| [Problem description] | [How to fix it] |
-| [Problem description] | [How to fix it] |
-
----
-
-## ADVANCED TOPICS (Optional for intermediate+ docs)
-
-### Topic 1: [Advanced Concept]
-[Detailed explanation for advanced users]
-
-### Topic 2: [Advanced Concept]
-[Detailed explanation for advanced users]
-
-### Best Practices
-- ✅ **DO:** [Best practice with explanation]
-- ✅ **DO:** [Best practice with explanation]
-- ❌ **DON'T:** [Anti-pattern with explanation]
-- ❌ **DON'T:** [Anti-pattern with explanation]
-
----
-
-## COMPLIANCE & STANDARDS
-
-### Frameworks Addressed
-- **NIST CSF 2.0:** [Which functions this covers]
-- **Gartner Framework:** [Which pillar this addresses]
-- **ISO 27001:** [Which annex/control this satisfies]
-
-### Compliance Notes
-[Any regulatory considerations or compliance implications]
-
----
-
-## KEY TAKEAWAYS
-
-- ✅ Key point 1
-- ✅ Key point 2
-- ✅ Key point 3
-- ✅ Key point 4
-
----
-
-## RELATED DOCUMENTS
-
-**Prerequisites (read first):**
-- [Related doc 1](link) — [Why it matters]
-- [Related doc 2](link) — [Why it matters]
-
-**Build on this knowledge:**
-- [Next doc 1](link) — [What you'll learn next]
-- [Next doc 2](link) — [What you'll learn next]
-
-**Cross-references:**
-- [Related concept in other domain](link)
-- [Related concept in other domain](link)
-
----
-
-## FURTHER READING
-
-### Microsoft Learn Documentation
-- [Link to official docs](url) — [Brief description]
-
-### Industry Standards & Frameworks
-- [NIST CSF 2.0](url)
-- [ISO 27001:2022](url)
-- [Gartner Research](url)
-
-### External Resources
-- [Tool/service documentation](url)
-- [Community article/guide](url)
-
----
-
-## FREQUENTLY ASKED QUESTIONS
-
-**Q: [Common question 1]**  
-A: [Clear, concise answer]
-
-**Q: [Common question 2]**  
-A: [Clear, concise answer]
-
-**Q: [Common question 3]**  
-A: [Clear, concise answer]
-
----
-
-## NEXT STEPS
-
-After reading this document:
-1. [Recommended action 1]
-2. [Recommended action 2]
-3. [Recommended action 3]
-
----
-
-*Last updated: [Date]*  
-*Contributing authors: [Names]*
-```
-
----
-
-## TEMPLATE GUIDELINES
-
-### Length Guidelines
-- **Beginner docs:** 8-12 pages (introductory)
-- **Intermediate docs:** 12-18 pages (balanced depth)
-- **Advanced docs:** 15-20 pages (detailed)
-
-### Section Usage
-- **INTRODUCTION** — Always required
-- **SECTION 1-3** — Adjust number based on topic complexity
-- **HANDS-ON LAB** — Required for technical/implementation docs
-- **ADVANCED TOPICS** — Optional, for intermediate+ docs
-- **COMPLIANCE & STANDARDS** — Always required
-- **RELATED DOCUMENTS** — Always required
-- **FURTHER READING** — Always required
-- **FAQ** — Optional but recommended
-- **NEXT STEPS** — Always required
-
-### Formatting Standards
-- Use **bold** for emphasis and key terms
-- Use `code formatting` for technical terms, commands, config names
-- Use > for blockquotes (important notes)
-- Use tables for comparisons
-- Use numbered lists for sequential steps
-- Use bullet lists for non-sequential items
-- Use diagrams/ASCII art for flows
-
-### Code Examples Standards
-```markdown
-[Language indicator]
-[Code or configuration]
-[Expected output]
-```
-
-### Cross-Reference Format
-Always link to related documents:
-- `[Document Name](../path/to/document.md)` for internal links
-- Include brief explanation of why it's related
-- Use "Prerequisites" section for docs that should be read first
-- Use "Related Documents" section for optional reading
-
----
-
-## PART-SPECIFIC VARIATIONS
-
-### Part 0: Foundation Docs
-- Include landscape diagrams
-- Provide strategic context
-- Include framework mappings
-- 15-20 pages typical
+### Part 0: Foundation & Context
+- Emphasize landscape overview and strategic context
+- Include more framework comparisons
+- Focus on "why" over "how"
+- Compliance & Standards section may be expanded
 
 ### Part 1: Core Identity & Lifecycle
-- Heavy hands-on labs required
-- Real Entra ID configurations
-- Screenshot walkthroughs
-- Azure Portal step-by-step
+- Strong emphasis on Hands-on Lab section
+- Include detailed step-by-step procedures
+- Focus on practical implementation
+- Advanced Topics may be shorter
 
-### Part 2-6: Technical Domains
-- Include architecture diagrams
-- Hands-on labs essential
-- Code examples and configs
-- Troubleshooting sections
+### Part 2-7: Technical Implementation
+- Equal weight to all three concept sections
+- Comprehensive Hands-on Lab required
+- Advanced Topics usually present
+- Focus on architecture and integration
 
-### Part 7-9: Operations & Governance
-- Focus on processes and workflows
-- Include checklists and templates
-- Less code, more concepts
-- Real-world scenarios
+### Part 8: Compliance & Audit
+- Compliance section expanded significantly
+- Focus on frameworks and standards
+- May include fewer practical labs
+- Emphasis on validation and measurement
 
-### Part 10: Enterprise Program
-- High-level strategic content
-- Roadmap examples
-- Decision matrices
-- Maturity models
+### Part 9-10: Emerging & Leadership
+- Longer Advanced Topics section
+- Focus on strategy and future direction
+- More external research references
+- Lab section may be optional (research-based instead)
 
-### Reference Section
-- Glossary: Simple definitions with links
-- Concept Cross-Reference: Matrix format with page numbers
-- Framework Mapping: Alignment tables
+## Code Example Format
 
----
+Format all code examples with language identifier and expected output:
 
-## QUALITY CHECKLIST
+```
+LANGUAGE: [PowerShell | Azure CLI | C# | JSON | YAML | etc.]
 
-Before submitting any document:
+[Code block here]
 
-- [ ] Title accurately describes content
+EXPECTED OUTPUT:
+[Expected command output or result]
+
+EXPLANATION: [Brief explanation of what the code does]
+```
+
+## Cross-Reference Format
+
+When referencing other documents, use this format:
+
+```
+[Document Title](path-to-document.md) - Brief context explaining why this is relevant.
+```
+
+Example: [Identity Provisioning Joiner Flow](../docs/02-identity-provisioning-joiner.md) - Understand how users are created before we manage their access.
+
+## Formatting Standards
+
+### Headings
+- H1 (#): Document title only
+- H2 (##): Section headers
+- H3 (###): Subsection headers
+- H4 (####): Sub-subsection headers
+- **Never exceed H4**
+
+### Lists
+- Use **numbered lists** for sequential steps or procedures
+- Use **bullet lists** for options, examples, or non-sequential items
+- Limit nesting to 2 levels maximum
+
+### Emphasis
+- Use **bold** for key concepts on first definition
+- Use *italic* for emphasis only
+- Use `code format` for commands, file names, system values
+- Use **[bold + brackets]** for important warnings or notes
+
+### Code Blocks
+- Always include language identifier
+- Limit width to 80-100 characters for readability
+- Include explanatory comments for complex logic
+- Show realistic, runnable examples
+
+### Tables
+- Use for comparing features, requirements, or options
+- Keep maximum 4 columns
+- Limit to 8-10 rows (break into multiple tables if needed)
+- Always include descriptive table captions
+
+### Diagrams
+- Use ASCII art for architecture diagrams
+- Include descriptive caption above diagram
+- Keep within 80-character width when possible
+- Or describe diagram in text if ASCII not feasible
+
+## Quality Checklist
+
+Before submitting any document, verify:
+
+- [ ] Document contains all 11 required sections
+- [ ] Document length is within 8-20 page guideline
 - [ ] Introduction clearly states learning objectives
-- [ ] Prerequisites listed (if applicable)
-- [ ] All sections follow standard structure
-- [ ] Code examples are valid and tested
-- [ ] Screenshots are current and clear (if included)
-- [ ] All cross-references use correct links
-- [ ] Related documents section is populated
-- [ ] FAQ addresses common confusion points
-- [ ] Compliance & Standards section completed
-- [ ] Document is 8-20 pages (appropriate for topic)
-- [ ] Grammar and spelling checked
-- [ ] Technical accuracy verified by SME
+- [ ] Three core concept sections build logically
+- [ ] All code examples include language identifier and expected output
+- [ ] Compliance section references appropriate frameworks
+- [ ] Related Documents use cross-reference format
+- [ ] FAQ contains 5-8 questions with clear answers
+- [ ] Tone matches WRITING_GUIDELINES.md standards
+- [ ] All headings follow H1-H4 hierarchy
+- [ ] No formatting inconsistencies (bold, code, etc.)
+- [ ] All cross-references to other documents are relative paths
+- [ ] Grammar and spelling verified (run spell check)
+- [ ] Technical accuracy verified by subject matter expert
+- [ ] Screenshots (if any) are clear and properly labeled
+- [ ] All external links tested and working
 
+## Document Metadata (Top of File)
+
+Include a metadata comment at the very top of each document:
+
+```
 ---
-
-## EXAMPLES
-
-See these documents for implementation examples:
-- Part 1 docs (existing 7 docs) — How to structure hands-on labs
-- STRUCTURAL_ANALYSIS.md — How to structure comparison docs
-- NEW_STRUCTURE_PLAN.md — How to structure planning docs
-
+title: [Full Document Title]
+part: [0-10 or Part Name]
+section: [Specific section]
+difficulty: [Foundation | Intermediate | Advanced]
+estimated_reading_time: [X minutes]
+estimated_lab_time: [X minutes, or N/A if no lab]
+prerequisites: [[Link to prerequisite docs]]
+learning_objectives:
+  - [Objective 1]
+  - [Objective 2]
+  - [Objective 3]
 ---
+```
 
-**Questions?** Check WRITING_GUIDELINES.md for detailed rules.
+This template provides a standardized approach while maintaining flexibility for different document types within our 70-75 document knowledge base.

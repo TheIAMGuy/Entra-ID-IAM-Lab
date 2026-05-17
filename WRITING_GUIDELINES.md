@@ -1,349 +1,197 @@
-# Writing Guidelines for Entra-ID-IAM-Lab Contributors
+# Writing Guidelines: Consistency Standards for Entra-ID-IAM-Lab
 
-**Guidelines for maintaining consistency, quality, and clarity across all 70-75 documents.**
+These guidelines ensure all 70-75 documents maintain consistent voice, tone, and structure while remaining accessible to diverse technical skill levels.
 
----
+## Writing Tone & Voice
 
-## CORE PRINCIPLES
+### Overall Approach
+- **Professional but approachable**: Use technical accuracy without sounding academic or overly formal
+- **Active voice preferred**: Use "you will configure" instead of "configuration can be performed"
+- **Direct language**: Avoid unnecessary hedging; use "this is required" instead of "ideally, one might consider"
+- **Empathetic to the reader**: Acknowledge complexity; provide context for why things work the way they do
 
-1. **Clarity First** — Explain for someone hearing this for the first time
-2. **Practical Focus** — Include real Entra ID examples and labs
-3. **Framework Alignment** — Connect to NIST, Gartner, ISO, SANS
-4. **Progressive Disclosure** — Start simple, build to advanced
-5. **Accessibility** — Write for diverse skill levels
-6. **Consistency** — Follow templates and style guides
+### Examples
 
----
+❌ **Too Formal**: "The implementation of role-based access control mechanisms necessitates the configuration of appropriate permissions within the identity management infrastructure."
 
-## WRITING STYLE
+✅ **Correct**: "To implement role-based access control, you configure permissions in Microsoft Entra ID that match your organizational roles."
 
-### Tone
-- **Professional but approachable** — Not academic, not casual
-- **Active voice** — "You create a user" not "Users are created"
-- **Second person** — "You will learn" not "Readers will learn"
-- **Direct** — Get to the point quickly
+## Sentence & Paragraph Structure
 
-### Sentence Structure
-- **Short sentences** — Average 15-20 words
-- **Simple words** — "Use" not "utilize"; "help" not "facilitate"
-- **Avoid jargon** — Define technical terms on first use
-- **Vary length** — Mix short and medium sentences for readability
+### Sentence Guidelines
+- **Target length**: 15-20 words per sentence
+- **Maximum length**: 30 words (avoid very long sentences)
+- **Rule**: One idea per sentence
+- **Structure**: Subject-Verb-Object (keep this order)
 
 ### Paragraph Structure
-- **Topic sentence first** — State the main idea upfront
-- **2-4 sentences per paragraph** — Keep it digestible
-- **One idea per paragraph** — Don't mix concepts
-- **Whitespace** — Use short paragraphs to improve readability
+- **Opening**: Lead with topic sentence
+- **Length**: 2-4 sentences maximum
+- **Connection**: Logical flow between paragraphs
+- **Conclusion**: Forward-looking statements or transitions
 
-### Example Good vs. Bad
+## Terminology & Definitions
 
-**❌ Bad:**
-"The process of implementing role-based access control in cloud environments necessitates careful consideration of organizational hierarchies and the establishment of a governance framework that will ensure ongoing compliance with industry standards."
+### Microsoft-Specific Terminology
 
-**✅ Good:**
-"To implement role-based access control (RBAC), you need to:
-1. Define your organizational roles
-2. Assign permissions to each role
-3. Add users to appropriate roles
-4. Review access regularly"
+| Use | Instead Of |
+|-----|-----------|
+| Microsoft Entra ID | Azure AD |
+| Conditional Access | Generic access control |
+| Security group | Distribution group |
+| Service principal | Service account |
+| Managed identity | Direct credentials |
 
----
+### IAM-Specific Terminology
 
-## TECHNICAL WRITING
+Key terms to define on first use:
+- Identity lifecycle (Joiner → Mover → Leaver workflow)
+- Provisioning (Creating user accounts)
+- Deprovisioning (Removing user accounts)
+- Entitlement (A right or permission)
+- Access review (Periodic verification)
 
-### Code & Configuration
+### Acronyms
 
-**Format:**
-```markdown
-[Language/Product Name]
-[Code block with proper indentation]
-[Expected output or result]
+**Rule**: Define on first use with full spelling, then use consistently.
+
+Common IAM acronyms:
+- ABAC: Attribute-Based Access Control
+- RBAC: Role-Based Access Control
+- MFA: Multi-Factor Authentication
+- PAM: Privileged Access Management
+- IGA: Identity Governance and Administration
+
+## Technical Writing Standards
+
+### Code Formatting
+
+Always include language identifier and expected output:
+
 ```
-
-**Example:**
-```powershell
-# Create a security group in Entra ID
-New-MgGroup -DisplayName "Finance-Admins" -MailEnabled:$false -SecurityEnabled:$true
+LANGUAGE: [PowerShell | Azure CLI | C# | JSON | etc.]
+[Code block]
+EXPECTED OUTPUT: [Expected result]
 ```
 
 ### Screenshots & Diagrams
 
-- **Screenshots:** Use for step-by-step walkthroughs; mark important buttons/fields
-- **Diagrams:** Use for architecture, flows, relationships
-- **Size:** Screenshots 800-1000px wide; diagrams sized for readability
-- **Captions:** "Figure 1: [Descriptive caption]"
-- **Tool:** Use Mermaid for diagrams (built into GitHub)
+- Use for step-by-step UI walkthroughs
+- Annotate important elements
+- Include descriptive captions
+- Keep file size < 500KB
 
 ### Tables
 
-**When to use:**
-- Comparing features or options
-- Listing requirements or prerequisites
-- Showing matrices or mappings
+Use to:
+- Compare features or options
+- List requirements
+- Show configuration parameters
+- Display information matrices
 
-**Format:**
-```markdown
-| Column 1 | Column 2 | Column 3 |
-|----------|----------|----------|
-| Data | Data | Data |
+Guidelines:
+- Maximum 4 columns
+- Maximum 8-10 rows
+- Always include descriptive captions
+
+### Lists
+
+- **Numbered lists**: For sequential steps
+- **Bullet lists**: For options or examples
+- **Maximum nesting**: 2 levels
+
+## Structure Guidelines
+
+### Heading Hierarchy
+
+**Strict rules:**
+- **H1 (#)**: Document title only (one per document)
+- **H2 (##)**: Major sections
+- **H3 (###)**: Subsections
+- **H4 (####)**: Sub-subsections (use sparingly)
+- **Never use H5+ (#####)**
+
+### Cross-References
+
+**Format**:
+```
+[Document Title](../docs/filename.md) - Brief explanation of relevance.
 ```
 
----
+## Accessibility Guidelines
 
-## STRUCTURE & ORGANIZATION
+### Writing for Different Skill Levels
 
-### Headings Hierarchy
-```
-# Document Title (H1 — only one per document)
-## Major Section (H2 — use for main sections)
-### Subsection (H3 — use for detail within section)
-#### Sub-subsection (H4 — rarely needed)
-```
-
-### Numbering & Ordering
-- **Sequential steps:** 1, 2, 3 (numbered list)
-- **Options:** • (bullet list)
-- **Hierarchical:** Use indentation under bullets
-- **Never:** Skip numbers or mix formats
-
-### Lists Best Practices
-
-**Good numbered list:**
-1. First step
-2. Second step
-3. Third step
-
-**Good bullet list:**
-- Concept 1
-- Concept 2
-- Concept 3
-
-**Good nested list:**
-- Parent concept
-  - Child concept 1
-  - Child concept 2
-- Another parent concept
-
----
-
-## TERMINOLOGY & DEFINITIONS
-
-### First Use of Technical Terms
-**Rule:** Define on first use, then use consistently
-
-**Example:**
-"Role-Based Access Control (RBAC) is a method of restricting access based on user roles. In RBAC, you assign permissions to roles rather than directly to users."
-
-### Microsoft-Specific Terms
-- **Entra ID** — Not "Azure AD" (Azure AD is legacy)
-- **Managed Identity** — Not "Service Principal" (though SP is related)
-- **Security Group** — Not "Azure group"
-- **Conditional Access** — Specific to Entra ID, not generic
-- **PIM** — Privileged Identity Management
-
-### IAM-Specific Terms
-- **Identity Provisioning** — Creating user accounts
-- **Access Control** — Determining permissions
-- **PAM** — Privileged Access Management
-- **JML** — Joiner-Mover-Leaver lifecycle
-- **RBAC** — Role-Based Access Control
-- **ABAC** — Attribute-Based Access Control
-
-### Acronyms
-- Define on first use: "Multi-Factor Authentication (MFA)"
-- Use consistently throughout document
-- Don't overuse acronyms; spell out if readers might not know
-
----
-
-## CROSS-REFERENCES & LINKING
-
-### Internal Links Format
-```markdown
-[Document Name](../path/to/document.md)
-```
-
-### Related Documents Section
-```markdown
-## RELATED DOCUMENTS
-
-**Prerequisites (read first):**
-- [Document Name](../path) — Why it matters
-
-**Build on this knowledge:**
-- [Document Name](../path) — What you'll learn next
-
-**Cross-references:**
-- [Related concept](../path)
-```
-
-### Inline References
-"See [Document Name](link) for more details on [concept]."
-
-### Avoid Dead Links
-- Every link must point to an actual document
-- Test all links before submitting
-- Update links when documents move
-
----
-
-## ACCESSIBILITY & READABILITY
-
-### For Diverse Skill Levels
-- **Beginner sections:** Explain basics, don't assume knowledge
-- **Intermediate sections:** Build on foundational knowledge
-- **Advanced sections:** Assume familiarity; dig deeper
-- **Visual learners:** Include diagrams and examples
-- **Hands-on learners:** Include labs and step-by-step guides
+- **Foundation**: Explain everything; assume no prior knowledge
+- **Intermediate**: Build on foundational knowledge; explain new concepts
+- **Advanced**: Focus on scenarios and edge cases
 
 ### Formatting for Readability
-- Use **bold** for important terms
-- Use `code` for technical terms
-- Use > for callouts or important notes
-- Use lists instead of paragraphs when possible
-- Use whitespace — short sections are more readable
+
+- Short paragraphs (2-4 sentences)
+- Use lists liberally
+- Frequent subheadings
+- Blank lines around code blocks
+- Bold for key concepts
+- Code format for technical terms
 
 ### Callout Formats
 
-**Important Note:**
-> **Note:** [Something important to remember]
+```
+**[IMPORTANT]:** Critical information here
+**[NOTE]:** Additional context
+**[TIP]:** Helpful shortcut
+**[WARNING]:** Something that could go wrong
+```
 
-**Warning:**
-> **Warning:** [Something that could go wrong]
+## Quality Standards Checklist
 
-**Tip:**
-> **Tip:** [A helpful shortcut or best practice]
+Before submitting:
+- [ ] Spell check completed
+- [ ] Grammar verified
+- [ ] All links tested
+- [ ] Code examples tested
+- [ ] Headings follow H1-H4 hierarchy
+- [ ] Tables have captions
+- [ ] Cross-references correct
+- [ ] Tone is professional but approachable
+- [ ] Sentences average 15-20 words
+- [ ] No undefined acronyms
+- [ ] All 11 sections complete (per CONTENT_TEMPLATE.md)
 
-**Example:**
-> **Example:** [Real-world scenario]
+## Common Mistakes to Avoid
 
----
+- ❌ Too technical without explanation → Define terms, explain the "why"
+- ❌ Too vague → Use specific examples and expected outputs
+- ❌ Assuming reader knowledge → Explain foundational concepts
+- ❌ Very long paragraphs → Break into 2-4 sentence chunks
+- ❌ Passive voice → Use active voice ("you configure" not "can be configured")
+- ❌ Code without explanation → Always explain what code does
+- ❌ No related documents → Always include prereqs and next steps
 
-## QUALITY STANDARDS
+## Review Process
 
-### Before You Submit
+### Self-Review
+1. Read aloud for flow and clarity
+2. Run spell/grammar check
+3. Test all links
+4. Verify heading hierarchy
+5. Check code examples have language identifier
+6. Verify tables have captions
+7. Count sentences per paragraph (should be 2-4)
+8. Scan for undefined terminology
 
-- [ ] **Spelling & Grammar:** Use spell checker; proofread twice
-- [ ] **Accuracy:** Verify all technical information with Entra ID docs
-- [ ] **Screenshots:** Current and clear; all important elements visible
-- [ ] **Code Examples:** Tested and working in Entra ID
-- [ ] **Links:** All internal links valid and tested
-- [ ] **Structure:** Follows CONTENT_TEMPLATE.md
-- [ ] **Length:** 8-20 pages appropriate for topic
-- [ ] **Tone:** Professional, clear, approachable
-- [ ] **Objectives:** Learning objectives are clear and achievable
-
-### Technical Accuracy
-
-- [ ] **Entra ID features:** Correct product names and capabilities
-- [ ] **Workflow steps:** Tested in actual Azure Portal
-- [ ] **Configuration options:** Accurate and current
-- [ ] **Security practices:** Follow Microsoft best practices
-- [ ] **Framework alignment:** NIST/Gartner/ISO mappings correct
-
-### Completeness
-
-- [ ] **Introduction:** Clear overview and learning objectives
-- [ ] **Real examples:** Includes Entra ID walkthroughs
-- [ ] **Labs:** Technical docs include hands-on steps
-- [ ] **Related docs:** All prerequisites and next steps linked
-- [ ] **FAQ:** Common questions answered
-- [ ] **Compliance:** NIST/Gartner/ISO mappings included
-
----
-
-## COMMON MISTAKES TO AVOID
-
-### ❌ Too Technical (Without Context)
-**Bad:** "Implement SPIFFE SVID attestation in your Kubernetes workload identity."
-**Good:** "To verify workload identity in Kubernetes, you can use SPIFFE (Secure Production Identity Framework for Everyone), which provides standardized identity verification."
-
-### ❌ Too Vague (No Detail)
-**Bad:** "Configure access control."
-**Good:** "Configure role-based access control (RBAC) by assigning the 'User Administrator' role to department managers who need to create and manage user accounts."
-
-### ❌ Assuming Knowledge
-**Bad:** "Use SCIM to synchronize identities."
-**Good:** "Use SCIM (System for Cross-domain Identity Management), a standard REST API protocol, to automatically synchronize user identities between systems."
-
-### ❌ Long Paragraphs
-**Bad:** One paragraph of 5+ sentences covering multiple ideas
-**Good:** 2-3 sentence paragraphs, each with one main idea
-
-### ❌ Inconsistent Terminology
-**Bad:** Switching between "role", "authorization role", "access role", "role assignment"
-**Good:** Use "role" consistently; define once as "role-based access control (RBAC)"
-
-### ❌ Missing Context for Examples
-**Bad:** Just code without explanation
-**Good:** Explain what the code does, then show it, then explain the result
-
----
-
-## FORMATTING CHECKLIST
-
-### Markdown Formatting
-- [ ] Proper heading hierarchy (H1 title, H2 sections, H3 subsections)
-- [ ] Bold for **emphasis** and key terms
-- [ ] Backticks for `technical terms` and code
-- [ ] Code blocks with language specified
-- [ ] Tables for comparisons/matrices
-- [ ] Lists for non-sequential items
-- [ ] Numbered lists for steps
-- [ ] Blockquotes for callouts/notes
-
-### Consistency Across Document
-- [ ] Same terminology used throughout
-- [ ] Consistent formatting for similar elements
-- [ ] Consistent code example format
-- [ ] Consistent table styling
-- [ ] No spelling variations (e.g., "user name" vs "username")
-
----
-
-## REVIEW PROCESS
-
-### Self-Review (Before Submitting)
-1. Read document aloud to catch awkward phrasing
-2. Check all technical details against official docs
-3. Test all code examples
-4. Verify all links work
-5. Use spell checker and grammar checker
-6. Ask: "Would a beginner understand this?"
-7. Ask: "Is this technically accurate?"
-
-### Peer Review (During PR)
-- Reviewer checks for clarity and accuracy
-- Reviewer tests any hands-on labs
-- Reviewer verifies framework alignments
-- Reviewer suggests improvements
+### Peer Review
+1. Content accuracy and completeness
+2. Clarity for unfamiliar readers
+3. Logical flow and structure
+4. Guideline compliance
+5. Working links
 
 ### Final Approval
-- Technical SME approves accuracy
-- Editor approves style and clarity
-- Maintainer approves structure and linking
+1. Address all review comments
+2. Re-run quality checks
+3. Test links again
+4. Verify document ready
 
----
-
-## EXAMPLES OF GOOD DOCUMENTATION
-
-These documents exemplify the standards we're aiming for:
-
-- **Existing Part 1 docs** — See how Entra ID labs are structured
-- **NEW_STRUCTURE_PLAN.md** — See how to use tables and organization
-- **STRUCTURAL_ANALYSIS.md** — See how to do comparative analysis
-
----
-
-## QUESTIONS?
-
-If you have questions about:
-- **Structure:** See CONTENT_TEMPLATE.md
-- **Style:** See examples in current Part 1 docs
-- **Technical accuracy:** Ask on PR or contact SME
-- **Framework alignment:** Check FRAMEWORK_MAPPING.md
-
----
-
-**Last Updated:** 2026-05-17
-**Version:** 1.0
+These guidelines ensure all Entra-ID-IAM-Lab documents are clear, accurate, and accessible.
