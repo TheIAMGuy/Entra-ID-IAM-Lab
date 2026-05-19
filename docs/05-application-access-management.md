@@ -1,36 +1,115 @@
-# Step 5 — Application Access Management
+# Lab 05 — Application Access Management
 
-**Objective:** Simulate access provisioning for internal business applications using Entra ID Enterprise Applications.
+**Objective:** Create enterprise application registrations representing internal systems, and assign users to each application based on their department.
 
-## Implementation Steps
+**Time:** 20–30 minutes  
+**Difficulty:** Intermediate  
+**Cost:** Free
 
-- Created three enterprise applications to simulate internal systems: **HR-App, Finance-App, Sales-App**.
-- Assigned users to applications based on their department:
-  - `John HR` and `Eve Intern` → HR-App
-  - `Bob Finance` → Finance-App
-  - `Charlie Sales` → Sales-App
-- Reviewed application overview pages to verify assigned users.
+---
+
+## Before You Start
+
+Ensure you have completed [Lab 04 — Privileged Access Management](04-privileged-access-management.md).
+
+---
+
+## Background
+
+In enterprise environments, Entra ID acts as the **Identity Provider (IdP)** for business applications. Instead of each application managing its own credentials, applications delegate authentication to Entra ID. This enables **Single Sign-On (SSO)** — users authenticate once and gain access to all their assigned applications without separate logins.
+
+In this lab you will simulate three internal systems — HR-App, Finance-App, and Sales-App — and assign department users to each.
+
+> **Free Tier Note:** Group-based application assignment requires an Entra ID P1 or P2 licence. In this lab, users are assigned directly to applications. In a production environment with P1/P2, you would assign the HR-Team group to HR-App, automatically granting access to all current and future group members.
+
+---
+
+## Applications to Create
+
+| Application Name | Users to Assign |
+|---|---|
+| HR-App | John HR, Eve Intern |
+| Finance-App | Bob Finance |
+| Sales-App | Charlie Sales |
+
+---
+
+## Steps
+
+### 1. Navigate to Enterprise Applications
+
+1. In the Azure Portal, navigate to **Microsoft Entra ID**.
+2. In the left sidebar under **Manage**, select **Enterprise applications**.
+3. Click **New application**.
+
+---
+
+### 2. Create HR-App
+
+1. On the application gallery page, click **Create your own application** (top left area).
+2. Enter the name: **HR-App**
+3. Select **Integrate any other application you don't find in the gallery (Non-gallery)**.
+4. Click **Create**.
+
+> **Expected result:** The HR-App overview page opens. The application now exists in your tenant.
+
+---
+
+### 3. Assign Users to HR-App
+
+1. From the HR-App overview, in the left sidebar under **Manage**, select **Users and groups**.
+2. Click **Add user/group**.
+3. Under **Users**, click **None selected**.
+4. Search for **John HR** and select him.
+5. Search for **Eve Intern** and select her.
+6. Click **Select**, then click **Assign**.
+
+> **Expected result:** The Users and groups list for HR-App shows John HR and Eve Intern, both with the role "Default Access".
+
+---
+
+### 4. Create Finance-App and Sales-App
+
+Repeat steps 2 and 3 for:
+- **Finance-App** → assign **Bob Finance**
+- **Sales-App** → assign **Charlie Sales**
+
+> **Expected result:** Three enterprise applications exist in your tenant. Each shows the correct assigned user(s) under Users and groups.
+
+---
+
+### 5. Verify the Full Application Landscape
+
+1. Navigate to **Enterprise applications**.
+2. Search for "App" in the search bar to filter your three applications.
+3. Open each one and confirm the assigned users.
+
+> **Expected result:** HR-App: John HR, Eve Intern. Finance-App: Bob Finance. Sales-App: Charlie Sales. No cross-department access exists.
+
+---
 
 ## IAM Concepts
 
-**Application Access Management** — Controlling which identities can access which systems
+**Application Access Management** — Every enterprise application should have an explicit list of authorised users or groups, with access defaulting to denied. Entra ID enforces this when "Assignment required" is enabled on the application.
 
-**Single Sign-On (SSO) Foundation** — Entra ID acts as the identity provider for enterprise applications, eliminating the need for separate credentials per app
+**SSO Foundation** — Users authenticate once to Entra ID and access all assigned applications without re-entering credentials. This eliminates password sprawl and reduces the attack surface.
 
-**Access Provisioning** — Aligning application access to organisational role — users get access to systems relevant to their department
+**Provisioning vs Access** — Creating an application registration in Entra ID does not automatically grant anyone access to it. Access must be explicitly assigned — this is the correct default posture.
 
-> **Free Tier Note:** Group-based application assignment was not available under the free tier. In a production environment, applications would be assigned to security groups (e.g., HR-Team → HR-App) rather than individual users, ensuring RBAC and access scalability. The correct design approach was maintained throughout; only the implementation method was adapted due to tier constraints.
+> **Free Tier Limitation:** In production with P1/P2, you would assign the HR-Team group to HR-App rather than individual users. Any new HR employee added to HR-Team automatically gains HR-App access — no manual step required per user. This lab implements the correct access design; only the assignment mechanism differs due to the free tier.
 
-| # | Screenshot | Description |
+---
+
+## Troubleshooting
+
+| Problem | Likely cause | Fix |
 |---|---|---|
-| 11 | ![HR-App Overview Page](../screenshots/11-hr-app-overview-page.png.png) | HR-App enterprise application overview |
-| 12 | ![HR-App Assigned Users](../screenshots/12-hr-app-showing-assigned-users.png.png) | HR-App showing assigned users |
-| 13 | ![Multiple Apps User Assignments](../screenshots/13-multiple-apps-user-assignments.png.png) | Multiple enterprise apps with user assignments |
+| "Create your own application" is not visible | Portal UI update | Look for a "custom" or "non-gallery" option on the same page |
+| User does not appear in Users and groups after assignment | Assignment not saved | Click Add user/group again and reassign |
+| Application does not appear in the list | Filter applied | Clear search filters on the Enterprise applications page |
 
-## Key Takeaway
-
-SSO via Entra ID simplifies user management — users authenticate once and gain access to all assigned applications. In production, use group-based assignment to scale access provisioning.
+---
 
 ## Next Step
 
-Proceed to [Identity Lifecycle — Mover & Leaver](06-identity-lifecycle-mover-leaver.md) to simulate real-world role changes.
+Proceed to [Lab 06 — Identity Lifecycle — Mover & Leaver](06-identity-lifecycle-mover-leaver.md) to simulate an internal transfer and an employee offboarding.

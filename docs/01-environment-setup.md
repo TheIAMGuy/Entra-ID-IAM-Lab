@@ -1,23 +1,83 @@
-# Step 1 — Environment Setup
+# Lab 01 — Environment Setup
 
-**Objective:** Establish a cloud identity tenant to serve as the organisation's directory.
+**Objective:** Sign in to the Azure Portal, locate your Entra ID tenant, and verify it is correctly configured before starting the lab exercises.
 
-## Implementation Steps
+**Time:** 10–15 minutes  
+**Difficulty:** Beginner  
+**Cost:** Free
 
-- Signed into the Azure Portal and reviewed the landing dashboard — the central control plane for cloud and identity services.
-- Accessed the Microsoft Entra ID tenant, which represents the organisation's identity directory.
-- Verified tenant details including directory name, tenant ID, and default domain (`onmicrosoft.com`).
-- Confirmed operation within the free tier to avoid paid feature dependencies.
+---
+
+## Before You Start
+
+You need a free Microsoft account and a free Entra ID tenant. If you have not set these up yet, follow the [Prerequisites](../README.md#prerequisites) section in the README before continuing.
+
+---
+
+## Steps
+
+### 1. Sign In to the Azure Portal
+
+1. Open your browser and navigate to [portal.azure.com](https://portal.azure.com).
+2. Sign in with your Microsoft account credentials.
+
+> **Expected result:** The Azure Portal home page loads with a blue header bar and a dashboard of service tiles.
+
+---
+
+### 2. Locate Microsoft Entra ID
+
+1. In the search bar at the top of the portal, type **Entra ID**.
+2. Select **Microsoft Entra ID** from the search results.
+
+Alternatively, select **Microsoft Entra ID** from the left-hand navigation sidebar or from the **Azure services** row on the home dashboard.
+
+> **Expected result:** The Microsoft Entra ID overview page appears, showing your tenant name, tenant ID, and default domain.
+
+---
+
+### 3. Verify Your Tenant Details
+
+On the overview page, confirm the following:
+
+| Field | What to check |
+|---|---|
+| **Tenant name** | Reflects your account or organisation name |
+| **Tenant ID** | A unique GUID — note this down, you will reference it throughout the lab |
+| **Primary domain** | Ends in `.onmicrosoft.com` |
+| **Licence** | Shows **Microsoft Entra ID Free** |
+
+> **Expected result:** All fields are populated. The licence shows Free. If you see a Premium trial, that is fine — the labs will still work.
+
+---
+
+### 4. Confirm Free Tier Operation
+
+1. In the left sidebar under **Manage**, select **Licences**.
+2. Confirm that no premium products are assigned, or note any active trial licences.
+
+> **Why this matters:** This lab is designed to work within the free tier. Where a premium feature is relevant, it is called out explicitly with a callout note.
+
+---
 
 ## IAM Concept: The Identity Tenant
 
-A tenant in Entra ID is the foundational identity boundary for an organisation. All users, groups, roles, and applications exist within this directory. Think of it as the "root" of your identity infrastructure — everything built in this lab will exist within this tenant.
+A tenant is the foundational identity boundary in Entra ID. All users, groups, roles, and applications in this lab exist within this one directory. Think of it as the root of your identity infrastructure — every action in the subsequent labs builds on this foundation.
 
-| # | Screenshot | Description |
+In enterprise environments, a tenant typically maps to one organisation. Large enterprises may operate multiple tenants (e.g., separate tenants for subsidiaries or test environments), but a single authoritative tenant is the most common production pattern.
+
+---
+
+## Troubleshooting
+
+| Problem | Likely cause | Fix |
 |---|---|---|
-| 1 | ![Azure Portal Home Dashboard](../screenshots/01-azure-portal-home-dashboard.png.png) | Azure Portal home dashboard — central control panel |
-| 2 | ![Entra ID Overview](../screenshots/02-entra-id-overview-tenant-name-domain.png.png) | Entra ID overview page showing tenant name and domain |
+| Cannot sign in | Wrong Microsoft account | Ensure you are using the account linked to your Entra ID tenant |
+| Tenant ID is blank | Tenant not fully provisioned | Wait a few minutes and refresh |
+| Portal shows the wrong tenant | Multiple directories on your account | Click your name in the top right → **Switch directory** |
+
+---
 
 ## Next Step
 
-Proceed to [Identity Provisioning — Joiner](02-identity-provisioning-joiner.md) to begin creating user identities.
+Proceed to [Lab 02 — Identity Provisioning (Joiner)](02-identity-provisioning-joiner.md) to begin creating user identities.
