@@ -1,18 +1,5 @@
 # CLAUDE.md — Project Context for AI Agents
 
-## Session Handoff Warning
-
-**If this session's context has been compacted**, stop immediately and tell the user:
-
-> "This session's context has been compressed and I may be missing important history.
-> Please start a new Claude Code session and reference this CLAUDE.md — it contains
-> everything needed to continue from the right phase."
-
-Do not attempt to continue work in a compacted session without the user's explicit
-confirmation that they understand context may be incomplete.
-
----
-
 ## What This Repo Is
 
 A hands-on learning lab for enterprise Identity and Access Management (IAM) using
@@ -31,69 +18,10 @@ Entra ID experience. They have enterprise context but may not have used Entra ID
 
 | Path | Role |
 |---|---|
-| `docs/01-07-*` | **Primary lab walkthroughs** — fully expanded instructional guides (Phase 2 complete). |
-| `docs/08-20-*` | Extended reference material. Deeper theory, standards, governance. Secondary. |
+| `docs/01-07-*` | **Primary lab walkthroughs** — the most important docs. Full, step-by-step guides the user follows in the Azure Portal to produce a verifiable result. |
+| `docs/08-20-*` | Extended reference material. Deeper theory, standards, governance. Valuable but secondary. |
 | `QUICKSTART_LABS.md` | Entry point for new users — do not restructure without good reason. |
 | `BEGINNER_GUIDE.md`, `LABS_INDEX.md`, `SANDBOX_SETUP.md` | Navigation aids — keep accurate and current. |
-
-## Phase Status
-
-### Completed
-
-| Phase | What Was Done |
-|---|---|
-| Phase 1 | Deleted 3 internal planning docs (`NEW_STRUCTURE_PLAN.md`, `STRUCTURAL_ANALYSIS.md`, `CONTENT_TEMPLATE.md`); added Prerequisites section to README; created this CLAUDE.md; fixed broken URL in `getting-started-with-claude-code` README. |
-| Phase 2 | Rewrote all 7 primary labs (`docs/01–07`) from past-tense portfolio narratives into second-person instructional walkthroughs. Each lab now has: Azure Portal navigation steps, expected results callouts, troubleshooting tables, and IAM concept explanations. Broken screenshot image references were replaced with descriptive "Expected result" callouts. |
-
-All Phase 1 and Phase 2 changes are on branch `claude/repo-discovery-audit-COdu8` and have
-an open PR (#2) against `main`. That PR has not yet been merged.
-
-### Pending (start here in a new session)
-
-**Phase 3 — Lab Validation and Screenshots**
-- Walk through each lab (`docs/01–07`) in a real Entra ID tenant to verify every step works
-- Add a `docs/screenshots/` directory
-- Add real screenshots to key steps in each lab
-- Fix any steps where the Azure Portal UI has changed since writing
-
-**Phase 4 — Lab Navigation and Polish**
-- Add Previous / Next navigation links at the bottom of each lab
-- Add a `docs/00-overview.md` master guide that explains the full lab arc
-- Consider a completion checklist or progress tracker
-
-**Phase 5 — iam-roadmap**
-- Repo is a placeholder with no clear vision — user needs to decide direction
-- Options: structured learning roadmap, resource list, career guide
-- Repo should be made private (manual GitHub action, not a code change)
-
-**Phase 6 — candidate-compass and recruiting-crm**
-- `candidate-compass`: Supabase `.env` was removed (Phase 0 security fix). The Supabase
-  integration code in `src/integrations/` is still present but the project is deleted.
-  Decision needed: remove Supabase code entirely, or replace with a working backend.
-- `recruiting-crm`: Assess current state. Similar Supabase dependency likely.
-- Both repos should be made private (manual GitHub action).
-
-**Phase 7 — Community**
-- Enable GitHub Discussions on `entra-id-iam-lab`
-- Add issue templates (bug report, lab feedback, content gap)
-- Add a contributing guide for external contributors
-
-## Pending Manual Actions (cannot be done via API)
-
-These require the user to act in the GitHub web UI:
-
-| Action | Repo | Where |
-|---|---|---|
-| Make private | `candidate-compass` | Settings → General → Danger Zone |
-| Make private | `iam-roadmap` | Settings → General → Danger Zone |
-| Make private | `recruiting-crm` | Settings → General → Danger Zone |
-| Add topics | `entra-id-iam-lab` | Settings → General → Topics: `microsoft-entra-id`, `identity-access-management`, `iam`, `azure-active-directory`, `rbac`, `zero-trust`, `hands-on-lab`, `joiner-mover-leaver`, `cybersecurity` |
-| Add topics | `getting-started-with-claude-code` | Settings → General → Topics: `claude-code`, `github`, `ai-tools`, `developer-guide`, `getting-started`, `anthropic` |
-| Merge PR #1 | `candidate-compass` | Pull Requests → PR #1 — removes `.env` file |
-| Merge PR #2 | `entra-id-iam-lab` | Pull Requests → PR #2 — Phase 1 + Phase 2 lab improvements |
-| Merge PR #1 | `getting-started-with-claude-code` | Pull Requests → PR #1 — fixes broken docs URL |
-
----
 
 ## What Not to Change
 
@@ -122,8 +50,7 @@ A lab doc is complete when:
 
 ## Known Gaps (May 2026)
 
-- `docs/01-07` have been fully expanded (Phase 2 done) but **not yet validated** in a live
-  Entra ID tenant. Treat them as well-structured drafts until Phase 3 is complete.
+- `docs/01-07` are fully expanded but not yet validated in a live Entra ID tenant. Treat as well-structured drafts until lab validation is complete.
 - Shell scripts in `labs/scripts/` have not been validated end-to-end. Treat as reference only.
 - No screenshots exist yet in any lab doc.
 
