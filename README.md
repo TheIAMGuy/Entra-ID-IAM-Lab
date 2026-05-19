@@ -55,6 +55,17 @@ Implement tamper-evident audit logging and user-level traceability — essential
 ### Production-Aligned Design
 All patterns reflect enterprise-grade IAM architecture, adapted to work within free-tier constraints while maintaining production design principles.
 
+## Prerequisites
+
+Before starting the labs, you need:
+
+- **A free Microsoft account** — sign up at [account.microsoft.com](https://account.microsoft.com) if you do not have one
+- **A free Entra ID tenant** — created automatically when you join the [Microsoft 365 Developer Program](https://developer.microsoft.com/en-us/microsoft-365/dev-program) (recommended, 90-day renewable) or activate an [Azure free account](https://azure.microsoft.com/free/)
+- **A modern browser** — the Azure Portal works in Chrome, Edge, Firefox, and Safari
+- **No prior Entra ID experience required** — the labs start from zero
+
+> **Free tier note:** All primary labs (01–07) work within the Microsoft Entra ID free tier. Steps that require a P1 or P2 licence are noted explicitly.
+
 ## Getting Started Now
 
 👉 **Start here**: [Environment Setup](docs/01-environment-setup.md)
