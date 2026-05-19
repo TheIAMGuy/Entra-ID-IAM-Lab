@@ -41,6 +41,14 @@ Why this matters: when an employee changes roles, you update their group members
 2. In the left sidebar under **Manage**, select **Groups**.
 3. Click **New group**.
 
+⚠️ **Note:** As of May 2026, "Groups" is in the left sidebar under **Manage**. The Azure Portal UI updates frequently — if the layout changes, search for "Groups" in the top search bar.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 11 | ![Navigate Groups Page](../screenshots/11-navigate-groups-page.png) | The Groups page showing the list of existing groups (may be empty initially) with the "New group" button visible |
+
 ---
 
 ### 2. Create HR-Team
@@ -58,6 +66,12 @@ Leave the Members field empty for now. Click **Create**.
 
 > **Expected result:** HR-Team appears in the All Groups list.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 12 | ![Create Group Form](../screenshots/12-create-group-form.png) | The group creation form with Group type: Security, Group name: HR-Team, description, and Membership type: Assigned |
+
 ---
 
 ### 3. Add Members to HR-Team
@@ -71,6 +85,13 @@ Leave the Members field empty for now. Click **Create**.
 
 > **Expected result:** The Members list for HR-Team shows two entries: John HR and Eve Intern.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 13 | ![Add Members to Group](../screenshots/13-add-members-to-group.png) | The "Add members" panel showing the search field and selected members (John HR and Eve Intern) before confirming |
+| 14 | ![Group Membership Table](../screenshots/14-group-membership-table.png) | The Members list for HR-Team showing both John HR and Eve Intern as members |
+
 ---
 
 ### 4. Create Remaining Groups and Add Members
@@ -83,6 +104,12 @@ Repeat steps 2 and 3 for each remaining group:
 
 > **Expected result:** The All Groups list shows four groups. Each group contains the correct member(s).
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 14 | ![Group Membership Table](../screenshots/14-group-membership-table.png) | The Groups page showing all four groups created: HR-Team, IT-Team, Finance-Team, Sales-Team |
+
 ---
 
 ### 5. Verify Group Membership from a User Profile
@@ -92,6 +119,12 @@ Repeat steps 2 and 3 for each remaining group:
 3. Confirm **HR-Team** appears in the list.
 
 > **Expected result:** John HR shows one group membership: HR-Team. No other groups should appear at this stage.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 15 | ![Verify User Group Membership](../screenshots/15-verify-user-group-membership.png) | John HR's user profile showing the Groups tab with HR-Team listed as the only group membership |
 
 ---
 

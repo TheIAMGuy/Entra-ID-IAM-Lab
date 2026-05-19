@@ -23,6 +23,12 @@ You need a free Microsoft account and a free Entra ID tenant. If you have not se
 
 > **Expected result:** The Azure Portal home page loads with a blue header bar and a dashboard of service tiles.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 01 | ![Azure Portal Sign In](../screenshots/01-azure-portal-signin.png) | The Azure Portal home page with the blue header bar and service tiles dashboard |
+
 ---
 
 ### 2. Locate Microsoft Entra ID
@@ -33,6 +39,15 @@ You need a free Microsoft account and a free Entra ID tenant. If you have not se
 Alternatively, select **Microsoft Entra ID** from the left-hand navigation sidebar or from the **Azure services** row on the home dashboard.
 
 > **Expected result:** The Microsoft Entra ID overview page appears, showing your tenant name, tenant ID, and default domain.
+
+⚠️ **Note:** As of May 2026, the search bar is at the top of the Portal and the left sidebar is labelled **Manage**. The Azure Portal UI updates frequently — if the layout differs, look for "Entra ID" or "Microsoft Entra ID" in the search functionality.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 02 | ![Entra ID Search](../screenshots/02-entra-id-search.png) | The search bar with "Entra ID" typed in and search results displayed |
+| 03 | ![Tenant Overview Details](../screenshots/03-tenant-overview-details.png) | The Microsoft Entra ID overview page showing tenant name, tenant ID, and primary domain |
 
 ---
 
@@ -49,6 +64,12 @@ On the overview page, confirm the following:
 
 > **Expected result:** All fields are populated. The licence shows Free. If you see a Premium trial, that is fine — the labs will still work.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 03 | ![Tenant Overview Details](../screenshots/03-tenant-overview-details.png) | The Entra ID overview page with Tenant name, Tenant ID, and Primary domain fields clearly visible and populated |
+
 ---
 
 ### 4. Confirm Free Tier Operation
@@ -57,6 +78,14 @@ On the overview page, confirm the following:
 2. Confirm that no premium products are assigned, or note any active trial licences.
 
 > **Why this matters:** This lab is designed to work within the free tier. Where a premium feature is relevant, it is called out explicitly with a callout note.
+
+⚠️ **Note:** As of May 2026, "Licences" is located in the left sidebar under **Manage**. This menu has been stable, but if you cannot find it, try searching for "Licences" in the top search bar.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 04 | ![Licenses Page Free Tier](../screenshots/04-licenses-page-free-tier.png) | The Licences page showing no premium products assigned, confirming free tier status |
 
 ---
 

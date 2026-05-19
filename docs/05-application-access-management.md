@@ -42,6 +42,14 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 2. In the left sidebar under **Manage**, select **Enterprise applications**.
 3. Click **New application**.
 
+⚠️ **Note:** As of May 2026, "Enterprise applications" is in the left sidebar under **Manage**. The Azure Portal updates frequently — if the menu has changed, search for "Enterprise applications" in the top search bar.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 22 | ![Enterprise Applications Page](../screenshots/22-enterprise-applications-page.png) | The Enterprise applications page showing the list of applications (may be empty initially) with the "New application" button visible |
+
 ---
 
 ### 2. Create HR-App
@@ -52,6 +60,15 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 4. Click **Create**.
 
 > **Expected result:** The HR-App overview page opens. The application now exists in your tenant.
+
+⚠️ **Note:** As of May 2026, the "Create your own application" option is visible on the initial gallery page. If the UI has changed, look for options like "Custom app", "Non-gallery app", or "Create application" on the same page.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 23 | ![Create App Form](../screenshots/23-create-app-form.png) | The application creation page showing the "Create your own application" option and "Non-gallery" selection |
+| 24 | ![App Created Confirmation](../screenshots/24-app-created-confirmation.png) | The HR-App overview page confirming the application has been created successfully |
 
 ---
 
@@ -66,6 +83,13 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 
 > **Expected result:** The Users and groups list for HR-App shows John HR and Eve Intern, both with the role "Default Access".
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 25 | ![Assign Users to App](../screenshots/25-assign-users-to-app.png) | The "Add user/group" panel showing the search field and selected users (John HR and Eve Intern) before confirming |
+| 26 | ![App Users Assigned](../screenshots/26-app-users-assigned.png) | The Users and groups list for HR-App showing John HR and Eve Intern with "Default Access" role assigned |
+
 ---
 
 ### 4. Create Finance-App and Sales-App
@@ -76,6 +100,12 @@ Repeat steps 2 and 3 for:
 
 > **Expected result:** Three enterprise applications exist in your tenant. Each shows the correct assigned user(s) under Users and groups.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 27 | ![Remaining Apps Created](../screenshots/27-remaining-apps-created.png) | The Enterprise applications page showing all three applications created: HR-App, Finance-App, and Sales-App |
+
 ---
 
 ### 5. Verify the Full Application Landscape
@@ -85,6 +115,12 @@ Repeat steps 2 and 3 for:
 3. Open each one and confirm the assigned users.
 
 > **Expected result:** HR-App: John HR, Eve Intern. Finance-App: Bob Finance. Sales-App: Charlie Sales. No cross-department access exists.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 28 | ![Verify Application Landscape](../screenshots/28-verify-application-landscape.png) | The Enterprise applications page showing all three apps (HR-App, Finance-App, Sales-App) with correct user assignments verified |
 
 ---
 

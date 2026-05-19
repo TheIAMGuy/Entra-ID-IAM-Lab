@@ -44,6 +44,14 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 
 > **Expected result:** A list of all available directory roles appears. Use the search bar to find specific roles.
 
+⚠️ **Note:** As of May 2026, "Roles and administrators" is in the left sidebar under **Manage**. The Azure Portal updates frequently — if the menu has changed, search for "Roles and administrators" in the top search bar.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 16 | ![Roles and Administrators Page](../screenshots/16-roles-and-administrators-page.png) | The Roles and administrators page showing the list of available directory roles with a search bar at the top |
+
 ---
 
 ### 2. Assign User Administrator to Alice IT
@@ -53,6 +61,13 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 3. Search for **Alice IT**, select her, and click **Add**.
 
 > **Expected result:** Alice IT appears in the assignments list for the User Administrator role, showing as **Active**.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 17 | ![User Admin Role Assignment](../screenshots/17-user-admin-role-assignment.png) | The User Administrator role page with the "Add assignments" button visible |
+| 18 | ![User Admin Confirmation](../screenshots/18-user-admin-confirmation.png) | Alice IT appearing in the User Administrator assignments list with status "Active" |
 
 ---
 
@@ -65,6 +80,13 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 
 > **Expected result:** Bob Finance appears in the assignments list for the Global Reader role.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 19 | ![Global Reader Assignment](../screenshots/19-global-reader-assignment.png) | The Global Reader role page with the "Add assignments" button visible |
+| 20 | ![Global Reader Confirmation](../screenshots/20-global-reader-confirmation.png) | Bob Finance appearing in the Global Reader assignments list |
+
 ---
 
 ### 4. Verify Assignments from User Profiles
@@ -75,6 +97,12 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 4. Repeat for **Bob Finance** — confirm **Global Reader** is listed.
 
 > **Expected result:** Each user shows exactly one assigned role. No other roles should be present.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 21 | ![Verify Role Assignments](../screenshots/21-verify-role-assignments.png) | User profiles showing Alice IT with User Administrator role and Bob Finance with Global Reader role in their respective "Assigned roles" tabs |
 
 ---
 

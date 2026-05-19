@@ -44,6 +44,15 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 2. In the left sidebar under **Manage**, select **Users**.
 3. Click **New user** → **Create new user**.
 
+⚠️ **Note:** As of May 2026, the "New user" button is located at the top of the Users page. If the interface has changed, look for a button or menu option labelled "New user" or "Create user".
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 05 | ![Navigate Users Page](../screenshots/05-navigate-users-page.png) | The Users page showing the list of current users in the tenant |
+| 06 | ![New User Button](../screenshots/06-new-user-button.png) | The "New user" button and dropdown menu with "Create new user" option visible |
+
 ---
 
 ### 2. Create John HR
@@ -63,6 +72,13 @@ Click **Review + create**, then **Create**.
 
 > **Expected result:** A confirmation banner appears: "Successfully created user John HR." The user appears in the All Users list.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 07 | ![User Form John HR](../screenshots/07-user-form-john-hr.png) | The user creation form with fields filled in: John HR display name, john.hr@[domain], job title "HR Coordinator", department "HR" |
+| 08 | ![User Created Confirmation](../screenshots/08-user-created-confirmation.png) | The success confirmation banner showing "Successfully created user John HR" |
+
 ---
 
 ### 3. Create the Remaining Four Users
@@ -73,6 +89,12 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 
 > **Expected result:** The All Users list shows all five new users. You may also see your own admin account. Use the search bar to confirm each user exists.
 
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 09 | ![Users List All Five](../screenshots/09-users-list-all-five.png) | The Users page showing all five created users: John HR, Alice IT, Bob Finance, Charlie Sales, Eve Intern |
+
 ---
 
 ### 4. Verify User Attributes
@@ -82,6 +104,12 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 3. Confirm **Department** shows `HR` and **Job title** shows `HR Coordinator`.
 
 > **Expected result:** Both attribute fields are populated. If any field is blank, click **Edit properties** at the top of the profile to update it.
+
+#### Screenshots
+
+| # | Screenshot | What you should see |
+|---|---|---|
+| 10 | ![User Properties Verification](../screenshots/10-user-properties-verification.png) | John HR's user profile with the Properties tab open, showing Department: HR and Job title: HR Coordinator |
 
 ---
 
