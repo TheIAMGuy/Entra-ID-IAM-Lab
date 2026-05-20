@@ -29,12 +29,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 1: Joiner Provisioning Workflow ⭐ Beginner
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 1-2 hours |
 | **Difficulty** | Beginner |
 | **Prerequisites** | SANDBOX_SETUP.md completed, Azure access |
-| **Document** | `docs/01-user-provisioning-joiner.md` |
-| **Script** | `labs/scripts/01-joiner-automation-basic.sh` |
+| **Document** | `01-user-provisioning-joiner.md` |
+| **Script** | `../examples/scripts/01-joiner-automation-basic.sh` |
 | **What You'll Learn** | How new users are automatically provisioned with all required access |
 | **What You'll Build** | Automated workflow: HR creates user → AD account created → email provisioned → groups assigned → all in <5 minutes |
 | **Expected Outcome** | New test user fully provisioned and can sign in |
@@ -58,12 +58,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 2: Multi-Factor Authentication (MFA) Setup ⭐ Beginner
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 1-2 hours |
 | **Difficulty** | Beginner |
 | **Prerequisites** | Lab 1 complete, authenticator app on phone (Microsoft Authenticator or Google Authenticator) |
-| **Document** | `docs/07a-multi-factor-authentication.md` |
-| **Script** | `labs/scripts/02-mfa-enrollment.sh` |
+| **Document** | `07a-multi-factor-authentication.md` |
+| **Script** | `../examples/scripts/02-mfa-enrollment.sh` |
 | **What You'll Learn** | How to enable MFA globally and enroll users |
 | **What You'll Build** | MFA policy requiring all users to complete authentication with password + phone code |
 | **Expected Outcome** | Sign-in requires password + 6-digit code from authenticator app |
@@ -90,12 +90,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 3: Mover Workflow (Role Change) ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 2-3 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | Lab 1 complete |
-| **Document** | `docs/06-mover-leaver-workflows.md` |
-| **Script** | `labs/scripts/03-mover-automation.sh` |
+| **Document** | `06-mover-leaver-workflows.md` |
+| **Script** | `../examples/scripts/03-mover-automation.sh` |
 | **What You'll Learn** | How to automatically update access when employees change roles |
 | **What You'll Build** | Workflow: Employee changes department → Old access removed → New access granted → All in <15 minutes |
 | **Expected Outcome** | User transitions from Sales team to Engineering team; Salesforce access removed, GitHub access granted |
@@ -123,12 +123,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 4: Passwordless Authentication (FIDO2) ⭐ Beginner
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 1.5 hours |
 | **Difficulty** | Beginner |
 | **Prerequisites** | Lab 2 complete, hardware security key (optional: simulate with software) |
-| **Document** | `docs/07b-passwordless-authentication.md` |
-| **Script** | `labs/scripts/04-passwordless-setup.sh` |
+| **Document** | `07b-passwordless-authentication.md` |
+| **Script** | `../examples/scripts/04-passwordless-setup.sh` |
 | **What You'll Learn** | How passwordless authentication (FIDO2 keys) works and why it's more secure than passwords |
 | **What You'll Build** | Passwordless sign-in policy where users sign in with hardware key instead of password |
 | **Expected Outcome** | User signs in to Azure AD with FIDO2 key (no password needed) |
@@ -155,12 +155,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 5: Hybrid Identity Sync ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 3-4 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | SANDBOX_SETUP.md completed (on-prem AD running), Azure access, Azure AD Connect downloaded |
-| **Document** | `docs/10-hybrid-identity-architecture.md` |
-| **Script** | `labs/scripts/05-hybrid-sync-setup.sh` |
+| **Document** | `10-hybrid-identity-architecture.md` |
+| **Script** | `../examples/scripts/05-hybrid-sync-setup.sh` |
 | **What You'll Learn** | How to sync users from on-premises AD to Azure AD cloud |
 | **What You'll Build** | Hybrid identity: create user in on-prem AD → user appears in Azure within 5 minutes → can sign in to cloud apps |
 | **Expected Outcome** | Users managed in one place (on-prem AD) but can sign in to both on-prem and cloud systems |
@@ -193,12 +193,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 6: Conditional Access Policies ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 2-3 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | Lab 2 complete (MFA enrolled), Azure access |
-| **Document** | `docs/07c-adaptive-authentication.md` |
-| **Script** | `labs/scripts/06-conditional-access.sh` |
+| **Document** | `07c-adaptive-authentication.md` |
+| **Script** | `../examples/scripts/06-conditional-access.sh` |
 | **What You'll Learn** | How to create risk-based policies that adapt authentication based on context |
 | **What You'll Build** | Policy: "If user signs in from unusual location → require MFA; if sign-in is very risky → block" |
 | **Expected Outcome** | Different authentication requirements based on sign-in risk |
@@ -224,12 +224,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 7: Fine-Grained Authorization (ABAC) ⭐ Advanced
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 4-5 hours |
 | **Difficulty** | Advanced |
 | **Prerequisites** | Intermediate understanding of RBAC, OPA or similar policy engine |
-| **Document** | `docs/13-fine-grained-authorization.md` |
-| **Script** | `labs/scripts/07-fga-implementation.sh` |
+| **Document** | `13-fine-grained-authorization.md` |
+| **Script** | `../examples/scripts/07-fga-implementation.sh` |
 | **What You'll Learn** | How attribute-based access control (ABAC) enables more nuanced permissions than RBAC |
 | **What You'll Build** | Policy engine that evaluates: user attributes, resource attributes, environment → decision (allow/deny) |
 | **Expected Outcome** | "Grant access if: user department = Finance AND resource = financial database AND time = business hours AND device = managed" |
@@ -262,12 +262,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 8: Access Reviews & Recertification ⭐ Beginner
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 1-2 hours |
 | **Difficulty** | Beginner |
 | **Prerequisites** | Lab 1 complete, test users created |
-| **Document** | `docs/06a-access-reviews.md` |
-| **Script** | `labs/scripts/08-access-review.sh` |
+| **Document** | `06a-access-reviews.md` |
+| **Script** | `../examples/scripts/08-access-review.sh` |
 | **What You'll Learn** | How to audit user access and remove stale/excessive permissions |
 | **What You'll Build** | Automated access review: list all users' access → managers approve/deny → revoke denied access |
 | **Expected Outcome** | Review complete, unauthorized access removed, audit trail created |
@@ -294,12 +294,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 9: Incident Response Playbook ⭐ Advanced
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 4-5 hours (can be simulation) |
 | **Difficulty** | Advanced |
 | **Prerequisites** | Labs 1-2 complete, understanding of security incidents |
-| **Document** | `docs/17c-incident-response.md` |
-| **Script** | `labs/scripts/09-incident-simulation.sh` |
+| **Document** | `17c-incident-response.md` |
+| **Script** | `../examples/scripts/09-incident-simulation.sh` |
 | **What You'll Learn** | How to detect, respond to, and investigate identity security incidents |
 | **What You'll Build** | Incident response playbook for account compromise |
 | **Expected Outcome** | Compromised account disabled, attack contained, forensics collected, incident report generated |
@@ -332,12 +332,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 10: Workload Identity (Kubernetes) ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 3-4 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | Kubernetes cluster (can use AKS free tier or local minikube), kubectl access |
-| **Document** | `docs/14b-container-workload-identity.md` |
-| **Script** | `labs/scripts/10-workload-identity-k8s.sh` |
+| **Document** | `14b-container-workload-identity.md` |
+| **Script** | `../examples/scripts/10-workload-identity-k8s.sh` |
 | **What You'll Learn** | How containers/pods get identity to access cloud resources (instead of storing credentials) |
 | **What You'll Build** | Pod in Kubernetes → uses workload identity → accesses Azure Key Vault without hardcoded secrets |
 | **Expected Outcome** | Kubernetes pod retrieves database password from Key Vault using identity (no secret files) |
@@ -381,12 +381,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 11: Multi-Cloud Federation ⭐ Advanced
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 4-5 hours |
 | **Difficulty** | Advanced |
 | **Prerequisites** | Azure subscription + AWS account, understanding of SAML/OAuth |
-| **Document** | `docs/11-multi-cloud-identity.md` |
-| **Script** | `labs/scripts/11-multi-cloud-federation.sh` |
+| **Document** | `11-multi-cloud-identity.md` |
+| **Script** | `../examples/scripts/11-multi-cloud-federation.sh` |
 | **What You'll Learn** | How to federate identity across cloud providers (Azure ↔ AWS) |
 | **What You'll Build** | Single sign-on spanning Azure AD and AWS; user signs in once, can access both clouds |
 | **Expected Outcome** | Azure user can sign in to AWS console without separate AWS password |
@@ -416,12 +416,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 12: Identity Governance Platform ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 2-3 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | Labs 1, 8 complete, test users with varied access |
-| **Document** | `docs/17a-identity-governance-administration.md` |
-| **Script** | `labs/scripts/12-iga-platform.sh` |
+| **Document** | `17a-identity-governance-administration.md` |
+| **Script** | `../examples/scripts/12-iga-platform.sh` |
 | **What You'll Learn** | How IGA platforms (SailPoint, Okta, ServiceNow) manage access lifecycle at scale |
 | **What You'll Build** | IGA dashboard showing: users, their access, risk scores, compliance status |
 | **Expected Outcome** | See complete access inventory, identify excessive access, run access reviews |
@@ -450,12 +450,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 13: Segregation of Duties (SoD) ⭐ Intermediate
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 2-3 hours |
 | **Difficulty** | Intermediate |
 | **Prerequisites** | Understanding of SoD principle (incompatible duties) |
-| **Document** | `docs/13b-segregation-of-duties.md` |
-| **Script** | `labs/scripts/13-sod-detection.sh` |
+| **Document** | `13b-segregation-of-duties.md` |
+| **Script** | `../examples/scripts/13-sod-detection.sh` |
 | **What You'll Learn** | How to prevent conflicts of interest (e.g., someone who can approve expenses and also spend money) |
 | **What You'll Build** | Policy engine that detects SoD violations and prevents them |
 | **Expected Outcome** | System blocks attempts to grant conflicting roles |
@@ -484,12 +484,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 14: Risk Scoring Algorithm ⭐ Advanced
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 3-4 hours |
 | **Difficulty** | Advanced |
 | **Prerequisites** | Understanding of ML/statistics (optional but helpful) |
-| **Document** | `docs/17d-risk-scoring-algorithm.md` |
-| **Script** | `labs/scripts/14-risk-scoring.sh` |
+| **Document** | `17d-risk-scoring-algorithm.md` |
+| **Script** | `../examples/scripts/14-risk-scoring.sh` |
 | **What You'll Learn** | How to build a risk scoring model (predict which sign-ins are suspicious) |
 | **What You'll Build** | ML model that scores sign-in risk (0-100) based on location, device, time, user behavior |
 | **Expected Outcome** | Model correctly classifies 90%+ of sign-ins as low/medium/high risk |
@@ -525,12 +525,12 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 
 ### Lab 15: Complete Enterprise Scenario ⭐ Advanced
 | Attribute | Details |
-|-----------|---------|
+|-----------|----------|
 | **Time Required** | 8+ hours (full certification challenge) |
 | **Difficulty** | Advanced |
 | **Prerequisites** | Labs 1-14 complete or strong familiarity with all topics |
 | **Document** | `HANDS_ON_LAB_SCENARIOS.md` → Scenario 8 (Enterprise Security Assessment) |
-| **Script** | `labs/scripts/15-enterprise-scenario.sh` |
+| **Script** | `../examples/scripts/15-enterprise-scenario.sh` |
 | **What You'll Learn** | How to design a complete enterprise identity system from scratch |
 | **What You'll Build** | End-to-end: user provisioning → authentication → authorization → governance → incident response |
 | **Expected Outcome** | Production-ready identity system design and partial implementation |
@@ -596,7 +596,7 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
 After completing labs, you should be able to:
 
 | Skill | Validation |
-|-------|-----------|
+|-------|------------|
 | **Explain user provisioning** | Can describe joiner → mover → leaver workflow |
 | **Implement MFA** | Can enable MFA policy and enroll users |
 | **Design hybrid identity** | Can explain on-prem sync + cloud authentication |
@@ -613,7 +613,7 @@ After completing labs, you should be able to:
 1. Check lab-specific "Common Mistakes" section above
 2. Review document that lab is based on (listed in each lab)
 3. Check SANDBOX_SETUP.md for environment issues
-4. Check `labs/scripts/` for script comments/documentation
+4. Check `../examples/scripts/` for script comments/documentation
 
 **Want to contribute?**
 - Found a lab bug? Submit issue

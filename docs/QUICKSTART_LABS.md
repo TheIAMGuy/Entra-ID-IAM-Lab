@@ -21,15 +21,15 @@
 ### Hour 0-2: Understand Identity (2 hours, Reading)
 **Why this first:** Foundation before you build anything
 
-1. Read: `docs/00-iam-landscape-overview.md` (30 min)
+1. Read: `00-iam-landscape-overview.md` (30 min)
    - *Understand:* What is identity? 17 domains overview
    - *Takeaway:* Identity is more than passwords; it's a complete lifecycle
 
-2. Read: `docs/01-user-provisioning-joiner.md` (45 min)
+2. Read: `01-user-provisioning-joiner.md` (45 min)
    - *Understand:* How users get access (the "joiner" process)
    - *Takeaway:* Provisioning is complex; automation is key
 
-3. Read: `docs/07-authentication-fundamentals.md` (45 min)
+3. Read: `07-authentication-fundamentals.md` (45 min)
    - *Understand:* How users prove who they are
    - *Takeaway:* Passwords alone are weak; MFA is necessary
 
@@ -58,12 +58,12 @@
 
 **Lab Goal:** Automate provisioning so when HR creates a user, everything happens automatically
 
-1. Read: `docs/18b-provisioning-automation.md` (1 hour)
+1. Read: `18b-provisioning-automation.md` (1 hour)
    - *Understand:* How to automate the joiner/mover/leaver workflow
    - *Key concept:* Workflows vs. processes
 
 2. Run Lab: Joiner Automation (2 hours)
-   - Script: `labs/scripts/01-joiner-automation-basic.sh`
+   - Script: `../examples/scripts/01-joiner-automation-basic.sh`
    - *Do:*
      1. Create test user in HR system (simulate)
      2. Watch automation create AD account, email, groups
@@ -71,7 +71,7 @@
    - *Expected outcome:* User created + email provisioned in <5 minutes
 
 3. Run Lab: Mover Workflow (2 hours)
-   - Script: `labs/scripts/02-mover-automation.sh`
+   - Script: `../examples/scripts/02-mover-automation.sh`
    - *Do:*
      1. Change user's department (Sales → Engineering)
      2. Watch old access revoked, new access granted
@@ -79,7 +79,7 @@
    - *Expected outcome:* Access changed automatically in <10 minutes
 
 4. Run Lab: Leaver Offboarding (1 hour)
-   - Script: `labs/scripts/03-leaver-automation.sh`
+   - Script: `../examples/scripts/03-leaver-automation.sh`
    - *Do:*
      1. Mark user as terminated
      2. Watch all access disabled, data archived
@@ -95,12 +95,12 @@
 
 **Lab Goal:** Require MFA for all users; show how it prevents account takeover
 
-1. Read: `docs/07a-multi-factor-authentication.md` (1 hour)
+1. Read: `07a-multi-factor-authentication.md` (1 hour)
    - *Understand:* MFA methods: TOTP, SMS, phone call, hardware keys
    - *Key concept:* MFA makes accounts 99% harder to compromise
 
 2. Run Lab: Enable MFA (1.5 hours)
-   - Script: `labs/scripts/04-mfa-enrollment.sh`
+   - Script: `../examples/scripts/04-mfa-enrollment.sh`
    - *Do:*
      1. Set MFA policy (require for all users)
      2. Enroll test user in authenticator app (TOTP)
@@ -109,7 +109,7 @@
    - *Expected outcome:* Sign-in requires password + 6-digit code
 
 3. Run Lab: MFA Enforcement (1.5 hours)
-   - Script: `labs/scripts/05-mfa-conditional-access.sh`
+   - Script: `../examples/scripts/05-mfa-conditional-access.sh`
    - *Do:*
      1. Create policy: "If risky sign-in → require FIDO2 hardware key"
      2. Simulate risky sign-in (unusual location)
@@ -125,12 +125,12 @@
 
 **Lab Goal:** Show users can sign in to both cloud (Azure) and on-premises (AD) systems
 
-1. Read: `docs/10-hybrid-identity-architecture.md` (1 hour)
+1. Read: `10-hybrid-identity-architecture.md` (1 hour)
    - *Understand:* Three sync models: cloud-only, hybrid, federated
    - *Key concept:* Users have one identity across multiple systems
 
 2. Run Lab: Hybrid Identity Sync (3 hours)
-   - Script: `labs/scripts/06-hybrid-sync-setup.sh`
+   - Script: `../examples/scripts/06-hybrid-sync-setup.sh`
    - *Do:*
      1. Simulate on-premises AD (test VM with Active Directory)
      2. Install Azure AD Connect sync agent
@@ -139,7 +139,7 @@
    - *Expected outcome:* User created in AD; appears in Azure in <5 minutes
 
 3. Run Lab: Hybrid Sign-In (2 hours)
-   - Script: `labs/scripts/07-hybrid-signin.sh`
+   - Script: `../examples/scripts/07-hybrid-signin.sh`
    - *Do:*
      1. Sign in to on-premises system (AD)
      2. Sign in to cloud app (Office 365)
@@ -166,9 +166,9 @@
 - Demo to leadership: "Here's how MFA prevents 99% of breaches"
 
 **Deepen Your Knowledge:**
-- **If you care about security:** Read `docs/08-identity-risk-detection.md` + `docs/08b-zero-trust-identity-architecture.md`
-- **If you care about compliance:** Read `docs/17-compliance-frameworks-mapping.md` + `docs/17a-identity-governance-administration.md`
-- **If you care about cloud:** Read `docs/11-multi-cloud-identity.md` + `docs/15a-entra-workload-federation.md`
+- **If you care about security:** Read `08-identity-risk-detection.md` + `08b-zero-trust-identity-architecture.md`
+- **If you care about compliance:** Read `17-compliance-frameworks-mapping.md` + `17a-identity-governance-administration.md`
+- **If you care about cloud:** Read `11-multi-cloud-identity.md` + `15a-entra-workload-federation.md`
 - **If you care about everything:** Follow Learning Path 1 (Foundations-First) for complete progression
 
 ---
@@ -178,7 +178,7 @@
 | Problem | Cause | Solution |
 |---------|-------|----------|
 | Script fails: "Azure subscription not found" | Sandbox not set up | Follow SANDBOX_SETUP.md steps 1-3 |
-| User sync stuck (not syncing from AD to Azure) | Azure AD Connect not running | Run `labs/scripts/06-hybrid-sync-setup.sh` steps 3-4 again |
+| User sync stuck (not syncing from AD to Azure) | Azure AD Connect not running | Run `../examples/scripts/06-hybrid-sync-setup.sh` steps 3-4 again |
 | MFA sign-in fails (code expired) | TOTP code has 30-sec window | Try sign-in again immediately after opening authenticator |
 | Cannot access on-premises AD from cloud | Network/VPN issue | Verify VPN running, check firewall rules in SANDBOX_SETUP.md |
 | Lab cost exceeded estimate | Too many resources running | Stop unused VMs in Azure Portal; check SANDBOX_SETUP.md cost section |
@@ -229,10 +229,10 @@ A: See Troubleshooting Guide above. Most issues are sandbox setup. Follow SANDBO
 ## Resources
 
 - **Sandbox Setup:** `SANDBOX_SETUP.md`
-- **All Lab Scripts:** `labs/scripts/`
+- **All Lab Scripts:** `../examples/scripts/`
 - **Lab Scenarios:** `HANDS_ON_LAB_SCENARIOS.md`
 - **Lab Index:** `LABS_INDEX.md`
-- **Full Knowledge Base:** `docs/`
+- **Full Knowledge Base:** `./`
 
 ---
 

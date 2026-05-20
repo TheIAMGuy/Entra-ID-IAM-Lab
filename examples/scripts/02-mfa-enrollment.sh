@@ -84,4 +84,3 @@ echo "  • Use authenticator app (TOTP) instead of SMS when possible"
 echo "  • For high-risk roles: use hardware keys (FIDO2)"
 echo "  • Gradual rollout: 1-2 months for full adoption"
 echo ""
-

@@ -123,4 +123,3 @@ echo ""
 echo "To clean up:"
 echo "  az ad user delete --id '$EMAIL'"
 echo ""
-

@@ -4,8 +4,8 @@ Welcome! This guide will help you navigate the repository if you're new to ident
 
 ## Start Here (30 minutes)
 
-1. **Read:** `docs/00-iam-landscape-overview.md` (understand what IAM is)
-2. **Read:** `docs/01-user-provisioning-joiner.md` (see a real example)
+1. **Read:** `00-iam-landscape-overview.md` (understand what IAM is)
+2. **Read:** `01-user-provisioning-joiner.md` (see a real example)
 3. **Explore:** This guide
 
 ## Your Learning Path (Choose One)
@@ -48,14 +48,14 @@ Welcome! This guide will help you navigate the repository if you're new to ident
 - **Framework Mapping:** `FRAMEWORK_MAPPING.md` — How topics map to NIST/Gartner frameworks
 
 ### Visual Aids
-- **Diagrams:** `/diagrams/` folder contains architecture visuals
+- **Diagrams:** `../diagrams/` folder contains architecture visuals
   - `01-user-provisioning-flow.md` — User lifecycle (hire, move, fire)
   - `02-hybrid-identity-architecture.md` — Cloud + on-premises integration
   - `03-zero-trust-architecture.md` — Zero Trust design
 
 ### Hands-On Labs
-- **Scripts:** `/labs/scripts/` — Ready-to-run examples
-- **Samples:** `/samples/` — Configuration templates
+- **Scripts:** `../examples/scripts/` — Ready-to-run examples
+- **Samples:** `../examples/` — Configuration templates
 
 ---
 
@@ -99,7 +99,7 @@ Don't try to learn all 17 at once. They build on each other.
 1. Follow `SANDBOX_SETUP.md` (one-time setup)
 2. Pick a lab from `LABS_INDEX.md`
 3. Read the prerequisite documents
-4. Run the script from `labs/scripts/`
+4. Run the script from `../examples/scripts/`
 5. Troubleshoot using "Common Mistakes" sections
 
 ### Understanding a Framework
@@ -185,7 +185,7 @@ Start small:
 **Documentation unclear?**
 - Check `IAM_GLOSSARY.md` for term definitions
 - Review "Common Mistakes" in lab
-- Look at code samples in `/samples/`
+- Look at code samples in `../examples/`
 
 **Script not working?**
 - Check prerequisites (tools installed, accounts created)
@@ -213,5 +213,4 @@ Master those four concepts, and everything else builds on them.
 
 ---
 
-For questions or feedback: See CONTRIBUTING.md
-
+For questions or feedback: See [CONTRIBUTING.md](../CONTRIBUTING.md)

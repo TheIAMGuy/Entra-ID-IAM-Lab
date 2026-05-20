@@ -210,8 +210,6 @@ Comprehensive glossary of 100+ IAM terms, acronyms, and concepts used throughout
 
 **Adaptive Security**: Security posture that adapts based on risk
 
-**Defense Against Attacks**: Protections against common attack vectors (phishing, credential theft, etc.)
-
 ## Technology Stack Terms
 
 **On-Premises (On-Prem)**: Systems running in organization's own data center

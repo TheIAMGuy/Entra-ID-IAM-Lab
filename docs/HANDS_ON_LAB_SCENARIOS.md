@@ -98,8 +98,6 @@
 
 **Timeline**: 150 minutes
 
-**Scenario**: Annual access reviews to verify users have appropriate access
-
 **Steps**:
 1. Sync users and access from Azure AD
 2. Create access review campaign for Q1
@@ -126,8 +124,6 @@
 **Prerequisites**: Identity Protection enabled, risk scoring, incident response team
 
 **Timeline**: 120 minutes
-
-**Scenario**: John's account compromised from phishing. Detect, contain, investigate.
 
 **Steps**:
 1. Risk detection identifies impossible travel (NYC to Tokyo in 1 hour)
@@ -157,8 +153,6 @@
 
 **Timeline**: 120 minutes
 
-**Scenario**: Company extends on-prem AD to cloud, wants seamless SSO
-
 **Steps**:
 1. Install Azure AD Connect
 2. Configure directory sync (one-way: on-prem → cloud)
@@ -186,8 +180,6 @@
 
 **Timeline**: 150 minutes
 
-**Scenario**: Microservices (payment, inventory, shipping) need to authenticate to each other without long-lived secrets
-
 **Steps**:
 1. Deploy SPIFFE/SPIRE in Kubernetes
 2. Create trust domain
@@ -196,12 +188,6 @@
 5. Configure mTLS between services
 6. Test: Payment service calls inventory service with SVID
 7. Verify: Service-to-service auth via mTLS
-
-**Alternative (Azure)**:
-1. Enable workload identity on AKS
-2. Create Azure AD applications per service
-3. Configure pod identity mapping
-4. Test: Service authenticates with Azure resources
 
 **Validation**:
 - ☐ Each service has unique identity
@@ -220,8 +206,6 @@
 **Prerequisites**: Monitoring tools, reporting platform, Azure AD activity logs
 
 **Timeline**: 90 minutes
-
-**Scenario**: Build executive dashboard showing identity program health
 
 **Steps**:
 1. Define KPIs: Time to provision, MFA adoption, access review completion
@@ -254,13 +238,12 @@ Create test environment:
 6. Help desk ticketing system (optional)
 
 Estimated setup time: 30-45 minutes
+See [SANDBOX_SETUP.md](SANDBOX_SETUP.md) for detailed environment setup instructions.
 
 ## Lab Support Resources
 
-- Sample PowerShell scripts for automation
-- Terraform templates for infrastructure
-- Role-based test user templates
-- Audit log analysis queries
+- Sample automation scripts in `../examples/scripts/`
+- Sample policy configurations in `../examples/`
 - Troubleshooting guides per lab
 
 ## Certification Path

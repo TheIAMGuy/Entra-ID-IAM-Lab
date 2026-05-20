@@ -35,7 +35,7 @@ These guidelines ensure all 70-75 documents maintain consistent voice, tone, and
 ### Microsoft-Specific Terminology
 
 | Use | Instead Of |
-|-----|-----------|
+|-----|----------|
 | Microsoft Entra ID | Azure AD |
 | Conditional Access | Generic access control |
 | Security group | Distribution group |
