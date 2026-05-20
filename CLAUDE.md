@@ -8,45 +8,47 @@
 
 ## Repository Structure
 ```
-├── docs/                              # Primary numbered lab guides (01–07)
-│   ├── 01-environment-setup.md
-│   ├── 02-identity-provisioning-joiner.md
-│   ├── 03-group-based-access-control.md
-│   ├── 04-privileged-access-management.md
-│   ├── 05-application-access-management.md
-│   ├── 06-identity-lifecycle-mover-leaver.md
-│   └── 07-audit-logging-monitoring.md
-├── labs/                              # Supplementary lab exercises
-├── samples/                           # Code and configuration samples
+├── docs/                              # All lab guides and navigational documents
+│   ├── 00-iam-landscape-overview.md   # and 70+ numbered lab files (00–20 series)
+│   ├── BEGINNER_GUIDE.md              # Entry point for new IAM learners
+│   ├── CONCEPT_CROSS_REFERENCE.md     # Cross-links between concepts
+│   ├── CONCEPT_INDEX.md               # IAM concept reference index
+│   ├── FRAMEWORK_MAPPING.md           # Maps content to industry frameworks
+│   ├── FURTHER_READING.md             # External resources and references
+│   ├── HANDS_ON_LAB_SCENARIOS.md      # Scenario-based exercises
+│   ├── IAM_GLOSSARY.md                # Definitions of IAM terminology
+│   ├── LABS_INDEX.md                  # Master index of all lab content
+│   ├── QUICKSTART_LABS.md             # Fast-path for experienced readers
+│   └── SANDBOX_SETUP.md               # Tenant and environment prep
+├── examples/                          # Code and configuration samples
+│   ├── 01-access-policy-example.json
+│   ├── 02-role-based-access.json
+│   ├── 03-attribute-mapping.json
+│   └── scripts/                       # Automation and lab scripts
+│       ├── 01-joiner-automation-basic.sh
+│       ├── 02-mfa-enrollment.sh
+│       └── 06-conditional-access-policy.sh
 ├── diagrams/                          # Architecture and flow diagrams
+├── templates/                         # Document templates and style standards
+│   ├── CONTENT_TEMPLATE.md            # Required structure for every new lab doc
+│   └── WRITING_GUIDELINES.md          # Tone, sentence structure, formatting rules
 ├── README.md                          # Main entry point and navigation
-├── LABS_INDEX.md                      # Master index of all lab content
-├── BEGINNER_GUIDE.md                  # Entry point for new IAM learners
-├── QUICKSTART_LABS.md                 # Fast-path for experienced readers
-├── CONCEPT_INDEX.md                   # IAM concept reference index
-├── CONCEPT_CROSS_REFERENCE.md         # Cross-links between concepts
-├── FRAMEWORK_MAPPING.md               # Maps content to industry frameworks
-├── IAM_GLOSSARY.md                    # Definitions of IAM terminology
-├── HANDS_ON_LAB_SCENARIOS.md          # Scenario-based exercises
-├── SANDBOX_SETUP.md                   # Tenant and environment prep
-├── FURTHER_READING.md                 # External resources and references
-├── CONTENT_TEMPLATE.md                # Template for new lab documents
-├── WRITING_GUIDELINES.md              # Style and consistency standards
+├── CLAUDE.md                          # This file
 ├── CONTRIBUTING.md                    # Contribution instructions
 └── LICENSE                            # MIT License
 ```
 
 ## Writing Standards
-Always follow [WRITING_GUIDELINES.md](WRITING_GUIDELINES.md) when creating or editing content.
+Always follow [WRITING_GUIDELINES.md](templates/WRITING_GUIDELINES.md) when creating or editing content.
 
 ### Tone
 - Professional but approachable — technical accuracy without being academic
-- Active voice: "you will configure" not "configuration can be performed"
+- Active voice: “you will configure” not “configuration can be performed”
 - Direct language: avoid hedging
-- Empathetic: acknowledge complexity and explain the "why"
+- Empathetic: acknowledge complexity and explain the “why”
 
 ### Structure per Document
-Every lab guide must include all 11 sections defined in [CONTENT_TEMPLATE.md](CONTENT_TEMPLATE.md):
+Every lab guide must include all 11 sections defined in [CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md):
 1. Clear objective at the top
 2. Prerequisites / what you need
 3. Step-by-step instructions with Azure Portal screenshots
@@ -90,7 +92,7 @@ EXPECTED OUTPUT: [what the reader should see]
 ```
 
 ## Terminology Standards
-See [IAM_GLOSSARY.md](IAM_GLOSSARY.md) for full definitions.
+See [IAM_GLOSSARY.md](docs/IAM_GLOSSARY.md) for full definitions.
 
 | Use | Instead Of |
 |-----|------------|
@@ -100,22 +102,22 @@ See [IAM_GLOSSARY.md](IAM_GLOSSARY.md) for full definitions.
 | Service principal | Service account |
 | Managed identity | Direct credentials |
 
-**Acronym rule**: Define on first use (e.g., "Role-Based Access Control (RBAC)"), then use the acronym consistently throughout the document.
+**Acronym rule**: Define on first use (e.g., “Role-Based Access Control (RBAC)”), then use the acronym consistently throughout the document.
 
 ## Key Reference Files
-- **[CONTENT_TEMPLATE.md](CONTENT_TEMPLATE.md)** — Required structure for every new lab document; use this as a starting point
-- **[WRITING_GUIDELINES.md](WRITING_GUIDELINES.md)** — Tone, sentence structure, formatting rules
-- **[IAM_GLOSSARY.md](IAM_GLOSSARY.md)** — Authoritative definitions for all IAM terms
-- **[CONCEPT_INDEX.md](CONCEPT_INDEX.md)** — Find where concepts are covered across the lab
-- **[FRAMEWORK_MAPPING.md](FRAMEWORK_MAPPING.md)** — Maps lab content to SOC 2, ISO 27001, NIST, etc.
-- **[LABS_INDEX.md](LABS_INDEX.md)** — Master index; update this when adding new lab content
+- **[CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md)** — Required structure for every new lab document; use this as a starting point
+- **[WRITING_GUIDELINES.md](templates/WRITING_GUIDELINES.md)** — Tone, sentence structure, formatting rules
+- **[IAM_GLOSSARY.md](docs/IAM_GLOSSARY.md)** — Authoritative definitions for all IAM terms
+- **[CONCEPT_INDEX.md](docs/CONCEPT_INDEX.md)** — Find where concepts are covered across the lab
+- **[FRAMEWORK_MAPPING.md](docs/FRAMEWORK_MAPPING.md)** — Maps lab content to SOC 2, ISO 27001, NIST, etc.
+- **[LABS_INDEX.md](docs/LABS_INDEX.md)** — Master index; update this when adding new lab content
 
 ## Adding New Content
-1. Copy [CONTENT_TEMPLATE.md](CONTENT_TEMPLATE.md) as a starting point
+1. Copy [CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md) as a starting point
 2. Follow the 11-section structure (all sections required)
-3. Add entry to [LABS_INDEX.md](LABS_INDEX.md)
-4. Add cross-references in [CONCEPT_INDEX.md](CONCEPT_INDEX.md) for new IAM concepts introduced
-5. Update [FRAMEWORK_MAPPING.md](FRAMEWORK_MAPPING.md) if the content maps to a compliance framework
+3. Add entry to [LABS_INDEX.md](docs/LABS_INDEX.md)
+4. Add cross-references in [CONCEPT_INDEX.md](docs/CONCEPT_INDEX.md) for new IAM concepts introduced
+5. Update [FRAMEWORK_MAPPING.md](docs/FRAMEWORK_MAPPING.md) if the content maps to a compliance framework
 6. Verify all steps work within Entra ID free tier before submitting
 
 ## Quality Checklist (Before Every PR)
@@ -133,6 +135,6 @@ See [IAM_GLOSSARY.md](IAM_GLOSSARY.md) for full definitions.
 ## Repository Rules
 - License: MIT (all content freely shareable and adaptable)
 - All lab steps must work within Entra ID free tier limits
-- Enterprise-aligned patterns only — no shortcuts that wouldn't be acceptable in production
+- Enterprise-aligned patterns only — no shortcuts that wouldn’t be acceptable in production
 - Maintain production-design principles even when working around free-tier constraints
 - No breaking changes to existing numbered lab sequence without team discussion
