@@ -1,67 +1,140 @@
-# CLAUDE.md — Project Context for AI Agents
+# CLAUDE.md – Entra-ID-IAM-Lab Repository
 
-## What This Repo Is
+## Project Overview
+**Purpose**: Hands-on enterprise IAM learning lab using Microsoft Entra ID (formerly Azure Active Directory)  
+**Audience**: IAM practitioners from beginner to experienced identity architects  
+**Scope**: Full Joiner-Mover-Leaver (JML) identity lifecycle, group-based RBAC, privileged access management, enterprise application provisioning, and compliance audit logging  
+**Constraint**: All labs must remain compatible with the Microsoft Entra ID free tier
 
-A hands-on learning lab for enterprise Identity and Access Management (IAM) using
-Microsoft Entra ID. The goal is for IAM professionals to follow the labs step-by-step
-and build real, verifiable skills in their own Entra ID tenant.
+## Repository Structure
+```
+├── docs/                              # All lab guides and navigational documents
+│   ├── 00-iam-landscape-overview.md   # and 70+ numbered lab files (00–20 series)
+│   ├── BEGINNER_GUIDE.md              # Entry point for new IAM learners
+│   ├── CONCEPT_CROSS_REFERENCE.md     # Cross-links between concepts
+│   ├── CONCEPT_INDEX.md               # IAM concept reference index
+│   ├── FRAMEWORK_MAPPING.md           # Maps content to industry frameworks
+│   ├── FURTHER_READING.md             # External resources and references
+│   ├── HANDS_ON_LAB_SCENARIOS.md      # Scenario-based exercises
+│   ├── IAM_GLOSSARY.md                # Definitions of IAM terminology
+│   ├── LABS_INDEX.md                  # Master index of all lab content
+│   ├── QUICKSTART_LABS.md             # Fast-path for experienced readers
+│   └── SANDBOX_SETUP.md               # Tenant and environment prep
+├── examples/                          # Code and configuration samples
+│   ├── 01-access-policy-example.json
+│   ├── 02-role-based-access.json
+│   ├── 03-attribute-mapping.json
+│   └── scripts/                       # Automation and lab scripts
+│       ├── 01-joiner-automation-basic.sh
+│       ├── 02-mfa-enrollment.sh
+│       └── 06-conditional-access-policy.sh
+├── diagrams/                          # Architecture and flow diagrams
+├── templates/                         # Document templates and style standards
+│   ├── CONTENT_TEMPLATE.md            # Required structure for every new lab doc
+│   └── WRITING_GUIDELINES.md          # Tone, sentence structure, formatting rules
+├── README.md                          # Main entry point and navigation
+├── CLAUDE.md                          # This file
+├── CONTRIBUTING.md                    # Contribution instructions
+└── LICENSE                            # MIT License
+```
 
-This is a **learning path**, not a theoretical reference. Depth is valuable but secondary
-to having working, validated labs a user can follow from start to finish.
+## Writing Standards
+Always follow [WRITING_GUIDELINES.md](templates/WRITING_GUIDELINES.md) when creating or editing content.
 
-## Primary Audience
+### Tone
+- Professional but approachable — technical accuracy without being academic
+- Active voice: “you will configure” not “configuration can be performed”
+- Direct language: avoid hedging
+- Empathetic: acknowledge complexity and explain the “why”
 
-IAM professionals, identity architects, and security practitioners who want hands-on
-Entra ID experience. They have enterprise context but may not have used Entra ID before.
+### Structure per Document
+Every lab guide must include all 11 sections defined in [CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md):
+1. Clear objective at the top
+2. Prerequisites / what you need
+3. Step-by-step instructions with Azure Portal screenshots
+4. IAM concept explanations alongside each step
+5. Design rationale callouts
+6. Expected outputs (for code/CLI steps)
+7. Verification steps
+8. Troubleshooting notes
+9. Related documents (cross-references)
+10. Summary of what was accomplished
+11. Next steps
 
-## Lab Structure
+### Heading Hierarchy
+- `#` — Document title only (one per file)
+- `##` — Major sections
+- `###` — Subsections
+- `####` — Sub-subsections (use sparingly)
+- Never use `#####` or deeper
 
-| Path | Role |
-|---|---|
-| `docs/01-07-*` | **Primary lab walkthroughs** — the most important docs. Full, step-by-step guides the user follows in the Azure Portal to produce a verifiable result. |
-| `docs/08-20-*` | Extended reference material. Deeper theory, standards, governance. Valuable but secondary. |
-| `QUICKSTART_LABS.md` | Entry point for new users — do not restructure without good reason. |
-| `BEGINNER_GUIDE.md`, `LABS_INDEX.md`, `SANDBOX_SETUP.md` | Navigation aids — keep accurate and current. |
+### Sentence & Paragraph Rules
+- Target 15–20 words per sentence; hard max 30 words
+- One idea per sentence
+- Paragraphs: 2–4 sentences maximum
+- Use numbered lists for sequential steps, bullet lists for options
+- Maximum 2 levels of list nesting
 
-## What Not to Change
+### Callout Format
+```
+**[IMPORTANT]:** Critical information
+**[NOTE]:** Additional context
+**[TIP]:** Helpful shortcut
+**[WARNING]:** Something that could go wrong
+```
 
-- Do not restructure the README Table of Contents without validating all links still work.
-- Do not rename `docs/01-07-*` files — they are linked from README and navigation guides.
-- Do not remove CONTRIBUTING.md or LICENSE.
-- Do not add more reference docs (docs/08+) until docs/01-07 are fully validated.
-- Do not commit planning or scaffolding documents to the public branch.
-- Do not add Premium/P1/P2-required steps to the primary labs (01-07) without a clear callout.
+### Code Blocks
+Always include language identifier and expected output:
+```
+LANGUAGE: [PowerShell | Azure CLI | JSON | etc.]
+[code here]
+EXPECTED OUTPUT: [what the reader should see]
+```
 
-## Tone and Style
+## Terminology Standards
+See [IAM_GLOSSARY.md](docs/IAM_GLOSSARY.md) for full definitions.
 
-- Enterprise-aligned but accessible. Not academic.
-- Use second person: "you will", "navigate to", "you should see".
-- Steps must be specific and verifiable: state the expected result after each step.
-- Note when free-tier limits apply.
-- Note when a step may vary due to Azure Portal UI updates.
+| Use | Instead Of |
+|-----|------------|
+| Microsoft Entra ID | Azure AD |
+| Conditional Access | Generic access control |
+| Security group | Distribution group |
+| Service principal | Service account |
+| Managed identity | Direct credentials |
 
-## What Counts as Done for Labs 01–07
+**Acronym rule**: Define on first use (e.g., “Role-Based Access Control (RBAC)”), then use the acronym consistently throughout the document.
 
-A lab doc is complete when:
-1. Every step is fully described — enough detail to follow without outside help.
-2. Each step states the expected result so the user can verify it.
-3. The lab has been tested in a real Entra ID tenant.
-4. Screenshots or output examples are included for key steps.
+## Key Reference Files
+- **[CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md)** — Required structure for every new lab document; use this as a starting point
+- **[WRITING_GUIDELINES.md](templates/WRITING_GUIDELINES.md)** — Tone, sentence structure, formatting rules
+- **[IAM_GLOSSARY.md](docs/IAM_GLOSSARY.md)** — Authoritative definitions for all IAM terms
+- **[CONCEPT_INDEX.md](docs/CONCEPT_INDEX.md)** — Find where concepts are covered across the lab
+- **[FRAMEWORK_MAPPING.md](docs/FRAMEWORK_MAPPING.md)** — Maps lab content to SOC 2, ISO 27001, NIST, etc.
+- **[LABS_INDEX.md](docs/LABS_INDEX.md)** — Master index; update this when adding new lab content
 
-## Known Gaps (May 2026)
+## Adding New Content
+1. Copy [CONTENT_TEMPLATE.md](templates/CONTENT_TEMPLATE.md) as a starting point
+2. Follow the 11-section structure (all sections required)
+3. Add entry to [LABS_INDEX.md](docs/LABS_INDEX.md)
+4. Add cross-references in [CONCEPT_INDEX.md](docs/CONCEPT_INDEX.md) for new IAM concepts introduced
+5. Update [FRAMEWORK_MAPPING.md](docs/FRAMEWORK_MAPPING.md) if the content maps to a compliance framework
+6. Verify all steps work within Entra ID free tier before submitting
 
-- `docs/01-07` are fully expanded but not yet validated in a live Entra ID tenant. Treat as well-structured drafts until lab validation is complete.
-- Shell scripts in `labs/scripts/` have not been validated end-to-end. Treat as reference only.
-- No screenshots exist yet in any lab doc.
+## Quality Checklist (Before Every PR)
+- [ ] All 11 CONTENT_TEMPLATE sections present
+- [ ] Spell check and grammar verified
+- [ ] All links tested
+- [ ] Code examples include language identifier and expected output
+- [ ] Screenshots annotated with numbered captions, file size < 500 KB
+- [ ] Heading hierarchy follows H1–H4 only
+- [ ] No undefined acronyms
+- [ ] Terminology matches WRITING_GUIDELINES.md standards
+- [ ] LABS_INDEX.md updated if new content was added
+- [ ] Free-tier compatibility confirmed
 
-## AI Attribution
-
-This content was substantially generated with AI assistance (Claude). This is stated in
-CONTRIBUTING.md. Do not obscure this attribution. Do not add hallucinated portal navigation
-steps — if you are unsure of a UI path, mark it with a `> **Note:** Verify this step in
-the portal as the UI may have changed.` callout.
-
-## Security
-
-No credentials, tenant IDs, or secrets should ever be committed to this repo. Labs reference
-the user's own Entra ID tenant — no shared credentials exist or should exist.
+## Repository Rules
+- License: MIT (all content freely shareable and adaptable)
+- All lab steps must work within Entra ID free tier limits
+- Enterprise-aligned patterns only — no shortcuts that wouldn’t be acceptable in production
+- Maintain production-design principles even when working around free-tier constraints
+- No breaking changes to existing numbered lab sequence without team discussion
