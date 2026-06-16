@@ -1,0 +1,105 @@
+{
+  "description": "Claude Code settings for .claude/settings.json. Copy this to your project and customize.",
+  "_comment": "This is a template. Remove the 'description' and '_comment' fields in your actual settings.json",
+
+  "permissions": {
+    "description": "Control what tools Claude can use",
+    "bash": ["read", "write", "execute"],
+    "npm": ["execute"],
+    "git": ["execute"],
+    "docker": ["execute"],
+    "fs": ["read", "write"]
+  },
+
+  "model": "claude-opus-4-7",
+  "_modelComment": "Options: claude-opus-4-7 (most capable), claude-sonnet-4-6 (balanced), claude-haiku-4-5 (fast)",
+
+  "maxTokens": 4096,
+  "_maxTokensComment": "Max response length. Increase for longer outputs, decrease to save resources.",
+
+  "timeout": 45000,
+  "_timeoutComment": "Timeout in milliseconds. Increase for long-running tasks.",
+
+  "hooks": {
+    "description": "Automatically run commands in response to events",
+    "beforeCommit": "npm test -- --passWithNoTests",
+    "beforePush": "npm run build",
+    "onSave": "npm run lint -- --fix"
+  },
+  "_hooksComment": "Available hooks: beforeCommit, afterCommit, beforePush, onSave, onFileCreate, beforeDeploy",
+
+  "features": {
+    "description": "Enable/disable advanced features",
+    "promptCaching": true,
+    "extendedThinking": false,
+    "vision": false,
+    "agents": true
+  },
+
+  "environment": {
+    "description": "Environment variables (use .env file instead for secrets!)",
+    "NODE_ENV": "development"
+  },
+
+  "examples": {
+    "minimalProject": {
+      "description": "Minimal settings for a small project",
+      "permissions": {
+        "bash": ["read", "write", "execute"],
+        "npm": ["execute"],
+        "git": ["execute"],
+        "fs": ["read", "write"]
+      },
+      "model": "claude-sonnet-4-6",
+      "maxTokens": 4096
+    },
+
+    "enterpriseTeam": {
+      "description": "Settings for an enterprise team project",
+      "permissions": {
+        "bash": ["read", "write", "execute"],
+        "npm": ["execute"],
+        "git": ["execute"],
+        "fs": ["read", "write"]
+      },
+      "model": "claude-opus-4-7",
+      "maxTokens": 8192,
+      "hooks": {
+        "beforeCommit": "npm test && npm run lint",
+        "beforePush": "npm run build",
+        "onSave": "npm run lint -- --fix"
+      },
+      "features": {
+        "promptCaching": true,
+        "extendedThinking": true
+      }
+    },
+
+    "performanceFocused": {
+      "description": "Settings optimized for fast responses",
+      "model": "claude-haiku-4-5",
+      "maxTokens": 2048,
+      "timeout": 30000,
+      "features": {
+        "promptCaching": true,
+        "extendedThinking": false
+      }
+    },
+
+    "researchMode": {
+      "description": "Settings for deep analysis and thinking",
+      "model": "claude-opus-4-7",
+      "maxTokens": 8192,
+      "features": {
+        "promptCaching": true,
+        "extendedThinking": true
+      }
+    }
+  },
+
+  "customization": {
+    "theme": "auto",
+    "fontSize": 12,
+    "fontFamily": "Monospace"
+  }
+}

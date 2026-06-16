@@ -1,0 +1,327 @@
+# CLAUDE.local.md Template – Personal Project Instructions
+
+This is a template for creating a CLAUDE.local.md file for your personal preferences on this project. This file is NOT committed to the repository (add to .gitignore). Use it for your personal preferences and customizations that don't apply to the whole team.
+
+---
+
+## My Workflow Preferences
+
+### How I Prefer Claude to Assist
+
+**Communication Style:**
+- [ ] Concise explanations (I prefer brief over detailed)
+- [ ] Detailed explanations (I prefer context and background)
+- [ ] Code examples first, explanation after
+- [ ] Explanation first, then code examples
+
+**Assistance Level:**
+- [ ] Just write the code
+- [ ] Explain as you write
+- [ ] Ask me questions first before implementing
+- [ ] Suggest multiple approaches and let me decide
+
+**Confidence Level:**
+- [ ] I'm experienced with this tech stack
+- [ ] I'm new to [specific technology]
+- [ ] I prefer best practices even if they take longer
+- [ ] I prefer "good enough" solutions that ship quickly
+
+---
+
+## My Personal Standards (This Project Only)
+
+### Code Style Overrides
+[Add any personal preferences that override the main CLAUDE.md]
+
+**Example:**
+- I prefer more comments than the team standard (helpful for learning)
+- I like verbose variable names (makes code clearer to me)
+- I want detailed commit messages with context
+
+### Performance Preferences
+- [ ] Skip tests locally if they take >30 seconds
+- [ ] Always run full test suite
+- [ ] Only run tests for changed files
+
+### Notifications
+- [ ] Tell me if syncing >5 files
+- [ ] Tell me before doing anything destructive (delete, force-push)
+- [ ] Warn if making breaking changes to APIs
+- [ ] Don't notify me about minor changes
+
+---
+
+## My Development Workflow
+
+### Before I Commit
+Add any personal checks beyond the team standards:
+
+- [ ] Run [specific command] to verify
+- [ ] Manual test in [specific environment]
+- [ ] Update [specific documentation]
+- [ ] Double-check [specific thing]
+
+### How I Structure Work
+- [ ] I work on small, focused changes
+- [ ] I prefer large, bundled changes
+- [ ] I do test-driven development (tests first)
+- [ ] I write code then tests
+
+### My Time Constraints
+- [ ] I work in focused 2-hour blocks (remind me after)
+- [ ] I need long sessions to get deep (don't interrupt)
+- [ ] I work on this project part-time
+- [ ] I work on this project full-time
+
+---
+
+## Things I Want Claude to Remember About Me
+
+### My Experience Level
+
+**Experienced with:**
+- TypeScript / JavaScript
+- React / Node.js
+- PostgreSQL
+- [Other technologies I know]
+
+**New to / Learning:**
+- Docker / Kubernetes
+- Go
+- GraphQL
+- [Technologies I'm learning]
+
+**Warn me about:**
+- Common pitfalls in [area I'm weak in]
+- Performance issues in [specific area]
+- Security implications (I sometimes miss these)
+
+### My Preferences
+
+**Architectural decisions:**
+- [ ] Always ask me before major changes
+- [ ] Suggest changes but let me decide
+- [ ] Go ahead and refactor if it improves code
+
+**Code generation:**
+- [ ] Always explain what you generated
+- [ ] Don't auto-generate documentation (I'll write it)
+- [ ] Suggest comments in complex code
+
+**File organization:**
+- [ ] Organize files before I ask
+- [ ] Ask me first
+- [ ] Leave it as I created it
+
+---
+
+## Performance Optimization Preferences
+
+### Testing
+- [ ] Always run full test suite locally
+- [ ] Run tests only on changed files
+- [ ] Skip slow tests locally (>30s)
+- [ ] Don't run tests unless I ask
+
+### Build Performance
+- [ ] Optimize build times (I have slow machine)
+- [ ] Don't worry about build time (I have fast machine)
+- [ ] Skip build for local dev
+
+### Context Usage
+- [ ] Include all relevant files (I have enough context window)
+- [ ] Be selective with file inclusion (save context)
+- [ ] Reference files by path if they're long
+
+---
+
+## My Review Standards
+
+### How I Want Code Reviewed
+
+- [ ] Suggest improvements, but don't block
+- [ ] Only point out critical issues
+- [ ] Be thorough - catch everything
+- [ ] Help me learn best practices
+
+**Areas to focus on:**
+- Performance implications
+- Security issues
+- Testing coverage
+- Code clarity
+
+**Areas to be lenient about:**
+- Style (I handle linting)
+- Documentation (I'll write it)
+- Minor refactoring
+
+---
+
+## Integration Points
+
+### CI/CD Pipeline
+
+Skip these hooks locally:
+- [ ] beforeCommit (I handle testing myself)
+- [ ] beforePush (I have slow internet)
+- [ ] onSave (Too noisy)
+
+Run these hooks:
+- [ ] afterCommit (Notify me if it fails)
+- [ ] beforePush (Verify everything before I push)
+
+### Local Development Commands
+
+Commands I run frequently (help me with these):
+```bash
+npm run dev      # Start dev server
+npm test         # Run tests
+npm run lint     # Check linting
+npm run build    # Build for production
+```
+
+Commands I rarely use:
+- npm run migrate (I don't usually modify schema)
+- npm run deploy (CI/CD handles this)
+
+---
+
+## Things NOT to Do (Personal Rules)
+
+- [ ] Don't suggest major refactors (I have limited time)
+- [ ] Don't auto-commit changes (I review everything first)
+- [ ] Don't create new files without asking (I'll organize structure)
+- [ ] Don't run deploy commands (I'll do this manually)
+- [ ] Don't modify configuration files without asking
+
+---
+
+## Time-Based Notes
+
+### When You See Me Working Late
+- Don't suggest major refactoring (I'm probably in a hurry)
+- Keep suggestions focused and brief
+- Don't introduce new dependencies
+
+### On Friday Afternoons
+- Don't suggest risky changes (they'll sit over the weekend)
+- Focus on quick wins
+- Highlight anything that needs attention Monday
+
+### After I Haven't Worked on This for a While
+- Start by asking what I worked on last
+- Point out what's changed in the codebase
+- Remind me of the current task
+
+---
+
+## Questions I Ask Frequently
+
+[Keep a list of things you find yourself asking Claude repeatedly]
+
+**Example:**
+- "Where do we handle authentication?"
+- "How do we structure API responses?"
+- "What's our error handling pattern?"
+- "Where should I put this new component?"
+
+Claude can learn to anticipate these and provide answers faster.
+
+---
+
+## Experiment Preferences
+
+### Testing Experimental Code
+
+- [ ] I'll test new code locally in a separate branch
+- [ ] I commit experimental code to a `wip/*` branch
+- [ ] I want to test in production (staging first, always)
+
+### Breaking Changes
+
+- [ ] Warn me before any breaking changes
+- [ ] Ask for approval
+- [ ] Go ahead if it improves the system
+
+---
+
+## Documentation Preferences
+
+### Type of Documentation
+
+- [ ] Long-form documentation (I read thoroughly)
+- [ ] Brief comments in code (I prefer code clarity)
+- [ ] Well-structured guides (I like organized docs)
+
+### When to Document
+
+- [ ] After you write code (generate docs)
+- [ ] Before we commit (document as we go)
+- [ ] Only for major features (not minor changes)
+
+---
+
+## Template Customization Instructions
+
+1. Copy this file to your project root as `CLAUDE.local.md`
+2. Check the boxes that apply to you
+3. Fill in personalized sections
+4. Delete sections you don't need
+5. Add `.claude.local.md` to `.gitignore` (don't commit this!)
+6. Share your project's CLAUDE.md with teammates (not this file)
+
+---
+
+## Examples for Your CLAUDE.local.md
+
+### Example 1: Quick-Moving Startup Founder
+```markdown
+## My Preferences
+
+I'm solo founding a SaaS startup and need to move fast.
+
+**Communication:** Concise, code-first
+**Code Quality:** "Good enough" beats "perfect"
+**Refactoring:** Only if it unlocks new features
+**Testing:** Ship first, test thoroughly after
+```
+
+### Example 2: Enterprise Team Member
+```markdown
+## My Preferences
+
+I work on a large team with strict standards.
+
+**Communication:** Explain thoroughly, ask questions
+**Code Quality:** Follow all standards, 80% coverage minimum
+**Refactoring:** Always approve with team first
+**Testing:** Every commit must pass full test suite
+```
+
+### Example 3: Learning New Technology
+```markdown
+## My Preferences
+
+I'm learning React for the first time.
+
+**Communication:** Explain the "why" behind patterns
+**Code Examples:** Show best practices, not just working code
+**Learning:** Help me understand React thinking
+**Experimentation:** Encourage trying different approaches
+```
+
+---
+
+## Remember
+
+This file is **completely personal**. Don't share it with your team. It's where you:
+- Express how you like to work
+- Set boundaries for what Claude does
+- Optimize your personal workflow
+- Tell Claude about your learning goals
+
+There's no wrong way to set this up. Adjust it as you discover what works best for you!
+
+---
+
+**Ready to customize?** Copy this template to `CLAUDE.local.md` and make it yours! 🎯

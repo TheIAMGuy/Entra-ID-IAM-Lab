@@ -1,0 +1,291 @@
+# CLAUDE.md Template – Project-Level Instructions
+
+This is a template for creating a CLAUDE.md file for your project. Copy this file, customize it for your project, and commit it to your repository.
+
+---
+
+## Project Overview
+
+**Project Name:** [Your Project Name]
+**Purpose:** [What does this project do?]
+**Tech Stack:** [Languages, frameworks, databases]
+**Team Size:** [Number of people working on this]
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/          # [Describe what goes here]
+├── services/            # [Describe what goes here]
+├── utils/               # [Describe what goes here]
+└── index.js             # [Main entry point]
+
+tests/
+└── [Mirror of src structure with .test.js files]
+
+docs/
+├── architecture.md      # System design and how it all fits together
+├── setup.md             # How to set up locally
+└── api.md               # API documentation
+```
+
+---
+
+## Important Files
+
+Reference critical files using `@filename`:
+
+- `@package.json` – Dependencies and scripts
+- `@src/index.js` – Application entry point
+- `@docs/architecture.md` – System design overview
+
+When Claude needs to understand these files, include them in context.
+
+---
+
+## Coding Standards
+
+### Language & Tools
+- **Language:** [TypeScript / JavaScript / Python / Go / etc.]
+- **Package Manager:** [npm / yarn / pip / cargo / etc.]
+- **Testing:** [Jest / Mocha / pytest / etc.]
+- **Linting:** [ESLint / Prettier / Black / etc.]
+
+### Code Style
+- [Specify naming conventions: camelCase, PascalCase, UPPER_SNAKE_CASE]
+- [Specify indentation: 2 spaces, 4 spaces, tabs]
+- [Specify line length limit if any: 80, 100, 120 chars]
+- [Any other style preferences]
+
+### Comments
+- Comment the "why", not the "what"
+- Only comment complex algorithms or non-obvious decisions
+- Variable names should be self-documenting
+
+### Functions
+- Keep functions small (under 20 lines when possible)
+- Each function should do one thing
+- Include error handling for unexpected inputs
+
+---
+
+## Testing Requirements
+
+### Test Coverage
+- Minimum 70% code coverage (adjust as needed)
+- Every function must have at least one test
+- Include happy path and error cases
+
+### Test Structure
+Use Arrange-Act-Assert pattern:
+
+```javascript
+it('does the expected thing', () => {
+  // Arrange: Set up test data
+  const input = { /* test data */ };
+
+  // Act: Do the thing
+  const result = myFunction(input);
+
+  // Assert: Verify the result
+  expect(result).toBe(expected);
+});
+```
+
+### Running Tests
+```bash
+npm test              # Run all tests
+npm test -- watch    # Run tests in watch mode
+npm test -- coverage # Generate coverage report
+```
+
+---
+
+## Common Commands
+
+| Command | Purpose |
+|---------|---------|
+| `npm install` | Install dependencies |
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm test` | Run tests |
+| `npm run lint` | Check code style |
+| `npm run lint -- --fix` | Fix linting errors automatically |
+| `npm run deploy` | Deploy to production |
+
+---
+
+## Git Workflow
+
+### Branch Naming
+Use descriptive names with type prefix:
+- `feature/add-user-authentication` – New features
+- `bugfix/fix-login-crash` – Bug fixes
+- `docs/update-readme` – Documentation
+- `refactor/simplify-api` – Refactoring
+
+### Commit Format
+```
+[TYPE] Short description
+
+Optional longer description if needed.
+
+Examples:
+[FEATURE] Add JWT authentication to API
+[BUGFIX] Fix race condition in database query
+[DOCS] Update API documentation
+```
+
+### Before Committing
+- [ ] Run `npm test` – All tests pass
+- [ ] Run `npm run lint` – No linting errors
+- [ ] Update CHANGELOG.md if applicable
+- [ ] Update documentation if behavior changed
+
+### PR/Merge Checklist
+- [ ] Tests pass locally
+- [ ] Code is reviewed by at least one person
+- [ ] Documentation updated
+- [ ] No secrets or sensitive data in code
+- [ ] Commit messages follow [TYPE] format
+
+---
+
+## Architecture Overview
+
+### High-Level System Design
+[Describe how the system works at a high level. Who talks to whom? What are the main components?]
+
+**Example:**
+- Frontend (React) → REST API (Node.js) → PostgreSQL Database
+- Redis cache sits in front of database
+- Background jobs run via Bull queue
+
+### Key Design Decisions
+[Document why you chose certain tools or patterns]
+
+**Example:**
+- Using PostgreSQL instead of MongoDB for strict schema enforcement
+- Using Redis for sessions because of fast in-memory access
+- Using Bull for async jobs because of reliability and monitoring
+
+---
+
+## Database (if applicable)
+
+### Schema
+[Point to schema file or describe key tables]
+
+Key Tables:
+- `users` – User accounts and profiles
+- `posts` – Blog posts and content
+- `comments` – Comments on posts
+
+Migrations:
+- Run migrations on startup with `npm run migrate`
+- Never commit code that depends on a migration before it's run
+- Always test migrations before deploying
+
+---
+
+## API Documentation (if applicable)
+
+### Base URL
+- Development: `http://localhost:3000/api`
+- Production: `https://api.example.com/v1`
+
+### Authentication
+- Uses JWT tokens
+- Token stored in `Authorization: Bearer <token>` header
+- Tokens expire after 24 hours
+
+### Key Endpoints
+- `POST /auth/signup` – Register new user
+- `POST /auth/login` – Login and get token
+- `GET /users/:id` – Get user profile
+- `POST /posts` – Create new post
+
+[Link to full API docs or add more details]
+
+---
+
+## Deployment
+
+### Environment Variables
+Create a `.env` file based on `.env.example`:
+
+```bash
+cp .env.example .env
+# Edit .env and add your actual values
+```
+
+Never commit `.env` to the repository. Use `.env.example` as the template.
+
+### Deployment Steps
+
+**Staging:**
+```bash
+npm run deploy:staging
+```
+
+**Production:**
+```bash
+npm run deploy
+```
+
+### Before Deploying
+- [ ] All tests pass
+- [ ] Code reviewed and approved
+- [ ] Environment variables configured
+- [ ] Database migrations run
+- [ ] Recent backups exist
+
+---
+
+## Common Gotchas
+
+### [Issue 1]
+[What is the issue? Why does it happen? How do we avoid it?]
+
+**Example:**
+Database migrations: Always run migrations before deploying code that depends on new columns. If you deploy code first and migration fails, the app will crash. Do: Deploy migration → deploy code.
+
+### [Issue 2]
+[Continue with other common gotchas specific to your project]
+
+---
+
+## Useful Resources
+
+- [Link to API documentation]
+- [Link to architecture docs]
+- [Link to style guide]
+- [Link to team wiki or knowledge base]
+
+---
+
+## Contribution Guidelines
+
+1. Create a feature branch: `git checkout -b feature/your-feature`
+2. Make changes and write tests
+3. Commit with proper message format: `[FEATURE] description`
+4. Push and create a pull request
+5. Wait for code review and approval
+6. Merge to main
+
+See `CONTRIBUTING.md` for more details.
+
+---
+
+## Questions or Suggestions?
+
+If you find this guide unclear or outdated:
+- Open an issue with feedback
+- Submit a PR with improvements
+- Discuss with the team in [Slack/Discord/etc.]
+
+---
+
+**Happy coding!** 🚀
