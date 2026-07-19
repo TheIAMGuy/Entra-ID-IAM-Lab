@@ -1,0 +1,94 @@
+{
+  "displayName": "TEMPLATE: [Description]",
+  "state": "disabled",
+  "description": "Template for Conditional Access policies. Change state to 'enabledForReportingButNotEnforced' for testing.",
+  "conditions": {
+    "signInRiskLevels": [
+      "high",
+      "medium"
+    ],
+    "clientAppTypes": [
+      "all"
+    ],
+    "applications": {
+      "includeApplications": [
+        "All"
+      ],
+      "excludeApplications": [],
+      "includeUserActions": [],
+      "excludeGuestUserActions": []
+    },
+    "users": {
+      "includeUsers": [
+        "All"
+      ],
+      "excludeUsers": [
+        "GuestUser"
+      ],
+      "includeGroups": [],
+      "excludeGroups": [
+        "[Break-glass-admin-group-id]"
+      ],
+      "includeRoles": [],
+      "excludeRoles": [
+        "[Global-admin-role-id]"
+      ]
+    },
+    "platforms": {
+      "includePlatforms": [
+        "all"
+      ],
+      "excludePlatforms": []
+    },
+    "locations": {
+      "includeLocations": [
+        "All"
+      ],
+      "excludeLocations": [
+        "Intune-managed"
+      ]
+    },
+    "deviceStates": {
+      "includeDeviceStates": [
+        "All"
+      ],
+      "excludeDeviceStates": [
+        "Compliant"
+      ]
+    }
+  },
+  "grantControls": {
+    "operator": "OR",
+    "builtInControls": [
+      "mfa",
+      "compliantDevice",
+      "domainJoinedDevice"
+    ],
+    "customAuthenticationFactors": [],
+    "termsOfUse": [],
+    "authenticatedSessions": {
+      "isEnabled": true,
+      "sessionControlMode": "enforced",
+      "persistentBrowserMode": "never"
+    }
+  },
+  "sessionControls": {
+    "applicationEnforcedRestrictions": {
+      "isEnabled": false
+    },
+    "persistentBrowser": {
+      "isEnabled": false,
+      "mode": "never"
+    },
+    "signInFrequency": {
+      "isEnabled": false,
+      "type": "days",
+      "value": 1
+    },
+    "cloudAppSecurity": {
+      "isEnabled": false,
+      "cloudAppSecurityType": "blockDownloads"
+    }
+  },
+  "notes": "CUSTOMIZE THIS TEMPLATE: Update displayName, conditions, and grantControls based on your security requirements. Test in report-only mode before enabling."
+}

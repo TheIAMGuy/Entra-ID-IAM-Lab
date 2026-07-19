@@ -28,6 +28,21 @@ Identity Governance Administration (IGA) platforms automate access governance: p
 - Implement access reviews and certifications
 - Configure risk and compliance reporting
 - Design IGA governance program
+- Extend governance to non-human identities (workloads, applications)
+
+## ⚠️ Non-Human Identity (NHI) Governance - Emerging Critical Practice
+
+**New in 2024-2025:** Modern IGA must include non-human identities (service principals, managed identities, workload identities, machine credentials). A [2025 Omada survey](https://www.lumos.com/identity-matters/identity-governance/identity-governance-automation) found that governance programs ignoring NHI are "structurally incomplete."
+
+**What this means:**
+- Service principals have exploded in scale (thousands per organization)
+- Most organizations have 30-50% entitlements in disconnected systems (coverage gap)
+- Non-human identity privilege exposure rivals human privilege exposure
+- Your governance program MUST include NHI in access reviews, risk scoring, and certifications
+
+**In this Phase 4 context:** When configuring access reviews, include non-human identities: service principals, managed identities, API keys, CI/CD credentials. A complete IGA program reviews humans AND workloads.
+
+---
 
 ## IGA Core Concepts
 

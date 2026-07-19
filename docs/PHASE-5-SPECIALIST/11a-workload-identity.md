@@ -75,15 +75,39 @@ Application requests new token (repeat)
 
 ## Workload Identity Models
 
+### ⭐ Model 0: Workload Identity Federation (RECOMMENDED - Modern Approach)
+
+**Workload Identity Federation** (OIDC) is the newest and most secure approach for non-Azure workloads. Instead of storing secrets, your workload exchanges an external identity token (from GitHub, GitLab, Google Cloud) for an Entra ID token. **No secrets stored anywhere.**
+
+**Use cases:**
+- GitHub Actions CI/CD pipelines
+- GitLab CI/CD deployments
+- Google Cloud workloads
+- On-premises services with OIDC support
+- Multi-cloud environments
+
+**Why choose this:** [Microsoft recommends federation as the best practice](https://learn.microsoft.com/en-us/entra/workload-id/workload-identity-federation) to eliminate credential management entirely. If your workload supports OIDC (GitHub, GitLab, Google, etc.), use federation instead of secrets.
+
+**Implementation outline:**
+```
+1. Configure OIDC issuer in external system (GitHub, GitLab)
+2. Create service principal in Entra ID
+3. Set up federation trust (issuer + subject audience)
+4. Workload exchanges external token for Entra ID token
+5. No secrets stored; automatic token rotation
+```
+
+---
+
 ### Model 1: Service Principal (Application Registration)
 
-Service Principal represents an application that needs cloud access.
+Service Principal represents an application that needs cloud access. **Use this only if federation is not available.**
 
 **Use cases:**
 - Web application accessing database
 - API calling Microsoft Graph
 - Daemon job processing files
-- Third-party SaaS integration
+- Third-party SaaS (without OIDC support)
 
 **Implementation:**
 
@@ -93,9 +117,9 @@ Service Principal represents an application that needs cloud access.
    Client ID: guid
    Tenant ID: guid
 
-2. Create credential (certificate preferred, secret acceptable)
-   Certificate: X.509 cert (auto-rotated)
-   OR Secret: Long-lived but documented in vault
+2. Create credential (AVOID: Long-lived secrets discouraged)
+   ⭐ RECOMMENDED: Certificate (auto-rotated)
+   ❌ LEGACY: Secret (long-lived, must be rotated manually)
 
 3. Grant permissions (API permissions, Azure RBAC)
    Example: Read access to Finance database
@@ -103,6 +127,8 @@ Service Principal represents an application that needs cloud access.
 4. Application uses credentials to request token
    Token valid 1 hour, auto-renewed
 ```
+
+**⚠️ Note:** Secrets without federation are being phased out. If the workload supports OIDC, migrate to Workload Identity Federation instead.
 
 ### Model 2: Managed Identity (Azure Resources)
 

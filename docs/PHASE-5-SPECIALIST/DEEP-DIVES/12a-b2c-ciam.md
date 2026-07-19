@@ -18,9 +18,15 @@ learning_objectives:
 
 # B2C and CIAM: Customer Identity and Access Management
 
+## ⚠️ CRITICAL UPDATE: Azure AD B2C → Entra External ID for Customers
+
+**Effective May 1, 2025**, Microsoft is ending sales of Azure AD B2C. Existing customers can continue through at least 2030, but new deployments should use **[Microsoft Entra External ID for customers](https://learn.microsoft.com/en-us/entra/external-id/customers/overview-customers-ciam)** instead. This lab teaches Azure AD B2C concepts (which apply to Entra External ID), but be aware: **new features go to Entra External ID only**; B2C receives no further development.
+
+---
+
 ## Introduction
 
-Employee identity (B2B) focuses on access control within organizations. Customer identity (B2C) focuses on billions of consumer sign-ups, sign-ins, and user experiences. When you sign into Netflix with your Google account, or create a Spotify account with your email, that's B2C. Customer Identity and Access Management (CIAM) platforms handle the unique requirements: frictionless sign-up, self-service profiles, social identity integration, privacy compliance, and scale. This document explains B2C concepts, Azure AD B2C implementation, and CIAM best practices.
+Employee identity (B2B) focuses on access control within organizations. Customer identity (B2C) focuses on billions of consumer sign-ups, sign-ins, and user experiences. When you sign into Netflix with your Google account, or create a Spotify account with your email, that's B2C. Customer Identity and Access Management (CIAM) platforms handle the unique requirements: frictionless sign-up, self-service profiles, social identity integration, privacy compliance, and scale. This document explains B2C/CIAM concepts, implementation patterns, and best practices. The core concepts apply to both Azure AD B2C (legacy) and Microsoft Entra External ID for customers (recommended for new projects).
 
 **Learning Objectives:**
 - Understand B2C vs. B2B vs. employee identity

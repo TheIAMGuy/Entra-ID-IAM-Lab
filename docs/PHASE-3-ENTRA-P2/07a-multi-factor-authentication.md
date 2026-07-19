@@ -18,9 +18,17 @@ learning_objectives:
 
 # Multi-Factor Authentication: Implementation & Best Practices
 
+## ⚠️ CRITICAL DEADLINE: Microsoft Mandating MFA (October 1, 2025)
+
+**Starting October 1, 2025**, Microsoft is enforcing mandatory MFA for ALL sign-ins to Azure, Microsoft 365, and related services. Exception: use a stronger method like passwordless (FIDO2 security keys, Windows Hello for Business) or passkeys instead of MFA. Organizations with complex environments can request extension to **July 1, 2026**. This is not optional—plan your MFA rollout now.
+
+**Why this matters for this lab:** By the time you complete Phase 3, this deadline will be in effect. Build your MFA strategy for production use.
+
+---
+
 ## Introduction
 
-Multi-factor authentication (MFA) is no longer optional—it's essential. According to Microsoft security research, accounts with MFA enabled are 99.9% less likely to be compromised. Yet many organizations struggle with rollout: users resist, help desk tickets spike, and deployments stall. This document shows you how to implement MFA strategically, minimize friction, and sustain adoption.
+Multi-factor authentication (MFA) is no longer optional—it's essential. According to [Microsoft security research](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication), accounts with MFA enabled are 99.9% less likely to be compromised. Yet many organizations struggle with rollout: users resist, help desk tickets spike, and deployments stall. This document shows you how to implement MFA strategically, minimize friction, and sustain adoption, while meeting the October 2025 mandatory enforcement deadline.
 
 **Learning Objectives:**
 - Understand the full spectrum of MFA methods (app-based, SMS, biometric, hardware tokens)
