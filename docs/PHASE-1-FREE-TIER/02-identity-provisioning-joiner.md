@@ -38,8 +38,8 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 
 ### 1. Navigate to Users
 
-1. In the Azure Portal, navigate to **Microsoft Entra ID**.
-2. In the left sidebar under **Manage**, select **Users**.
+1. Navigate to **Microsoft Entra ID**.
+2. In the left sidebar under **Entra ID**, select **Users**.
 3. Click **New user** → **Create new user**.
 
 ---
@@ -49,7 +49,7 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 **Basics tab:**
 - **User principal name:** `john.hr@[yourdomain].onmicrosoft.com`
 - **Display name:** `John HR`
-- **Password:** Select **Auto-generate password** and note the value shown
+- **Password:** Untick **Auto-generate password**, you will create a password for each user, or one password for all since this is a home lab.
 
 **Properties tab:**
 - **First name:** John
