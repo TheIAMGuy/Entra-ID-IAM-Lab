@@ -55,19 +55,19 @@ Scroll through recent entries. You should see events corresponding to actions in
 
 ### 3. Filter by Target User
 
-Trace all activity related to **John HR**:
+Trace all activity related to **John Smith**:
 
 1. Click **Add filters** above the log list.
 2. Select **Target** from the filter options.
-3. Enter **John HR** and apply.
+3. Enter **John Smith** and apply.
 
-> **Expected result:** The filtered log shows all actions where John HR was the target — his creation, group assignments, profile update, group removal, and application reassignment. This is the complete lifecycle trace for one identity, from Joiner through Mover.
+> **Expected result:** The filtered log shows all actions where John Smith was the target — his creation, group assignments, profile update, group removal, and application reassignment. This is the complete lifecycle trace for one identity, from Joiner through Mover.
 
 ---
 
 ### 4. Examine a Single Log Entry in Detail
 
-1. Click on a **"Update user"** entry (e.g., John HR's department change).
+1. Click on a **"Update user"** entry (e.g., John Smith's department change).
 2. Review the detail panel:
 
 | Field | What it tells you |
@@ -78,7 +78,7 @@ Trace all activity related to **John HR**:
 | **Modified properties** | Old value → New value |
 | **Date** | When the change occurred |
 
-> **Expected result:** The "Modified properties" section on John HR's department update shows the old value (HR) and new value (Finance). This is what makes audit logs useful for investigations — not just that something changed, but what it changed from and to, and who made the change.
+> **Expected result:** The "Modified properties" section on John Smith's department update shows the old value (HR) and new value (Finance). This is what makes audit logs useful for investigations — not just that something changed, but what it changed from and to, and who made the change.
 
 ---
 

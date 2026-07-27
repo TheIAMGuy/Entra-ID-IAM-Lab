@@ -19,8 +19,8 @@ Ensure you have completed [Lab 03 — Group-Based Access Control](03-group-based
 Not all users need the same level of access to the directory itself. Privileged Access Management (PAM) controls who can administer the identity system — and scopes that access as narrowly as possible.
 
 In this lab you will assign two roles:
-- **Alice IT** receives **User Administrator** — she can manage user accounts, appropriate for an IT administrator.
-- **Bob Finance** receives **Global Reader** — he can read all directory data for governance oversight, but cannot modify anything.
+- **Alice Smith** receives **User Administrator** — she can manage user accounts, appropriate for an IT administrator.
+- **Bob Glasgow** receives **Global Reader** — he can read all directory data for governance oversight, but cannot modify anything.
 
 No user will receive **Global Administrator**. In production, Global Admin is a break-glass account — credentials stored in a vault, activated only during emergencies, with all activations logged and alerted.
 
@@ -30,8 +30,8 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 
 | User | Role | Reason |
 |---|---|---|
-| Alice IT | User Administrator | IT manages user provisioning — scoped to user management only |
-| Bob Finance | Global Reader | Finance needs directory visibility for governance — read-only, no modification rights |
+| Alice Smith | User Administrator | IT manages user provisioning — scoped to user management only |
+| Bob Glasgow | Global Reader | Finance needs directory visibility for governance — read-only, no modification rights |
 
 ---
 
@@ -46,33 +46,33 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 
 ---
 
-### 2. Assign User Administrator to Alice IT
+### 2. Assign User Administrator to Alice Smith
 
 1. In the search bar, type **User Administrator** and select the role.
 2. Click **Add assignments**.
-3. Search for **Alice IT**, select her, and click **Add**.
+3. Search for **Alice Smith**, select her, and click **Add**.
 
-> **Expected result:** Alice IT appears in the assignments list for the User Administrator role, showing as **Active**.
+> **Expected result:** Alice Smith appears in the assignments list for the User Administrator role, showing as **Active**.
 
 ---
 
-### 3. Assign Global Reader to Bob Finance
+### 3. Assign Global Reader to Bob Glasgow
 
 1. Navigate back to **Roles and administrators** (breadcrumb at the top, or left sidebar).
 2. Search for **Global Reader** and select it.
 3. Click **Add assignments**.
-4. Search for **Bob Finance**, select him, and click **Add**.
+4. Search for **Bob Glasgow**, select him, and click **Add**.
 
-> **Expected result:** Bob Finance appears in the assignments list for the Global Reader role.
+> **Expected result:** Bob Glasgow appears in the assignments list for the Global Reader role.
 
 ---
 
 ### 4. Verify Assignments from User Profiles
 
-1. Navigate to **Users** and open **Alice IT**.
+1. Navigate to **Users** and open **Alice Smith**.
 2. In the left sidebar under **Manage**, select **Assigned roles**.
 3. Confirm **User Administrator** is listed.
-4. Repeat for **Bob Finance** — confirm **Global Reader** is listed.
+4. Repeat for **Bob Glasgow** — confirm **Global Reader** is listed.
 
 > **Expected result:** Each user shows exactly one assigned role. No other roles should be present.
 

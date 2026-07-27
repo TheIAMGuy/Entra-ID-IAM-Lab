@@ -23,34 +23,34 @@ The **Mover** and **Leaver** phases complete the Joiner-Mover-Leaver (JML) lifec
 - **Leaver:** An employee leaves the organisation. Their account must be disabled immediately — this revokes authentication access across all systems simultaneously. Cleanup of groups and applications follows. The account is disabled, not deleted, to preserve the audit trail.
 
 In this lab:
-- **John HR** transfers from HR to Finance
-- **Eve Intern** is offboarded at the end of her internship
+- **John Smith** transfers from HR to Finance
+- **Eve Smith** is offboarded at the end of her internship
 
 ---
 
-## Part A — Mover: John HR Transfers to Finance
+## Part A — Mover: John Smith Transfers to Finance
 
 ### A1. Update Identity Attributes
 
 1. Navigate to **Microsoft Entra ID** → **Users**.
-2. Open **John HR**.
+2. Open **John Smith**.
 3. Click **Edit properties**.
 4. Update:
    - **Department:** Finance
    - **Job title:** Finance Coordinator
 5. Click **Save**.
 
-> **Expected result:** John HR's profile shows Department: Finance and Job title: Finance Coordinator.
+> **Expected result:** John Smith's profile shows Department: Finance and Job title: Finance Coordinator.
 
 ---
 
 ### A2. Remove John from HR-Team
 
-1. In John HR's profile, under **Manage**, select **Groups**.
+1. In John Smith's profile, under **Manage**, select **Groups**.
 2. Select **HR-Team** from the list.
 3. Click **Remove** and confirm.
 
-> **Expected result:** HR-Team no longer appears in John HR's group membership list.
+> **Expected result:** HR-Team no longer appears in John Smith's group membership list.
 
 ---
 
@@ -58,9 +58,9 @@ In this lab:
 
 1. Navigate to **Groups** → **Finance-Team**.
 2. Under **Manage**, select **Members** → **Add members**.
-3. Search for **John HR**, select him, and click **Select**.
+3. Search for **John Smith**, select him, and click **Select**.
 
-> **Expected result:** Finance-Team's Members list shows Bob Finance and John HR.
+> **Expected result:** Finance-Team's Members list shows Bob Glasgow and John Smith.
 
 ---
 
@@ -68,9 +68,9 @@ In this lab:
 
 1. Navigate to **Enterprise applications** → **HR-App**.
 2. Under **Manage**, select **Users and groups**.
-3. Select **John HR** and click **Remove**. Confirm.
+3. Select **John Smith** and click **Remove**. Confirm.
 
-> **Expected result:** John HR no longer appears in HR-App's user list.
+> **Expected result:** John Smith no longer appears in HR-App's user list.
 
 ---
 
@@ -78,9 +78,9 @@ In this lab:
 
 1. Navigate to **Enterprise applications** → **Finance-App**.
 2. Under **Manage**, select **Users and groups** → **Add user/group**.
-3. Search for **John HR**, select him, and click **Assign**.
+3. Search for **John Smith**, select him, and click **Assign**.
 
-> **Expected result:** Finance-App's user list shows Bob Finance and John HR.
+> **Expected result:** Finance-App's user list shows Bob Glasgow and John Smith.
 
 ---
 
@@ -98,12 +98,12 @@ After completing A1–A5, John's access profile should be:
 
 ---
 
-## Part B — Leaver: Eve Intern Offboarding
+## Part B — Leaver: Eve Smith Offboarding
 
 ### B1. Disable Eve's Account
 
 1. Navigate to **Microsoft Entra ID** → **Users**.
-2. Open **Eve Intern**.
+2. Open **Eve Smith**.
 3. Click **Edit properties**.
 4. Set **Account enabled** to **No**.
 5. Click **Save**.
@@ -114,10 +114,10 @@ After completing A1–A5, John's access profile should be:
 
 ### B2. Remove Eve from All Groups
 
-1. In Eve Intern's profile, under **Manage**, select **Groups**.
+1. In Eve Smith's profile, under **Manage**, select **Groups**.
 2. Select **HR-Team** and click **Remove**. Confirm.
 
-> **Expected result:** Eve Intern has no group memberships remaining.
+> **Expected result:** Eve Smith has no group memberships remaining.
 
 ---
 
@@ -125,9 +125,9 @@ After completing A1–A5, John's access profile should be:
 
 1. Navigate to **Enterprise applications** → **HR-App**.
 2. Under **Manage**, select **Users and groups**.
-3. Select **Eve Intern** and click **Remove**. Confirm.
+3. Select **Eve Smith** and click **Remove**. Confirm.
 
-> **Expected result:** Eve Intern does not appear in any application's user assignment list.
+> **Expected result:** Eve Smith does not appear in any application's user assignment list.
 
 ---
 

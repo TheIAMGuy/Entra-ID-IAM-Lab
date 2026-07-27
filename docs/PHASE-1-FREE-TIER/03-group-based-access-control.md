@@ -10,7 +10,7 @@
 
 ## Before You Start
 
-Ensure you have completed [Lab 02 — Identity Provisioning (Joiner)](02-identity-provisioning-joiner.md). You should have five users in your directory: John HR, Alice IT, Bob Finance, Charlie Sales, and Eve Intern.
+Ensure you have completed [Lab 02 — Identity Provisioning (Joiner)](02-identity-provisioning-joiner.md). You should have five users in your directory: John Smith, Alice Smith, Bob Glasgow, Charlie Jones, and Eve Smith.
 
 ---
 
@@ -24,10 +24,10 @@ Access is granted to **groups**, not individual users. When an employee changes 
 
 | Group Name | Members |
 |---|---|
-| HR-Team | John HR, Eve Intern |
-| IT-Team | Alice IT |
-| Finance-Team | Bob Finance |
-| Sales-Team | Charlie Sales |
+| HR-Team | John Smith, Eve Smith |
+| IT-Team | Alice Smith |
+| Finance-Team | Bob Glasgow |
+| Sales-Team | Charlie Jones |
 
 ---
 
@@ -63,11 +63,11 @@ Leave the Members field empty for now. Click **Create**.
 1. Open **HR-Team** from the groups list.
 2. In the left sidebar under **Manage**, select **Members**.
 3. Click **Add members**.
-4. Search for **John HR**, select him.
-5. Search for **Eve Intern**, select her.
+4. Search for **John Smith**, select him.
+5. Search for **Eve Smith**, select her.
 6. Click **Select** to confirm.
 
-> **Expected result:** The Members list for HR-Team shows two entries: John HR and Eve Intern.
+> **Expected result:** The Members list for HR-Team shows two entries: John Smith and Eve Smith.
 
 ---
 
@@ -75,9 +75,9 @@ Leave the Members field empty for now. Click **Create**.
 
 Repeat steps 2 and 3 for each remaining group:
 
-- **IT-Team** → Add Alice IT
-- **Finance-Team** → Add Bob Finance
-- **Sales-Team** → Add Charlie Sales
+- **IT-Team** → Add Alice Smith
+- **Finance-Team** → Add Bob Glasgow
+- **Sales-Team** → Add Charlie Jones
 
 > **Expected result:** The All Groups list shows four groups. Each group contains the correct member(s).
 
@@ -85,11 +85,11 @@ Repeat steps 2 and 3 for each remaining group:
 
 ### 5. Verify Group Membership from a User Profile
 
-1. Navigate to **Users** and open **John HR**.
+1. Navigate to **Users** and open **John Smith**.
 2. In the left sidebar under **Manage**, select **Groups**.
 3. Confirm **HR-Team** appears in the list.
 
-> **Expected result:** John HR shows one group membership: HR-Team. No other groups should appear at this stage.
+> **Expected result:** John Smith shows one group membership: HR-Team. No other groups should appear at this stage.
 
 ---
 

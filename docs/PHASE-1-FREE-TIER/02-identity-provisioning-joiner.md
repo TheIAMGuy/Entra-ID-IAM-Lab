@@ -48,7 +48,7 @@ Replace `[yourdomain]` with your `domain.onmicrosoft.com` domain prefix (visible
 
 **Basics tab:**
 - **User principal name:** `John.Smithr@[yourdomain].onmicrosoft.com`
-- **Display name:** `John HR`
+- **Display name:** `John Smith`
 - **Password:** Untick **Auto-generate password**, you will create a password for each user, or one password for all since this is a home lab.
 
 **Properties tab:**

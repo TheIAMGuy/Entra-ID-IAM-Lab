@@ -28,9 +28,9 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 
 | Application Name | Users to Assign |
 |---|---|
-| HR-App | John HR, Eve Intern |
-| Finance-App | Bob Finance |
-| Sales-App | Charlie Sales |
+| HR-App | John Smith, Eve Smith |
+| Finance-App | Bob Glasgow |
+| Sales-App | Charlie Jones |
 
 ---
 
@@ -60,19 +60,19 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 1. From the HR-App overview, in the left sidebar under **Manage**, select **Users and groups**.
 2. Click **Add user/group**.
 3. Under **Users**, click **None selected**.
-4. Search for **John HR** and select him.
-5. Search for **Eve Intern** and select her.
+4. Search for **John Smith** and select him.
+5. Search for **Eve Smith** and select her.
 6. Click **Select**, then click **Assign**.
 
-> **Expected result:** The Users and groups list for HR-App shows John HR and Eve Intern, both with the role "Default Access".
+> **Expected result:** The Users and groups list for HR-App shows John Smith and Eve Smith, both with the role "Default Access".
 
 ---
 
 ### 4. Create Finance-App and Sales-App
 
 Repeat steps 2 and 3 for:
-- **Finance-App** → assign **Bob Finance**
-- **Sales-App** → assign **Charlie Sales**
+- **Finance-App** → assign **Bob Glasgow**
+- **Sales-App** → assign **Charlie Jones**
 
 > **Expected result:** Three enterprise applications exist in your tenant. Each shows the correct assigned user(s) under Users and groups.
 
@@ -84,7 +84,7 @@ Repeat steps 2 and 3 for:
 2. Search for "App" in the search bar to filter your three applications.
 3. Open each one and confirm the assigned users.
 
-> **Expected result:** HR-App: John HR, Eve Intern. Finance-App: Bob Finance. Sales-App: Charlie Sales. No cross-department access exists.
+> **Expected result:** HR-App: John Smith, Eve Smith. Finance-App: Bob Glasgow. Sales-App: Charlie Jones. No cross-department access exists.
 
 ---
 
