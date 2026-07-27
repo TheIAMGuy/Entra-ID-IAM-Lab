@@ -1,0 +1,24 @@
+{
+  "comment": "PLACEHOLDER: Role assignments from Lab 04 — Privileged Access Management",
+  "description": "Replace this file with your exported role assignments after completing Lab 04",
+  "expected_content": {
+    "roleAssignments": [
+      {
+        "principalId": "user-or-group-id",
+        "principalDisplayName": "Alice Smith",
+        "roleDefinitionId": "user-admin-role-id",
+        "roleDisplayName": "User Administrator",
+        "directoryScopeId": "/"
+      },
+      {
+        "principalId": "user-or-group-id",
+        "principalDisplayName": "Bob Glasgow",
+        "roleDefinitionId": "global-reader-role-id",
+        "roleDisplayName": "Global Reader",
+        "directoryScopeId": "/"
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/04-privileged-access-management.md",
+  "how_to_export": "Microsoft Graph > /roleManagement/directory/roleAssignments endpoint"
+}

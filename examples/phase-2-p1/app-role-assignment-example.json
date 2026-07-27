@@ -1,0 +1,30 @@
+{
+  "comment": "PLACEHOLDER: User-to-application role assignments from Lab 05",
+  "description": "Replace this file with your exported app role assignments after completing Lab 05",
+  "expected_content": {
+    "appRoleAssignments": [
+      {
+        "id": "assignment-id",
+        "principalId": "user-id",
+        "principalDisplayName": "Alice Smith",
+        "appRoleId": "app-role-id",
+        "roleDisplayName": "Admin",
+        "resourceId": "app-service-principal-id",
+        "resourceDisplayName": "Test Enterprise App",
+        "createdDateTime": "2026-07-27T12:00:00Z"
+      },
+      {
+        "id": "assignment-id",
+        "principalId": "user-id",
+        "principalDisplayName": "Bob Glasgow",
+        "appRoleId": "app-role-id",
+        "roleDisplayName": "User",
+        "resourceId": "app-service-principal-id",
+        "resourceDisplayName": "Test Enterprise App",
+        "createdDateTime": "2026-07-27T12:05:00Z"
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/05-application-access-management.md",
+  "how_to_export": "Enterprise applications > your app > Users and groups > export assignments"
+}

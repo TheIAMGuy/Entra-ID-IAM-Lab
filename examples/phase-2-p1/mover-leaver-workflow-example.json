@@ -1,0 +1,42 @@
+{
+  "comment": "PLACEHOLDER: Identity lifecycle changes from Lab 06 — Mover/Leaver workflow",
+  "description": "Replace this file with your exported user changes after completing Lab 06",
+  "workflow_example": {
+    "scenario": "Mover (Bob Glasgow: Finance → IT)",
+    "steps": [
+      {
+        "step": 1,
+        "description": "Update user attributes (jobTitle, department)",
+        "user_id": "bob-glasgow-id",
+        "changes": {
+          "jobTitle": "IT Support Specialist",
+          "department": "IT"
+        }
+      },
+      {
+        "step": 2,
+        "description": "Add to new department group",
+        "action": "Add member to group",
+        "group": "grp-IT-Team",
+        "user": "Bob Glasgow"
+      },
+      {
+        "step": 3,
+        "description": "Remove from old department group",
+        "action": "Remove member from group",
+        "group": "grp-Finance-Team",
+        "user": "Bob Glasgow"
+      },
+      {
+        "step": 4,
+        "description": "Update application role assignment",
+        "action": "Change app role",
+        "app": "Test Enterprise App",
+        "old_role": "Finance User",
+        "new_role": "IT Support User"
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/06-identity-lifecycle-mover-leaver.md",
+  "audit_verification": "Verify changes in Audit Log: 'Update user', 'Add member to group', 'Remove member from group', 'Add app role assignment'"
+}

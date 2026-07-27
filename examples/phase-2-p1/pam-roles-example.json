@@ -1,0 +1,30 @@
+{
+  "comment": "PLACEHOLDER: Privileged Access Management role assignments from Lab 04",
+  "description": "Replace this file with your exported PAM role assignments after completing Lab 04",
+  "expected_content": {
+    "roleAssignments": [
+      {
+        "principalId": "alice-smith-user-id",
+        "principalDisplayName": "Alice Smith",
+        "roleDefinitionId": "user-administrator-role-id",
+        "roleDisplayName": "User Administrator",
+        "description": "Scoped admin for user management only",
+        "directoryScopeId": "/"
+      },
+      {
+        "principalId": "bob-glasgow-user-id",
+        "principalDisplayName": "Bob Glasgow",
+        "roleDefinitionId": "global-reader-role-id",
+        "roleDisplayName": "Global Reader",
+        "description": "Read-only governance oversight",
+        "directoryScopeId": "/"
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/04-privileged-access-management.md",
+  "key_points": [
+    "User Administrator scoped to user management (least privilege)",
+    "Global Reader for governance visibility (read-only)",
+    "No Global Administrator in testing — follows production best practice"
+  ]
+}

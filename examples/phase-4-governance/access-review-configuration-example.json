@@ -1,0 +1,39 @@
+{
+  "comment": "PLACEHOLDER: Access review configuration from Lab 17a — Identity Governance",
+  "status": "PLACEHOLDER — Requires Entra ID Governance license",
+  "description": "Replace this file with your access review configuration after completing Lab 17a",
+  "expected_content": {
+    "displayName": "Quarterly User Access Review",
+    "description": "Review all user access to cloud applications quarterly",
+    "scope": {
+      "query": "/v1/me/ownedObjects/microsoft.graph.accessReviewScheduleDefinition?$filter=contains(tolower(displayName), 'user access')",
+      "type": "principalAccess"
+    },
+    "reviewers": [
+      {
+        "query": "/users/manager",
+        "queryType": "MicrosoftGraph",
+        "queryRoot": "decisions"
+      }
+    ],
+    "settings": {
+      "mailNotificationsEnabled": true,
+      "reminderNotificationsEnabled": true,
+      "justificationRequiredOnApproval": true,
+      "defaultDecisionEnabled": false,
+      "autoApplyDecisionsEnabled": false,
+      "recurrence": {
+        "pattern": {
+          "type": "quarterly"
+        },
+        "range": {
+          "type": "endDate",
+          "endDate": "2027-12-31"
+        }
+      }
+    }
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md",
+  "how_to_export": "Identity > Identity Governance > Access reviews > your review > Export configuration",
+  "todo": "Export your access review configuration and replace this placeholder when Governance license is active"
+}

@@ -1,0 +1,26 @@
+{
+  "comment": "PLACEHOLDER: User objects exported from Lab 02 — Identity Provisioning (Joiner)",
+  "description": "Replace this file with your exported users.json from the Entra ID Portal after completing Lab 02",
+  "expected_content": {
+    "users": [
+      {
+        "id": "user-id-uuid",
+        "displayName": "Alice Smith",
+        "userPrincipalName": "alice.smith@yourtenant.onmicrosoft.com",
+        "givenName": "Alice",
+        "surname": "Smith",
+        "jobTitle": "IT Administrator",
+        "department": "IT"
+      },
+      {
+        "id": "user-id-uuid",
+        "displayName": "Bob Glasgow",
+        "userPrincipalName": "bob.glasgow@yourtenant.onmicrosoft.com",
+        "jobTitle": "Finance Manager",
+        "department": "Finance"
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-1-FREE-TIER/02-identity-provisioning-joiner.md",
+  "how_to_export": "Microsoft Graph > /users endpoint, or export via Entra ID admin center"
+}

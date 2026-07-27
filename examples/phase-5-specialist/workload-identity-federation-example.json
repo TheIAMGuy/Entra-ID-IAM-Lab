@@ -1,0 +1,28 @@
+{
+  "comment": "PLACEHOLDER: Workload identity federation from Lab 11a — Workload Identity",
+  "status": "PLACEHOLDER — Requires Entra Workload ID license",
+  "description": "Replace this file with your workload identity federation configuration after completing Lab 11a",
+  "expected_content": {
+    "displayName": "GitHub Actions CI/CD Workload",
+    "appId": "application-id",
+    "federatedIdentityCredentials": [
+      {
+        "name": "github-actions-main",
+        "description": "Federated credential for GitHub Actions main branch",
+        "issuer": "https://token.actions.githubusercontent.com",
+        "subject": "repo:organization/repository:ref:refs/heads/main",
+        "audiences": [
+          "api://AzureADTokenExchange"
+        ]
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-5-SPECIALIST/11a-workload-identity.md",
+  "how_to_export": "App registrations > your app > Certificates & secrets > Federated credentials > (manual JSON export)",
+  "key_points": [
+    "Eliminates need for long-lived secrets",
+    "Short-lived tokens issued per CI/CD pipeline run",
+    "Auditability: every token issuance is logged"
+  ],
+  "todo": "Configure federated identity for your CI/CD platform and replace this placeholder when Workload ID license is active"
+}

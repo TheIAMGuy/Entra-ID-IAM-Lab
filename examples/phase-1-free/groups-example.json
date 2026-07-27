@@ -1,0 +1,30 @@
+{
+  "comment": "PLACEHOLDER: Group objects exported from Lab 03 — Group-Based RBAC",
+  "description": "Replace this file with your exported groups.json from the Entra ID Portal after completing Lab 03",
+  "expected_content": {
+    "groups": [
+      {
+        "id": "group-id-uuid",
+        "displayName": "grp-IT-Admins",
+        "description": "IT department administrators",
+        "mailEnabled": false,
+        "securityEnabled": true,
+        "members": [
+          "alice.smith@yourtenant.onmicrosoft.com"
+        ]
+      },
+      {
+        "id": "group-id-uuid",
+        "displayName": "grp-Finance-Team",
+        "description": "Finance department team members",
+        "mailEnabled": false,
+        "securityEnabled": true,
+        "members": [
+          "bob.glasgow@yourtenant.onmicrosoft.com"
+        ]
+      }
+    ]
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-1-FREE-TIER/03-group-based-access-control.md",
+  "how_to_export": "Microsoft Graph > /groups endpoint, or export via Entra ID admin center"
+}

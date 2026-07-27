@@ -1,0 +1,31 @@
+{
+  "comment": "PLACEHOLDER: MFA enforcement policy from Lab 07a — Multi-Factor Authentication",
+  "status": "PLACEHOLDER — Requires Entra ID P2 license",
+  "description": "Replace this file with your exported MFA policy configuration after completing Lab 07a",
+  "expected_content": {
+    "displayName": "Require MFA for All Users",
+    "description": "Enforce MFA for all cloud applications",
+    "state": "enabledForReportingButNotEnforced",
+    "conditions": {
+      "applications": {
+        "includeApplications": [
+          "All"
+        ]
+      },
+      "users": {
+        "includeUsers": [
+          "All"
+        ]
+      }
+    },
+    "grantControls": {
+      "operator": "OR",
+      "builtInControls": [
+        "mfa"
+      ]
+    }
+  },
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md",
+  "how_to_export": "Security > Conditional Access > your policy > (PowerShell export via Microsoft Graph)",
+  "todo": "Export your MFA policy JSON and replace this placeholder when P2 license is active"
+}
