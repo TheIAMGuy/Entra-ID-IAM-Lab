@@ -22,7 +22,7 @@ The Joiner process creates digital identities for new employees. This lab create
 
 ## Users to Create
 
-Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on your tenant overview page).
+Replace `[yourdomain]` with your `domain.onmicrosoft.com` domain prefix (visible on your tenant overview page).
 
 | Display Name | Username | Department | Job Title |
 |---|---|---|---|
@@ -44,22 +44,22 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 
 ---
 
-### 2. Create John HR
+### 2. Create John Smith
 
 **Basics tab:**
-- **User principal name:** `john.hr@[yourdomain].onmicrosoft.com`
+- **User principal name:** `John.Smithr@[yourdomain].onmicrosoft.com`
 - **Display name:** `John HR`
 - **Password:** Untick **Auto-generate password**, you will create a password for each user, or one password for all since this is a home lab.
 
 **Properties tab:**
 - **First name:** John
-- **Last name:** HR
+- **Last name:** Smith
 - **Job title:** HR Coordinator
 - **Department:** HR
 
 Click **Review + create**, then **Create**.
 
-> **Expected result:** A confirmation banner appears: "Successfully created user John HR." The user appears in the All Users list.
+> **Expected result:** A confirmation banner appears: "Successfully created user John Smith." The user appears in the All Users list.
 
 ---
 
@@ -75,7 +75,7 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 
 ### 4. Verify User Attributes
 
-1. Click on **John HR** in the user list.
+1. Click on **John Smith** in the user list.
 2. Select the **Properties** tab.
 3. Confirm **Department** shows `HR` and **Job title** shows `HR Coordinator`.
 
