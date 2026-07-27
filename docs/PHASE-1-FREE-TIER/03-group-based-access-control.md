@@ -35,7 +35,7 @@ Access is granted to **groups**, not individual users. When an employee changes 
 
 ### 1. Navigate to Groups
 
-1. In the Android Entra ID, navigate to **Microsoft Entra ID**.
+1. In the Entra ID admin center, navigate to **Microsoft Entra ID**.
 2. In the left sidebar under **Manage**, select **Groups**.
 3. Click **New group**.
 

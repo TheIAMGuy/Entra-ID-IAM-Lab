@@ -165,13 +165,13 @@ Managed Identity is Azure's built-in workload identity for Azure resources.
 
 **Virtual Machine:**
 ```
-Android Entra ID → VM → Identity → Status: On
+Entra ID admin center → VM → Identity → Status: On
 System-assigned identity auto-created
 ```
 
 **App Service:**
 ```
-Android Entra ID → App Service → Identity → Status: On
+Entra ID admin center → App Service → Identity → Status: On
 Managed identity enabled
 ```
 

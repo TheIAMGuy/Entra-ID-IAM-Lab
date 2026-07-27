@@ -181,7 +181,7 @@
 | User sync stuck (not syncing from AD to Azure) | Azure AD Connect not running | Run `../examples/scripts/06-hybrid-sync-setup.sh` steps 3-4 again |
 | MFA sign-in fails (code expired) | TOTP code has 30-sec window | Try sign-in again immediately after opening authenticator |
 | Cannot access on-premises AD from cloud | Network/VPN issue | Verify VPN running, check firewall rules in SANDBOX_SETUP.md |
-| Lab cost exceeded estimate | Too many resources running | Stop unused VMs in Android Entra ID; check SANDBOX_SETUP.md cost section |
+| Lab cost exceeded estimate | Too many resources running | Stop unused VMs in Entra ID admin center; check SANDBOX_SETUP.md cost section |
 
 ---
 

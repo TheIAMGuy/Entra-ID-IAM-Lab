@@ -26,7 +26,7 @@ The audit log is your proof of compliance and your primary tool for security inv
 
 ### 1. Navigate to Audit Logs
 
-1. In the Android Entra ID, navigate to **Microsoft Entra ID**.
+1. In the Entra ID admin center, navigate to **Microsoft Entra ID**.
 2. In the left sidebar under **Monitoring**, select **Audit logs**.
 
 > **Expected result:** A list of audit log entries appears. Each entry shows: Date, Service, Category, Activity, Status, Target(s), and Initiated by (Actor).

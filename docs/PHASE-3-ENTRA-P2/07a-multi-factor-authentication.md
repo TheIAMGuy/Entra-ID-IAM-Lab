@@ -73,7 +73,7 @@ Biometric methods (fingerprint, facial recognition) combine device possession wi
 
 **Strengths:** High security, excellent UX (1-2 seconds), resistant to SIM swap and phishing, prevents unauthorized use even if phone is lost. **Weaknesses:** Requires modern smartphone, biometric sensors can fail in low light, setup friction for users unfamiliar with biometric.
 
-**Implementation:** Microsoft Authenticator supports biometric approval on iPhones (Face ID) and Android devices (fingerprint). Enable "Require approval" and "Use biometric" in Authenticator settings during registration.
+**Implementation:** Microsoft Authenticator supports biometric approval on iPhones (Face ID) and devices (fingerprint). Enable "Require approval" and "Use biometric" in Authenticator settings during registration.
 
 ### Hardware Security Keys
 
@@ -217,7 +217,7 @@ Last modified: <current timestamp>
 4. When prompted "More information required," click **"Set up an authenticator app"**
 5. Follow on-screen prompts to register Authenticator (if not already done)
 6. Complete authentication using Authenticator approval notification
-7. Verify you can access Android Entra ID
+7. Verify you can access Entra ID admin center
 
 **Expected Output:**
 ```

@@ -39,7 +39,7 @@ No user will receive **Global Administrator**. In production, Global Admin is a 
 
 ### 1. Navigate to Roles and Administrators
 
-1. In the Android Entra ID, navigate to **Microsoft Entra ID**.
+1. In the Entra ID admin center, navigate to **Microsoft Entra ID**.
 2. In the left sidebar under **Manage**, select **Roles and administrators**.
 
 > **Expected result:** A list of all available directory roles appears. Use the search bar to find specific roles.

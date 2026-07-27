@@ -177,7 +177,7 @@ This document indexes all hands-on labs in the knowledge base, organized by topi
    ```
 3. Verify sync working:
    - Create user in on-prem AD
-   - Check Android Entra ID after 2-5 minutes
+   - Check Entra ID admin center after 2-5 minutes
    - User appears in cloud
 4. Test sign-in:
    - User signs in to on-prem system (AD): works

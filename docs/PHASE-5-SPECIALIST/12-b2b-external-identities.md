@@ -88,7 +88,7 @@ Organizations rarely work in isolation. Partners, vendors, consultants, and cust
 
 **Check current settings:**
 ```
-Android Entra ID → Entra ID → External Identities → External collaboration settings
+Entra ID admin center → Entra ID → External Identities → External collaboration settings
 ```
 
 **Configure policies:**
@@ -98,7 +98,7 @@ Android Entra ID → Entra ID → External Identities → External collaboration
 
 ### Step 2: Invite External User
 
-**Method 1: Android Entra ID**
+**Method 1: Entra ID admin center**
 ```
 Entra ID → Users → New guest user
 Enter email: partner@partnercompany.com
