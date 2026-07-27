@@ -130,8 +130,7 @@ Pick a specialty and explore:
 Each phase has 1–3 **core** documents plus optional deep-dives:
 
 - **PHASE-1-FREE-TIER/** — Foundations: setup, users, groups, RBAC
-  - **CORE:** Setup, provisioning, RBAC
-  - **DEEP-DIVES:** Data quality, identity sprawl, attribute management
+  - **CORE ONLY:** Setup, provisioning, RBAC (~2–3 hours, no deep-dives)
   
 - **PHASE-2-ENTRA-P1/** — Application lifecycle, provisioning, standards
   - **CORE:** PAM, applications, identity lifecycle

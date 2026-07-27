@@ -60,14 +60,6 @@ On the overview page, confirm the following:
 
 ---
 
-## IAM Concept: The Identity Tenant
-
-A tenant is the foundational identity boundary in Entra ID. All users, groups, roles, and applications in this lab exist within this one directory. Think of it as the root of your identity infrastructure — every action in the subsequent labs builds on this foundation.
-
-In enterprise environments, a tenant typically maps to one organisation. Large enterprises may operate multiple tenants (e.g., separate tenants for subsidiaries or test environments), but a single authoritative tenant is the most common production pattern.
-
----
-
 ## Troubleshooting
 
 | Problem | Likely cause | Fix |

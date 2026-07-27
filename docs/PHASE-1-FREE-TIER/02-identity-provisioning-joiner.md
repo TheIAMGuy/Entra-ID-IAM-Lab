@@ -16,9 +16,7 @@ Ensure you have completed [Lab 01 — Environment Setup](01-environment-setup.md
 
 ## Background
 
-The Joiner process is the first phase of the **Joiner-Mover-Leaver (JML)** identity lifecycle. When a new employee joins, a digital identity is created in the directory. This identity is the foundation for everything that follows — access to systems, group membership, and audit traceability all depend on having a well-attributed identity record.
-
-In this lab you will create five users across four departments. These same users are used throughout all subsequent labs.
+The Joiner process creates digital identities for new employees. This lab creates five test users that will be used throughout the remaining Phase 1 labs.
 
 ---
 
@@ -87,11 +85,8 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 
 ## IAM Concepts
 
-**Identity Provisioning** — Creating digital identities for new joiners. At this stage, users exist in the directory but have no access to any resources. Identity and access are managed as two separate concerns — this separation is a foundational IAM design principle.
-
-**Attribute-Based Identity Management** — Attributes like Department and Job Title are metadata that drive downstream access decisions. Getting these right at provisioning time is an IAM data quality issue: incorrect attributes lead to incorrect access.
-
-**Separation of Identity and Access** — A user can exist in the directory without being able to access anything. Access is granted through group membership and role assignments in subsequent labs.
+- **Attributes matter:** Department and Job Title are used in later labs to grant access. Set them correctly here.
+- **Users ≠ Access:** Creating a user does not grant them access to anything. Access comes later via group membership.
 
 ---
 

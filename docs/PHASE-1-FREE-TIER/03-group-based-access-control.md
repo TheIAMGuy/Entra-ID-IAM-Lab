@@ -16,9 +16,7 @@ Ensure you have completed [Lab 02 — Identity Provisioning (Joiner)](02-identit
 
 ## Background
 
-In enterprise IAM, access is almost never assigned directly to individual users. Instead, users are members of **groups**, and access is granted to the group. This is the foundation of **Role-Based Access Control (RBAC)**.
-
-Why this matters: when an employee changes roles, you update their group membership — one change that adjusts all their access simultaneously. If access were assigned per-user, you would need to update dozens of individual permission records for every role change.
+Access is granted to **groups**, not individual users. When an employee changes roles, you update their group membership — one change that adjusts all their access. This is the foundation of Role-Based Access Control (RBAC).
 
 ---
 
@@ -97,13 +95,9 @@ Repeat steps 2 and 3 for each remaining group:
 
 ## IAM Concepts
 
-**Security Groups as the Access Unit** — In Entra ID, Security groups are the primary mechanism for granting access to resources. Assign users to groups; assign permissions to groups. Never assign permissions directly to individual users in a scalable system.
-
-**Least Privilege** — Each user is a member of only their own department group. No user has access to other departments' resources.
-
-**Scalability** — Onboarding a new HR employee requires one action: add them to HR-Team. All associated resource access follows automatically. This scales to hundreds of users without increasing administrative overhead.
-
-> **Design Decision:** Access is intentionally assigned to groups rather than individual users. When an employee changes departments, you update their group membership — one change — rather than modifying dozens of individual resource permissions. This is covered in Lab 06 (Mover).
+- **Groups = Access Unit:** Always assign permissions to groups, never to individual users.
+- **Least Privilege:** Each user is only in their own department group.
+- **Scalability:** Adding a new user to HR requires one change: add them to the HR-Team group.
 
 ---
 
