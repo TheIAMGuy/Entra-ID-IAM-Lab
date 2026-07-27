@@ -84,6 +84,10 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 
 > **Expected result:** Both attribute fields are populated. If any field is blank, click **Edit properties** at the top of the profile to update it.
 
+<img width="354" height="324" alt="image" src="https://github.com/user-attachments/assets/1a58c898-7546-48a2-b453-a6dc14a58ceb" />
+
+<img width="294" height="284" alt="image" src="https://github.com/user-attachments/assets/88b8e6d7-b146-4bb5-bd66-8ba4f210af30" />
+
 ---
 
 ## IAM Concepts
