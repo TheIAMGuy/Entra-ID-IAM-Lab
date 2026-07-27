@@ -24,6 +24,8 @@ In this lab you will assign two roles:
 
 No user will receive **Global Administrator**. In production, Global Admin is a break-glass account — credentials stored in a vault, activated only during emergencies, with all activations logged and alerted.
 
+NB* In a real environment roles would be added to groups, not users, but since this is a free version, we are assigning it to users.
+
 ---
 
 ## Role Assignments
