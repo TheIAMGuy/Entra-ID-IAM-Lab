@@ -56,6 +56,9 @@ Leave the Members field empty for now. Click **Create**.
 
 > **Expected result:** HR-Team appears in the All Groups list.
 
+<img width="698" height="526" alt="image" src="https://github.com/user-attachments/assets/2da502f6-f470-49b7-b852-c09af5ed0077" />
+
+
 ---
 
 ### 3. Add Members to HR-Team
@@ -68,6 +71,9 @@ Leave the Members field empty for now. Click **Create**.
 6. Click **Select** to confirm.
 
 > **Expected result:** The Members list for HR-Team shows two entries: John Smith and Eve Smith.
+
+<img width="821" height="412" alt="image" src="https://github.com/user-attachments/assets/d00566c7-cdc6-455c-9b48-0c7de8ab0059" />
+
 
 ---
 
@@ -90,6 +96,9 @@ Repeat steps 2 and 3 for each remaining group:
 3. Confirm **HR-Team** appears in the list.
 
 > **Expected result:** John Smith shows one group membership: HR-Team. No other groups should appear at this stage.
+
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/c6f66a58-c108-4dc7-ae87-7e92fe0c1ccf" />
+
 
 ---
 
