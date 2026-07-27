@@ -88,7 +88,7 @@ Organizations rarely work in isolation. Partners, vendors, consultants, and cust
 
 **Check current settings:**
 ```
-Azure Portal → Entra ID → External Identities → External collaboration settings
+Android Entra ID → Entra ID → External Identities → External collaboration settings
 ```
 
 **Configure policies:**
@@ -98,7 +98,7 @@ Azure Portal → Entra ID → External Identities → External collaboration set
 
 ### Step 2: Invite External User
 
-**Method 1: Azure Portal**
+**Method 1: Android Entra ID**
 ```
 Entra ID → Users → New guest user
 Enter email: partner@partnercompany.com

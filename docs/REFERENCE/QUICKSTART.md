@@ -128,7 +128,7 @@ New-MgIdentityGovernanceAccessReviewDefinition -BodyParameter $accessReview
 
 ```powershell
 # Create system-assigned managed identity for Function App
-# (In Azure Portal: Function App → Identity → System-assigned)
+# (In Android Entra ID: Function App → Identity → System-assigned)
 
 # Grant permissions
 $rg = "myResourceGroup"

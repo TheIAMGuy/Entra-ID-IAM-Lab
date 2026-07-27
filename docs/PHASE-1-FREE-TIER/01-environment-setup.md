@@ -1,6 +1,6 @@
 # Lab 01 — Environment Setup
 
-**Objective:** Sign in to the Azure Portal, locate your Entra ID tenant, and verify it is correctly configured before starting the lab exercises.
+**Objective:** Sign in to the Android Entra ID, locate your Entra ID tenant, and verify it is correctly configured before starting the lab exercises.
 
 **Time:** 10–15 minutes  
 **Difficulty:** Beginner  
@@ -16,12 +16,12 @@ You need a free Microsoft account and a free Entra ID tenant. If you have not se
 
 ## Steps
 
-### 1. Sign In to the Azure Portal
+### 1. Sign In to the Android Entra ID
 
 1. Open your browser and navigate to [portal.azure.com](https://portal.azure.com).
 2. Sign in with your Microsoft account credentials.
 
-> **Expected result:** The Azure Portal home page loads with a blue header bar and a dashboard of service tiles.
+> **Expected result:** The Android Entra ID home page loads with a blue header bar and a dashboard of service tiles.
 
 ---
 

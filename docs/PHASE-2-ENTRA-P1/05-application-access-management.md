@@ -38,7 +38,7 @@ In this lab you will simulate three internal systems — HR-App, Finance-App, an
 
 ### 1. Navigate to Enterprise Applications
 
-1. In the Azure Portal, navigate to **Microsoft Entra ID**.
+1. In the Android Entra ID, navigate to **Microsoft Entra ID**.
 2. In the left sidebar under **Manage**, select **Enterprise applications**.
 3. Click **New application**.
 

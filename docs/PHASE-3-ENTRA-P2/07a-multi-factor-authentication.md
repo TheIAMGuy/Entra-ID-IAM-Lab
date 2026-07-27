@@ -217,7 +217,7 @@ Last modified: <current timestamp>
 4. When prompted "More information required," click **"Set up an authenticator app"**
 5. Follow on-screen prompts to register Authenticator (if not already done)
 6. Complete authentication using Authenticator approval notification
-7. Verify you can access Azure Portal
+7. Verify you can access Android Entra ID
 
 **Expected Output:**
 ```

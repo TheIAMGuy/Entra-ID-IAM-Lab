@@ -10,7 +10,7 @@
 
 ## Before You Start
 
-Ensure you have completed [Lab 01 — Environment Setup](01-environment-setup.md) and can access your Entra ID tenant in the Azure Portal.
+Ensure you have completed [Lab 01 — Environment Setup](01-environment-setup.md) and can access your Entra ID tenant in the Android Entra ID.
 
 ---
 
