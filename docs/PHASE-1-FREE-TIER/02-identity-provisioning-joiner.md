@@ -26,11 +26,11 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 
 | Display Name | Username | Department | Job Title |
 |---|---|---|---|
-| John HR | john.hr@[yourdomain].onmicrosoft.com | HR | HR Coordinator |
-| Alice IT | alice.it@[yourdomain].onmicrosoft.com | IT | IT Administrator |
-| Bob Finance | bob.finance@[yourdomain].onmicrosoft.com | Finance | Finance Analyst |
-| Charlie Sales | charlie.sales@[yourdomain].onmicrosoft.com | Sales | Sales Executive |
-| Eve Intern | eve.intern@[yourdomain].onmicrosoft.com | HR | Intern |
+| John Smith | John.Smith@[yourdomain].onmicrosoft.com | HR | HR Coordinator |
+| Alice Smith | Alice.Smith@[yourdomain].onmicrosoft.com | IT | IT Administrator |
+| Bob Glasgow | Bob.Glasgow@[yourdomain].onmicrosoft.com | Finance | Finance Analyst |
+| Charlie Jones | Charlie.Jones@[yourdomain].onmicrosoft.com | Sales | Sales Executive |
+| Eve Smith | Eve.Smith@[yourdomain].onmicrosoft.com | HR | Intern |
 
 ---
 
