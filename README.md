@@ -6,7 +6,7 @@ Welcome! This hands-on lab will help you master enterprise Identity and Access M
 
 This is a **progressive, hands-on learning journey** through complete enterprise IAM. You'll implement the full **Joiner-Mover-Leaver (JML) lifecycle**, **group-based RBAC**, **privileged access management**, **enterprise application provisioning**, **compliance audit logging**, and advanced governance — the same workflows IAM teams use in production.
 
-The lab is organised in **6 phases**, progressing from free-tier foundations to enterprise-scale identity governance. Each phase builds on the previous one, with optional deep dives for specialists.
+The lab is organised in **6 phases**, progressing from free-tier foundations to enterprise-scale identity governance. Each phase builds on the previous one, with no distractions or optional detours.
 
 ## Why Learn Enterprise IAM Here?
 
@@ -101,59 +101,23 @@ Choose your path and follow the links in order:
 **Estimated time:** 20–24 hours (includes documentation)  
 **Best for:** Career transitions, job interviews, demonstrating hands-on experience
 
----
-
-### **Path 4: Deep-Dive Specialist Track**
-Pick a specialty and explore:
-
-**OAuth, SAML, SCIM (Modern Authentication):**
-1. [Phase 2: Identity Standards](docs/PHASE-2-ENTRA-P1/DEEP-DIVES/09-identity-standards-overview.md)
-2. [SAML SSO](docs/PHASE-2-ENTRA-P1/DEEP-DIVES/09a-saml-single-sign-on.md)
-3. [OAuth & OIDC](docs/PHASE-2-ENTRA-P1/DEEP-DIVES/09b-oauth-and-openid-connect.md)
-4. [SCIM Provisioning](docs/PHASE-2-ENTRA-P1/DEEP-DIVES/09c-scim-provisioning.md)
-
-**Zero Trust & Risk (Advanced Security):**
-1. [Phase 3: Identity Risk Detection](docs/PHASE-3-ENTRA-P2/DEEP-DIVES/08-identity-risk-detection.md)
-2. [Zero Trust Architecture](docs/PHASE-3-ENTRA-P2/DEEP-DIVES/08b-zero-trust-identity-architecture.md)
-3. [Conditional Access](docs/PHASE-3-ENTRA-P2/07c-adaptive-authentication.md)
-
-**Workload & Application Identity (Cloud-Native):**
-1. [Phase 5: Workload Identity](docs/PHASE-5-SPECIALIST/11a-workload-identity.md)
-2. [Managed Identities](docs/PHASE-5-SPECIALIST/DEEP-DIVES/15-managed-identities.md)
-3. [Workload Federation](docs/PHASE-5-SPECIALIST/DEEP-DIVES/15a-entra-workload-federation.md)
 
 ---
 
 ## Documentation Structure
 
-### Core (Main Learning Path)
-Each phase has 1–3 **core** documents plus optional deep-dives:
+### Core Learning Path (All Phases)
+Each phase contains only **essential hands-on content** — no optional distractions:
 
-- **PHASE-1-FREE-TIER/** — Foundations: setup, users, groups, RBAC
-  - **CORE ONLY:** Setup, provisioning, RBAC (~2–3 hours, no deep-dives)
-  
-- **PHASE-2-ENTRA-P1/** — Application lifecycle, provisioning, standards
-  - **CORE:** PAM, applications, identity lifecycle
-  - **DEEP-DIVES:** SAML, OAuth, SCIM, hybrid identity, delegation
-  
-- **PHASE-3-ENTRA-P2/** — Security & audit: MFA, risk, conditional access
-  - **CORE:** Audit, MFA, adaptive auth
-  - **DEEP-DIVES:** Passwordless auth, risk detection, zero trust, incident response
+- **PHASE-1-FREE-TIER/** — Foundations: setup, users, groups, RBAC (2–3 hours)
+- **PHASE-2-ENTRA-P1/** — Privileged access, applications, lifecycle (3–4 hours)
+- **PHASE-3-ENTRA-P2/** — Security & audit: MFA, risk, conditional access (2–3 hours)
   - ⚠️ **CRITICAL:** Microsoft mandating MFA for all sign-ins October 1, 2025. Plan your rollout now.
-  
-- **PHASE-4-GOVERNANCE/** — Advanced governance: access reviews, entitlement mgmt
-  - **CORE:** Identity governance administration
-  - **DEEP-DIVES:** Self-service, analytics, compliance, migration
+- **PHASE-4-GOVERNANCE/** — Access reviews, entitlement management, governance (2–3 hours)
   - ⭐ **NEW:** Non-Human Identity (NHI) governance—extend reviews to service principals, workloads, API keys
-  
-- **PHASE-5-SPECIALIST/** — Specialists: workload identity, B2B, verified ID
-  - **CORE:** Workload identity (OIDC federation preferred), B2B external identities
-  - **DEEP-DIVES:** Managed identities, workload federation, B2C/CIAM, certificates
+- **PHASE-5-SPECIALIST/** — Workload identity, B2B external identities (2–3 hours)
   - ⚠️ **UPDATE:** Azure AD B2C end-of-sale May 1, 2025 → migrate to Microsoft Entra External ID for customers
-  
-- **PHASE-6-CAPSTONE/** — Enterprise design patterns and capstone project
-  - **CORE:** Key design decisions, capstone project
-  - **DEEP-DIVES:** NIST/Gartner frameworks, maturity assessment
+- **PHASE-6-CAPSTONE/** — Enterprise design capstone project (3–4 hours)
 
 ### Reference
 Cross-cutting docs (not phase-specific):
