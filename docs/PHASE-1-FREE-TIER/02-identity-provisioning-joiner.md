@@ -22,15 +22,15 @@ The Joiner process creates digital identities for new employees. This lab create
 
 ## Users to Create
 
-Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on your tenant overview page).
+Replace `[yourdomain]` with your `domain.onmicrosoft.com` domain prefix (visible on your tenant overview page).
 
 | Display Name | Username | Department | Job Title |
 |---|---|---|---|
-| John HR | john.hr@[yourdomain].onmicrosoft.com | HR | HR Coordinator |
-| Alice IT | alice.it@[yourdomain].onmicrosoft.com | IT | IT Administrator |
-| Bob Finance | bob.finance@[yourdomain].onmicrosoft.com | Finance | Finance Analyst |
-| Charlie Sales | charlie.sales@[yourdomain].onmicrosoft.com | Sales | Sales Executive |
-| Eve Intern | eve.intern@[yourdomain].onmicrosoft.com | HR | Intern |
+| John Smith | John.Smith@[yourdomain].onmicrosoft.com | HR | HR Coordinator |
+| Alice Smith | Alice.Smith@[yourdomain].onmicrosoft.com | IT | IT Administrator |
+| Bob Glasgow | Bob.Glasgow@[yourdomain].onmicrosoft.com | Finance | Finance Analyst |
+| Charlie Jones | Charlie.Jones@[yourdomain].onmicrosoft.com | Sales | Sales Executive |
+| Eve Smith | Eve.Smith@[yourdomain].onmicrosoft.com | HR | Intern |
 
 ---
 
@@ -38,28 +38,28 @@ Replace `[yourdomain]` with your `.onmicrosoft.com` domain prefix (visible on yo
 
 ### 1. Navigate to Users
 
-1. In the Azure Portal, navigate to **Microsoft Entra ID**.
-2. In the left sidebar under **Manage**, select **Users**.
+1. Navigate to **Microsoft Entra ID**.
+2. In the left sidebar under **Entra ID**, select **Users**.
 3. Click **New user** → **Create new user**.
 
 ---
 
-### 2. Create John HR
+### 2. Create John Smith
 
 **Basics tab:**
-- **User principal name:** `john.hr@[yourdomain].onmicrosoft.com`
+- **User principal name:** `John.Smithr@[yourdomain].onmicrosoft.com`
 - **Display name:** `John HR`
-- **Password:** Select **Auto-generate password** and note the value shown
+- **Password:** Untick **Auto-generate password**, you will create a password for each user, or one password for all since this is a home lab.
 
 **Properties tab:**
 - **First name:** John
-- **Last name:** HR
+- **Last name:** Smith
 - **Job title:** HR Coordinator
 - **Department:** HR
 
 Click **Review + create**, then **Create**.
 
-> **Expected result:** A confirmation banner appears: "Successfully created user John HR." The user appears in the All Users list.
+> **Expected result:** A confirmation banner appears: "Successfully created user John Smith." The user appears in the All Users list.
 
 ---
 
@@ -75,7 +75,7 @@ Repeat step 2 for each remaining user in the table above, using the correspondin
 
 ### 4. Verify User Attributes
 
-1. Click on **John HR** in the user list.
+1. Click on **John Smith** in the user list.
 2. Select the **Properties** tab.
 3. Confirm **Department** shows `HR` and **Job title** shows `HR Coordinator`.
 
