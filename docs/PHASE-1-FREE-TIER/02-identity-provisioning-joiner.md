@@ -61,6 +61,9 @@ Click **Review + create**, then **Create**.
 
 > **Expected result:** A confirmation banner appears: "Successfully created user John Smith." The user appears in the All Users list.
 
+<img width="505" height="422" alt="image" src="https://github.com/user-attachments/assets/31132c97-9c8e-4f6b-8e14-f92e8acd6228" />
+
+
 ---
 
 ### 3. Create the Remaining Four Users
