@@ -56,6 +56,7 @@ NB* In a real environment roles would be added to groups, not users, but since t
 3. Search for **Alice Smith**, select her, and click **Add**.
 
 > **Expected result:** Alice Smith appears in the assignments list for the User Administrator role, showing as **Active**.
+<img width="1325" height="556" alt="Screenshot 2026-10-05 205818" src="https://github.com/user-attachments/assets/8d9021cd-7068-43c5-9493-25a638e01fa2" />
 
 ---
 
@@ -67,6 +68,7 @@ NB* In a real environment roles would be added to groups, not users, but since t
 4. Search for **Bob Glasgow**, select him, and click **Add**.
 
 > **Expected result:** Bob Glasgow appears in the assignments list for the Global Reader role.
+<img width="1355" height="549" alt="Screenshot 2026-10-05 210059" src="https://github.com/user-attachments/assets/f4025cff-1e7b-4cbf-b83c-f1effffefb37" />
 
 ---
 
@@ -78,6 +80,7 @@ NB* In a real environment roles would be added to groups, not users, but since t
 4. Repeat for **Bob Glasgow** — confirm **Global Reader** is listed.
 
 > **Expected result:** Each user shows exactly one assigned role. No other roles should be present.
+<img width="1357" height="529" alt="image" src="https://github.com/user-attachments/assets/ccb6253d-51d4-4d8c-bed0-b5375b88d654" />
 
 ---
 
