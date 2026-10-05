@@ -18,7 +18,7 @@ You need a free Microsoft account and a free Entra ID tenant. If you have not se
 
 ### 1. Sign In to the Entra ID admin center
 
-1. Open your browser and navigate to [portal.azure.com](https://portal.azure.com).
+1. Open your browser and navigate to [entra.microsoft.com][(https://portal.azure.com](https://entra.microsoft.com/)).
 2. Sign in with your Microsoft account credentials.
 
 > **Expected result:** The Entra ID admin center home page loads with a blue header bar and a dashboard of service tiles.
