@@ -45,6 +45,7 @@ NB* In a real environment roles would be added to groups, not users, but since t
 2. In the left sidebar under **Manage**, select **Roles and administrators**.
 
 > **Expected result:** A list of all available directory roles appears. Use the search bar to find specific roles.
+<img width="1338" height="553" alt="image" src="https://github.com/user-attachments/assets/fe4769f4-e88c-4702-aec8-8f0e749ca87e" />
 
 ---
 
