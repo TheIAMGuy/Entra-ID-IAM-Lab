@@ -10,7 +10,7 @@
 
 ## Before You Start
 
-Ensure you have completed [Lab 03 — Group-Based Access Control](03-group-based-access-control.md). Your five users should be created and assigned to their department groups.
+Ensure you have completed [Lab 03 — Group-Based Access Control](../PHASE-1-FREE-TIER/03-group-based-access-control.md). Your five users should be created and assigned to their department groups.
 
 ---
 

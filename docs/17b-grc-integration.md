@@ -353,12 +353,12 @@ Audit Report
 ## Related Documents
 
 **Prerequisites:**
-- [Compliance Frameworks](./17-compliance-frameworks-mapping.md) - Compliance requirements
-- [IGA Platforms](./17a-identity-governance-administration.md) - Access governance
+- Compliance Frameworks - Compliance requirements
+- [IGA Platforms](PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) - Access governance
 
 **Next Steps:**
-- [Incident Response](./17c-incident-response.md) - Security incident handling
-- [Risk Scoring](./17d-risk-scoring-algorithm.md) - Advanced risk analytics
+- Incident Response - Security incident handling
+- Risk Scoring - Advanced risk analytics
 
 ## FAQ
 

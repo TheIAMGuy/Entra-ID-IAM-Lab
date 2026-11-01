@@ -129,7 +129,5 @@ You have now implemented a complete, enterprise-aligned IAM environment covering
 
 ## Where to Go Next
 
-- [Key Design Decisions](KEY_DESIGN_DECISIONS.md) — the architectural rationale behind choices made throughout the lab
-- [SANDBOX_SETUP.md](../SANDBOX_SETUP.md) — rebuild this lab in a fresh environment
 - Extended reference material in `/docs` (08+) — deeper IAM theory across authentication, governance, standards, and compliance
 - Advanced Entra ID topics to explore next: Conditional Access, Multi-Factor Authentication, Privileged Identity Management (PIM)

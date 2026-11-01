@@ -353,14 +353,14 @@ Adaptive authentication is only effective if policies are tuned to minimize fals
 ## Related Documents
 
 **Prerequisites:**
-- [Authentication Fundamentals](./07-authentication-fundamentals.md) - Core concepts
+- Authentication Fundamentals - Core concepts
 - [Multi-Factor Authentication](./07a-multi-factor-authentication.md) - MFA implementation
-- [Identity Risk Detection](./08-identity-risk-detection.md) - Risk signal details
+- Identity Risk Detection - Risk signal details
 
 **Next Steps:**
-- [Identity Risk Detection](./08-identity-risk-detection.md) - Understand risk signals in depth
-- [Conditional Access Policies](./09-identity-standards-overview.md) - Advanced policy design
-- [Zero Trust Identity Architecture](./08b-zero-trust-identity-architecture.md) - Zero Trust foundation
+- Identity Risk Detection - Understand risk signals in depth
+- Conditional Access Policies - Advanced policy design
+- Zero Trust Identity Architecture - Zero Trust foundation
 
 ## Further Reading
 

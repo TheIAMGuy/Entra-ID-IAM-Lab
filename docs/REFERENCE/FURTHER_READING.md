@@ -270,29 +270,29 @@ Link: https://learn.microsoft.com
 
 ### Month 1: Foundation
 - Read: NIST CSF overview
-- Course: Microsoft Learn (Azure AD basics)
-- Practice: Set up test Azure AD tenant
-- Resource: This knowledge base (Part 0)
+- Course: Microsoft Learn (Microsoft Entra basics)
+- Practice: Set up a test Entra ID tenant
+- Labs: Phase 1 of this repository (Labs 01–03)
 
 ### Month 2-3: Core Identity
-- Read: This knowledge base (Parts 1-2)
-- Course: MS SC-300 Azure AD modules
-- Practice: Implement user provisioning
-- Project: Hybrid identity sync setup
+- Labs: Phase 2 of this repository (Labs 04–06)
+- Course: Microsoft SC-300 modules on identity and access
+- Practice: Implement user provisioning and lifecycle handling
+- Project: Hybrid identity sync setup (outside this repository)
 
 ### Month 4-5: Advanced Topics
-- Read: Parts 3-4 (Standards, Cloud)
-- Course: MS SC-300 advanced modules
-- Practice: Conditional Access policies
-- Project: Zero Trust implementation
+- Labs: Phases 3 and 4 of this repository (Labs 07–07d, 17a)
+- Course: Microsoft SC-300 advanced modules
+- Practice: Conditional Access policies and access reviews
+- Project: Zero Trust implementation (outside this repository)
 
 ### Month 6+: Specialization
-- Choose specialization:
-  - Cloud/Hybrid: Parts 4-6 (Cloud, Workload)
-  - Governance: Parts 5, 8-10 (Governance, Compliance)
-  - Security: Parts 2-3, 8-9 (Auth, Risk, Incident Response)
-- Take relevant certification (SC-300 or CISSP)
-- Build capstone project
+- Choose a specialization beyond this repository:
+  - Cloud and workload identity: Microsoft Learn on workload identities and managed identities
+  - Governance: entitlement management and lifecycle workflows
+  - Security: Identity Protection and incident response
+- Take a relevant certification (SC-300 or CISSP)
+- Build a portfolio write-up of your lab work
 
 ## Time Estimate for Complete Learning
 

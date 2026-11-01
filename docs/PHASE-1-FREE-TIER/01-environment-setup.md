@@ -10,7 +10,7 @@
 
 ## Before You Start
 
-You need a free Microsoft account and a free Entra ID tenant. If you have not set these up yet, follow the [Prerequisites](../README.md#prerequisites) section in the README before continuing.
+You need a free Microsoft account and a free Entra ID tenant. If you have not set these up yet, follow the [Prerequisites](../../README.md#prerequisites) section in the README before continuing.
 
 ---
 

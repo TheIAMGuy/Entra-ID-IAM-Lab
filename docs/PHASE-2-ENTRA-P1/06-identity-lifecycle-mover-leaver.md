@@ -165,4 +165,4 @@ In production, the disabled account remains in the directory for the retention p
 
 ## Next Step
 
-Proceed to [Lab 07 — Audit Logging & Monitoring](07-audit-logging-monitoring.md) to review the audit trail of all changes made throughout the lab.
+Proceed to [Lab 07 — Audit Logging & Monitoring](../PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md) to review the audit trail of all changes made throughout the lab.

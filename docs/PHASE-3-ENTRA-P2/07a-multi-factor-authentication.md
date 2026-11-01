@@ -349,17 +349,17 @@ Successful MFA rollout follows a phased approach that minimizes disruption:
 ## Related Documents
 
 **Prerequisites:**
-- [Authentication Fundamentals](./07-authentication-fundamentals.md) - Core authentication concepts and factors
-- [Environment Setup & Prerequisites](./01-environment-setup.md) - Entra ID tenant setup
+- Authentication Fundamentals - Core authentication concepts and factors
+- [Environment Setup & Prerequisites](../PHASE-1-FREE-TIER/01-environment-setup.md) - Entra ID tenant setup
 
 **Next Steps:**
-- [Passwordless Authentication](./07b-passwordless-authentication.md) - Move beyond passwords entirely
-- [Conditional Access Policies](./09-identity-standards-overview.md) - Advanced policy enforcement
-- [Identity Risk Detection](./08-identity-risk-detection.md) - Detect and respond to risky sign-ins
+- Passwordless Authentication - Move beyond passwords entirely
+- [Conditional Access Policies](07c-conditional-access-policy.md) - Advanced policy enforcement
+- Identity Risk Detection - Detect and respond to risky sign-ins
 
 **Related Domains:**
-- [Domain 10: Authentication](./00-iam-landscape-overview.md) - Part of authentication domain
-- [Domain 9: Conditional Access](./00-iam-landscape-overview.md) - Enforcement mechanism for MFA
+- Domain 10: Authentication - Part of authentication domain
+- Domain 9: Conditional Access - Enforcement mechanism for MFA
 
 ## Further Reading
 

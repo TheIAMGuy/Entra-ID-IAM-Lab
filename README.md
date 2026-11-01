@@ -112,8 +112,7 @@ Each phase contains only **essential hands-on content** — no optional distract
 Cross-cutting docs (not phase-specific):
 - [IAM_GLOSSARY.md](docs/REFERENCE/IAM_GLOSSARY.md) — Definitions of all IAM terms
 - [CONCEPT_INDEX.md](docs/REFERENCE/CONCEPT_INDEX.md) — Find concepts across phases
-- [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md) — Master index of all content
-- [HANDS_ON_LAB_SCENARIOS.md](docs/REFERENCE/HANDS_ON_LAB_SCENARIOS.md) — Scenario-based exercises
+- [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md) — Index of all 12 labs and concept guides
 - [FURTHER_READING.md](docs/REFERENCE/FURTHER_READING.md) — External resources
 
 ---
@@ -212,7 +211,7 @@ Find reusable templates in [templates/](templates/):
 - 🔍 **Looking for a concept?** Check [CONCEPT_INDEX.md](docs/REFERENCE/CONCEPT_INDEX.md)
 - ❓ **Need a definition?** See [IAM_GLOSSARY.md](docs/REFERENCE/IAM_GLOSSARY.md)
 - 🔗 **Want external resources?** See [FURTHER_READING.md](docs/REFERENCE/FURTHER_READING.md)
-- 💡 **Specific scenario?** Check [HANDS_ON_LAB_SCENARIOS.md](docs/REFERENCE/HANDS_ON_LAB_SCENARIOS.md)
+- 💡 **Want the full list of labs?** See [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md)
 
 ---
 

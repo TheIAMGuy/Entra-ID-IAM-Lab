@@ -352,12 +352,12 @@ Action Items:
 ## Related Documents
 
 **Prerequisites:**
-- [Compliance Frameworks](./17-compliance-frameworks-mapping.md) - Compliance requirements
-- [RBAC](./03-role-based-access-control.md) - Role-based access structure
+- Compliance Frameworks - Compliance requirements
+- RBAC - Role-based access structure
 
 **Next Steps:**
-- [GRC Integration](./17b-grc-integration.md) - Risk and compliance management
-- [Incident Response](./17c-incident-response.md) - Security incident handling
+- [GRC Integration](../17b-grc-integration.md) - Risk and compliance management
+- Incident Response - Security incident handling
 
 ## FAQ
 
