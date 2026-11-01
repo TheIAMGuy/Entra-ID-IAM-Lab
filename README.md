@@ -169,8 +169,6 @@ Cross-cutting docs (not phase-specific):
 | **Applications** | 2 | Provision enterprise apps and manage user access ✓ |
 | **Security & Audit** | 3 | Enforce MFA, detect risky access, audit trails ✓ |
 | **Governance** | 4 | Run access reviews, manage entitlements ✓ |
-| **Cloud-Native Identity** | 5 | Authenticate workloads, B2B partners, external users ✓ |
-| **Enterprise Design** | 6 | Architect a complete IAM system | ✓ |
 
 ---
 

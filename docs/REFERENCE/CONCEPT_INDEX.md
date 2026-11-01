@@ -77,7 +77,7 @@ Cross-reference of all 17 IAM domains and key concepts covered in this knowledge
 **Related:** Conditional access, device compliance
 
 ### Domain 16: Machine & Workload Identity
-**Documents:** 11a-workload-identity.md, 11b-machine-identity-management.md, 14-spiffe-spire-implementation.md, 14a-service-mesh-identity.md, 14b-container-workload-identity.md, 15-managed-identities.md, 15a-entra-workload-federation.md
+**Documents:** 11b-machine-identity-management.md, 14-spiffe-spire-implementation.md, 14a-service-mesh-identity.md, 14b-container-workload-identity.md, 15-managed-identities.md, 15a-entra-workload-federation.md
 **Concepts:** Service principals, managed identity, SPIFFE/SPIRE, certificates, mTLS
 **Related:** Cloud-native, Kubernetes, federation
 

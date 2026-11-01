@@ -174,7 +174,6 @@ Documents:
 Workload and service identity
 
 Documents:
-- 11a: Workload Identity
 - 11b: Machine Identity
 - 14: SPIFFE/SPIRE
 - 14a: Service Mesh Identity
@@ -294,7 +293,7 @@ Documents mapping:
 | 13. Audit & Logging | 19, 19b | All | Detect |
 | 14. Standards | 09a-f | NIST, Gartner | Protect |
 | 15. Zero Trust | 08b | NIST, FedRAMP | Protect |
-| 16. Workload Identity | 11a, 11b, 14, 14a, 14b, 15a | Gartner, Emerging | Protect |
+| 16. Workload Identity | 11b, 14, 14a, 14b, 15a | Gartner, Emerging | Protect |
 | 17. Identity Intelligence | 19a | Gartner, NIST | Detect |
 
 ## Enterprise Program Alignment
