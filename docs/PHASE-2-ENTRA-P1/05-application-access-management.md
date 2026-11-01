@@ -80,12 +80,11 @@ Repeat steps 2 and 3 for:
 - **Sales-App** → assign **Charlie Jones**
 
 *Finance-App**
+<img width="1077" height="515" alt="image" src="https://github.com/user-attachments/assets/e1cac48f-761f-458a-8ae8-85baf18f6c16" />
 
 
 
 *Sales-App**
-
-<img width="1090" height="462" alt="image" src="https://github.com/user-attachments/assets/4a860ca9-2805-4aa5-ba47-057af8ab3414" />
 
 <img width="1090" height="462" alt="image" src="https://github.com/user-attachments/assets/3ddc6a4e-47ee-4b97-b3c8-9fbf817db1c4" />
 
@@ -98,6 +97,8 @@ Repeat steps 2 and 3 for:
 1. Navigate to **Enterprise applications**.
 2. Search for "App" in the search bar to filter your three applications.
 3. Open each one and confirm the assigned users.
+
+<img width="521" height="221" alt="apps" src="https://github.com/user-attachments/assets/3c4beea7-9e1a-489e-8265-fb0dab2373c2" />
 
 > **Expected result:** HR-App: John Smith, Eve Smith. Finance-App: Bob Glasgow. Sales-App: Charlie Jones. No cross-department access exists.
 
