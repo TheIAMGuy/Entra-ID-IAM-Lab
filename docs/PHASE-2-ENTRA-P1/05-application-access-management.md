@@ -79,6 +79,16 @@ Repeat steps 2 and 3 for:
 - **Finance-App** → assign **Bob Glasgow**
 - **Sales-App** → assign **Charlie Jones**
 
+*Finance-App**
+
+
+
+*Sales-App**
+
+<img width="1090" height="462" alt="image" src="https://github.com/user-attachments/assets/4a860ca9-2805-4aa5-ba47-057af8ab3414" />
+
+<img width="1090" height="462" alt="image" src="https://github.com/user-attachments/assets/3ddc6a4e-47ee-4b97-b3c8-9fbf817db1c4" />
+
 > **Expected result:** Three enterprise applications exist in your tenant. Each shows the correct assigned user(s) under Users and groups.
 
 ---
