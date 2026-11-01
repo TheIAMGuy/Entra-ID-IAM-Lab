@@ -51,7 +51,8 @@ In this lab you will build three applications — HR-App, Finance-App, and Sales
 3. Select **Integrate any other application you don't find in the gallery (Non-gallery)**.
 4. Click **Create**.
 
-<img width="1096" height="566" alt="image" src="https://github.com/user-attachments/assets/b7ce8837-6c1b-41c5-ac1c-4066feb338da" />
+<img width="1101" height="564" alt="image" src="https://github.com/user-attachments/assets/1de2d344-eba6-4dba-ade3-a3e6d4709c24" />
+
 
 > **Expected result:** The HR-App overview page opens. The application now exists in your tenant.
 
