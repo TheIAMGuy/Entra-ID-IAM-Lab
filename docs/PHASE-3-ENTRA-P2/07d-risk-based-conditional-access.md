@@ -187,7 +187,7 @@ This is the modern standard for balancing **security** (catch risky sign-ins) an
 
 ## Next Steps
 
-→ You've completed Phase 3! Proceed to [Phase 4 — Identity Governance](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
+→ You've completed Phase 3! Proceed to [Phase 4 — Identity Governance](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md)
 
 **Or review:**
 - [Audit Logging](07-audit-logging-monitoring.md) for a complete audit trail of all MFA and CA activity

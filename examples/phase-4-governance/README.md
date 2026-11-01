@@ -22,4 +22,4 @@ Example from **Lab 17a**: Access Reviews.
 ## Lab Reference
 
 - [Lab 17a — Set Up Your First Access Review](../../docs/PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md)
-- [Identity Governance Administration (concept guide)](../../docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
+- [Identity Governance Administration (concept guide)](../../docs/PHASE-4-GOVERNANCE/guide-identity-governance-administration.md)

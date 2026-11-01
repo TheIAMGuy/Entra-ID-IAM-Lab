@@ -29,14 +29,14 @@ Work through the 12 labs in the order listed in the [Lab Index](LABS_INDEX.md). 
 
 1. [QUICKSTART.md](QUICKSTART.md) for the condensed steps and PowerShell references.
 2. [Lab 04 — Privileged Access Management](../PHASE-2-ENTRA-P1/04-privileged-access-management.md)
-3. The Phase 3 guides: [Multi-Factor Authentication](../PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md) and [Adaptive Authentication](../PHASE-3-ENTRA-P2/07c-adaptive-authentication.md)
-4. [Identity Governance Administration](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
+3. The Phase 3 guides: [Multi-Factor Authentication](../PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md) and [Adaptive Authentication](../PHASE-3-ENTRA-P2/guide-adaptive-authentication.md)
+4. [Identity Governance Administration](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md)
 
 ### Path 3: Learn by topic
 - **Joiner, mover, leaver:** Labs 02, 06
 - **Access control:** Labs 03, 04, 05
 - **Authentication and risk:** Labs 07a, 07b, 07c, 07d
-- **Audit and governance:** Lab 07, Lab 17a, [GRC Integration](../17b-grc-integration.md)
+- **Audit and governance:** Lab 07, Lab 17a, [GRC Integration](../PHASE-4-GOVERNANCE/guide-grc-integration.md)
 
 ---
 

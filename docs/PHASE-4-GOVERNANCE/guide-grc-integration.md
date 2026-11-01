@@ -7,7 +7,7 @@ estimated_reading_time: 30
 estimated_lab_time: N/A
 prerequisites:
   - 17-compliance-frameworks-mapping.md
-  - 17a-identity-governance-administration.md
+  - guide-identity-governance-administration.md
 learning_objectives:
   - Understand GRC platform concepts
   - Integrate identity governance with GRC systems
@@ -354,7 +354,7 @@ Audit Report
 
 **Prerequisites:**
 - Compliance Frameworks - Compliance requirements
-- [IGA Platforms](PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) - Access governance
+- [IGA Platforms](guide-identity-governance-administration.md) - Access governance
 
 **Next Steps:**
 - Incident Response - Security incident handling

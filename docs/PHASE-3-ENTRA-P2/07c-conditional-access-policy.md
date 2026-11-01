@@ -27,7 +27,12 @@ THEN (require MFA)
 - ✓ Scales automatically (new hires inherit the policy)
 - ✓ Flexible conditions (by location, device, risk, time of day)
 - ✓ Report-only mode (test before enforcement)
-- ✓ Modern best practice (per-user MFA is deprecated)
+- ✓ Microsoft's recommended approach (per-user MFA is not recommended where Conditional Access is available)
+
+> **Before you create the policy:**
+> - If you enabled per-user MFA in [Lab 07a](07a-configure-totp-mfa.md), set Alice and Bob back to disabled (**Entra ID → Users → All users → Per-user MFA → Disable MFA**). Microsoft advises not to use per-user MFA together with Conditional Access.
+> - If **security defaults** are enabled, turn them off first (**Entra ID → Overview → Properties → Manage security defaults → Disabled**). You can't create Conditional Access policies while security defaults are on.
+> - Conditional Access requires Entra ID P1. A free trial is available.
 
 ---
 
@@ -155,7 +160,7 @@ Test one more sign-in to confirm the policy is enforcing.
 4. Approve MFA.
 5. You're signed in.
 
-> **Expected result:** MFA is now **enforced** by the Conditional Access policy (not just per-user setting).
+> **Expected result:** MFA is now **enforced** by the Conditional Access policy (not the per-user setting).
 
 ---
 
@@ -189,4 +194,4 @@ This is the modern standard for MFA deployment: policy-based, scalable, and audi
 
 **Or jump to:**
 - [Audit Logging](07-audit-logging-monitoring.md) to review all MFA and CA activity
-- [Phase 4 — Identity Governance](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) for access review and governance
+- [Phase 4 — Identity Governance](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md) for access review and governance

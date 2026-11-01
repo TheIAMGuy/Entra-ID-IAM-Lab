@@ -20,6 +20,8 @@ Every action taken in Entra ID — creating a user, adding a group member, assig
 
 The audit log is your proof of compliance and your primary tool for security investigations. **Sign-in Logs** record every authentication attempt. In a lab environment, sign-in logs will be sparse because the test users are not actively logging in. In production, sign-in logs detect suspicious authentication patterns — failed attempts, logins from unusual locations, and impossible travel scenarios.
 
+> **Log retention:** Microsoft Entra keeps audit and sign-in logs for 7 days on Free tenants and 30 days on P1 and P2. If your Lab 02–06 changes are older than that on a free tenant, they will no longer appear.
+
 ---
 
 ## Steps

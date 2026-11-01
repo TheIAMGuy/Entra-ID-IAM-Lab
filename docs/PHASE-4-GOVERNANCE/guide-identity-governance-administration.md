@@ -356,7 +356,7 @@ Action Items:
 - RBAC - Role-based access structure
 
 **Next Steps:**
-- [GRC Integration](../17b-grc-integration.md) - Risk and compliance management
+- [GRC Integration](guide-grc-integration.md) - Risk and compliance management
 - Incident Response - Security incident handling
 
 ## FAQ

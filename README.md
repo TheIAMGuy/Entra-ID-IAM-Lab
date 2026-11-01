@@ -77,8 +77,8 @@ Choose your path and follow the links in order:
 ### **Path 2: Experienced Identity Person**
 1. [QUICKSTART.md](docs/REFERENCE/QUICKSTART.md) — Refresh on Entra specifics
 2. [Phase 2: Privileged Access](docs/PHASE-2-ENTRA-P1/04-privileged-access-management.md)
-3. [Phase 3: MFA & Risk](docs/PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md)
-4. [Phase 4: Identity Governance](docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
+3. [Phase 3: MFA & Risk](docs/PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md)
+4. [Phase 4: Identity Governance](docs/PHASE-4-GOVERNANCE/guide-identity-governance-administration.md)
 
 **Estimated time:** 6–8 hours  
 **Best for:** Identity architects, consultants, people familiar with IAM concepts
@@ -104,7 +104,7 @@ Each phase contains only **essential hands-on content** — no optional distract
 - **PHASE-1-FREE-TIER/** — Foundations: setup, users, groups, RBAC (2–3 hours)
 - **PHASE-2-ENTRA-P1/** — Privileged access, applications, lifecycle (3–4 hours)
 - **PHASE-3-ENTRA-P2/** — Security & audit: MFA, risk, conditional access (2–3 hours)
-  - ⚠️ **CRITICAL:** Microsoft mandating MFA for all sign-ins October 1, 2025. Plan your rollout now.
+  - ℹ️ Microsoft enforces mandatory MFA for Azure and admin portal sign-ins (Phase 1 from October 2024, Phase 2 from October 1, 2025). See the [MFA guide](docs/PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md).
 - **PHASE-4-GOVERNANCE/** — Access reviews, entitlement management, governance (2–3 hours)
   - ⭐ **NEW:** Non-Human Identity (NHI) governance—extend reviews to service principals, workloads, API keys
 

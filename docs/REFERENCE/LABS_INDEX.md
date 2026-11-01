@@ -49,10 +49,10 @@ These are reading material, not step-by-step labs. Some contain a short embedded
 
 | Guide | Phase | Pairs with |
 |-------|-------|-----------|
-| [Multi-Factor Authentication: Implementation & Best Practices](../PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md) | 3 | Labs 07a, 07b |
-| [Adaptive Authentication: Risk-Based Access Control](../PHASE-3-ENTRA-P2/07c-adaptive-authentication.md) | 3 | Labs 07c, 07d |
-| [Identity Governance Administration: IGA Platforms](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) | 4 | Lab 17a |
-| [GRC Integration](../17b-grc-integration.md) | 4 | Lab 17a |
+| [Multi-Factor Authentication: Implementation & Best Practices](../PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md) | 3 | Labs 07a, 07b |
+| [Adaptive Authentication: Risk-Based Access Control](../PHASE-3-ENTRA-P2/guide-adaptive-authentication.md) | 3 | Labs 07c, 07d |
+| [Identity Governance Administration: IGA Platforms](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md) | 4 | Lab 17a |
+| [GRC Integration](../PHASE-4-GOVERNANCE/guide-grc-integration.md) | 4 | Lab 17a |
 
 ---
 

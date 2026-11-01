@@ -34,6 +34,8 @@ Every lab file (Phase 1–5) must follow this structure exactly. Use this as a t
 Example: PHASE-2-ENTRA-P1/04-privileged-access-management.md
 ```
 
+Concept guides (reading material that is not a numbered lab) use a `guide-` prefix instead of a lab number, for example `PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md`. This keeps lab numbers unique.
+
 ### 2. **Front Matter (Metadata)**
 
 If the lab is advanced/reference material, include YAML front matter:
@@ -296,7 +298,6 @@ Entra-ID-IAM-Lab/
 ├── CONTRIBUTING.md                         (contribution guidelines)
 ├── LICENSE
 ├── docs/
-│   ├── 17b-grc-integration.md
 │   ├── PHASE-1-FREE-TIER/
 │   │   ├── 01-environment-setup.md
 │   │   ├── 02-identity-provisioning-joiner.md
@@ -308,14 +309,15 @@ Entra-ID-IAM-Lab/
 │   ├── PHASE-3-ENTRA-P2/
 │   │   ├── 07-audit-logging-monitoring.md
 │   │   ├── 07a-configure-totp-mfa.md
-│   │   ├── 07a-multi-factor-authentication.md      (concept guide)
+│   │   ├── guide-multi-factor-authentication.md    (concept guide)
 │   │   ├── 07b-enable-authenticator-push-mfa.md
 │   │   ├── 07c-conditional-access-policy.md
-│   │   ├── 07c-adaptive-authentication.md          (concept guide)
+│   │   ├── guide-adaptive-authentication.md        (concept guide)
 │   │   └── 07d-risk-based-conditional-access.md
 │   ├── PHASE-4-GOVERNANCE/
 │   │   ├── 17a-set-up-access-reviews.md
-│   │   └── 17a-identity-governance-administration.md  (concept guide)
+│   │   ├── guide-identity-governance-administration.md  (concept guide)
+│   │   └── guide-grc-integration.md                (concept guide)
 │   └── REFERENCE/
 │       ├── BEGINNER_GUIDE.md
 │       ├── CONCEPT_INDEX.md

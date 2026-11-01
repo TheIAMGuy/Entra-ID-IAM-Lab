@@ -18,17 +18,22 @@ learning_objectives:
 
 # Multi-Factor Authentication: Implementation & Best Practices
 
-## ⚠️ CRITICAL DEADLINE: Microsoft Mandating MFA (October 1, 2025)
+## Microsoft's Mandatory MFA Enforcement
 
-**Starting October 1, 2025**, Microsoft is enforcing mandatory MFA for ALL sign-ins to Azure, Microsoft 365, and related services. Exception: use a stronger method like passwordless (FIDO2 security keys, Windows Hello for Business) or passkeys instead of MFA. Organizations with complex environments can request extension to **July 1, 2026**. This is not optional—plan your MFA rollout now.
+Microsoft is enforcing mandatory MFA for Azure sign-ins in two phases. This is not a requirement for every Microsoft 365 sign-in.
 
-**Why this matters for this lab:** By the time you complete Phase 3, this deadline will be in effect. Build your MFA strategy for production use.
+- **Phase 1 (from October 2024):** Accounts signing in to the Azure portal, Microsoft Entra admin center and Microsoft Intune admin center need MFA for any create, read, update or delete operation. Enforcement for the Microsoft 365 admin center began in February 2025.
+- **Phase 2 (from October 1, 2025):** Accounts using Azure CLI, Azure PowerShell, the Azure mobile app, infrastructure-as-code tools and REST API endpoints need MFA for create, update and delete operations. Read operations do not.
+- **Postponement:** Global Administrators could postpone Phase 1 until September 30, 2025 and Phase 2 until July 1, 2026. Check your own tenant's status in the Azure portal, because those dates have now passed.
+- **Stronger methods:** Passwordless sign-in and passkeys (FIDO2) already satisfy the requirement. Security defaults or a Conditional Access policy also satisfy it.
+
+See [Mandatory multifactor authentication for Azure and admin portals](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication) for the current scope and how to confirm enforcement in your tenant.
 
 ---
 
 ## Introduction
 
-Multi-factor authentication (MFA) is no longer optional—it's essential. According to [Microsoft security research](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication), accounts with MFA enabled are 99.9% less likely to be compromised. Yet many organizations struggle with rollout: users resist, help desk tickets spike, and deployments stall. This document shows you how to implement MFA strategically, minimize friction, and sustain adoption, while meeting the October 2025 mandatory enforcement deadline.
+Multi-factor authentication (MFA) is no longer optional—it's essential. According to [Microsoft security research](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication), MFA can block more than 99.2% of account compromise attacks. Yet many organizations struggle with rollout: users resist, help desk tickets spike, and deployments stall. This document shows you how to implement MFA strategically, minimize friction, and sustain adoption, while meeting Microsoft's mandatory MFA enforcement.
 
 **Learning Objectives:**
 - Understand the full spectrum of MFA methods (app-based, SMS, biometric, hardware tokens)
@@ -97,7 +102,7 @@ Entra ID offers three levels of MFA enforcement, each with different scope and a
 
 ### Method 1: Per-User MFA (Legacy)
 
-Per-user MFA enforces MFA on individual users, not policies. Each user is manually enabled or disabled by administrators. This approach is inflexible and doesn't scale.
+Per-user MFA enforces MFA on individual users, not policies. Each user is manually enabled or disabled by administrators. This approach is inflexible and doesn't scale. Microsoft advises against changing per-user states unless your licences don't include Conditional Access and you don't want to use security defaults, and against combining per-user MFA with Conditional Access policies.
 
 **Limitation:** No conditional enforcement, no exception mechanisms, all-or-nothing per user. Not recommended for new deployments.
 

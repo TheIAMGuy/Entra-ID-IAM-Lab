@@ -33,25 +33,21 @@ TOTP (Time-Based One-Time Password) uses an authenticator app (Microsoft Authent
 
 ## Steps
 
-### 1. Enable MFA via Azure AD Portal (Admin Setup)
+### 1. Enable Per-User MFA (Admin Setup)
 
-In this step, you'll enable MFA enforcement for your test users.
+In this step, you'll enable MFA for your test users with per-user MFA, the simplest method for a lab tenant without Conditional Access.
 
-1. In the Entra ID admin center, navigate to **Microsoft Entra ID** → **Security** → **MFA**.
-2. Click **Get started** or **Fraud alerts** (depending on your version).
+> **Note:** Microsoft recommends Conditional Access (or security defaults on free tenants) over per-user MFA, and advises against combining per-user MFA with Conditional Access policies. You'll move to Conditional Access in [Lab 07c](07c-conditional-access-policy.md). If your tenant has security defaults enabled, MFA is already required for all users and you can skip to step 2.
 
-> **Note:** If you see "Multifactor authentication" under Security, click it.
-
-3. In the MFA settings page, look for **Per-user MFA** (legacy approach) or **Conditional Access** (modern approach).
-   - **For this lab:** Use **Per-user MFA** to keep it simple.
-
-4. Click **Per-user MFA** and select your test users:
+1. Sign in to the Microsoft Entra admin center as at least an **Authentication Policy Administrator**.
+2. Navigate to **Entra ID → Users → All users**.
+3. Select **Per-user MFA** in the command bar.
+4. Select your test users:
    - Alice Smith
    - Bob Glasgow
-5. Check the **ENABLED** checkbox next to each user.
-6. Click **Save**.
+5. Select **Enable MFA** and confirm.
 
-> **Expected result:** Alice and Bob now have MFA enabled. Their status shows "Enabled" in the per-user MFA list.
+> **Expected result:** Alice and Bob show a per-user MFA status of "Enabled". They are prompted to register for MFA at their next sign-in, and Microsoft changes the status to "Enforced" once they register.
 
 ---
 

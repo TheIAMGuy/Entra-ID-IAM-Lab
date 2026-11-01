@@ -7,7 +7,7 @@ estimated_reading_time: 45
 estimated_lab_time: 90
 prerequisites:
   - 07-authentication-fundamentals.md
-  - 07a-multi-factor-authentication.md
+  - guide-multi-factor-authentication.md
   - 08-identity-risk-detection.md
 learning_objectives:
   - Understand risk signals and how they inform authentication decisions
@@ -187,25 +187,25 @@ THEN require fresh MFA
 
 1. In Entra ID admin center, go to **Protection → Conditional Access**
 2. Click **+ New policy**
-3. **Name:** "Block high user risk"
+3. **Name:** "Require password change for high user risk"
 4. **Assignments:**
    - **Users:** Select "All users"
 5. **Conditions:**
    - **User risk:** Select "High"
 6. **Access controls:**
-   - **Grant:** Select "Require multi-factor authentication"
+   - **Grant:** Select "Require password change" (this also requires MFA first)
 7. **Session controls:** Leave default
-8. **Enable policy:** Toggle to "On"
+8. **Enable policy:** Set to "Report-only" first, then move to "On" after reviewing the results
 9. Click **Create**
 
 **Expected Output:**
 ```
 Policy created successfully
-Name: Block high user risk
-Status: On
+Name: Require password change for high user risk
+Status: Report-only
 Scope: All users
 Condition: User risk = High
-Action: Require MFA
+Action: Require password change
 ```
 
 ### Step 2: Create Sign-In Risk Policy (20 minutes)
@@ -234,11 +234,10 @@ Enforcement: MFA required
 For testing, use Entra ID's risk injection feature or real-world simulation:
 
 **Option A: Simulate High User Risk**
-1. Go to **Protection → Identity Protection → User risk policy**
-2. Ensure your test user's password has been disclosed (simulate)
-3. Trigger password reset flow
-4. Sign in with test user
-5. Observe: MFA required due to "high user risk"
+1. Go to **Protection → ID Protection → Risky users**
+2. Select the test user and choose **Confirm user compromised**. This sets the user's risk to High. Use a test account only.
+3. Sign in with the test user
+4. Observe: the policy requires MFA and then a secure password change due to "high user risk"
 
 **Option B: Simulate High Sign-In Risk (requires compatible IP)**
 1. Use a VPN or proxy to establish sign-in from unusual location
@@ -354,7 +353,7 @@ Adaptive authentication is only effective if policies are tuned to minimize fals
 
 **Prerequisites:**
 - Authentication Fundamentals - Core concepts
-- [Multi-Factor Authentication](./07a-multi-factor-authentication.md) - MFA implementation
+- [Multi-Factor Authentication](./guide-multi-factor-authentication.md) - MFA implementation
 - Identity Risk Detection - Risk signal details
 
 **Next Steps:**

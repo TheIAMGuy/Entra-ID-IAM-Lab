@@ -27,12 +27,12 @@ For definitions, see the [IAM Glossary](IAM_GLOSSARY.md). For the full lab list,
 ### Authentication and Risk
 | Concept | Where |
 |---------|-------|
-| MFA methods and rollout | [MFA guide](../PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md) |
+| MFA methods and rollout | [MFA guide](../PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md) |
 | TOTP | [Lab 07a](../PHASE-3-ENTRA-P2/07a-configure-totp-mfa.md) |
 | Push notifications | [Lab 07b](../PHASE-3-ENTRA-P2/07b-enable-authenticator-push-mfa.md) |
 | Conditional Access basics | [Lab 07c](../PHASE-3-ENTRA-P2/07c-conditional-access-policy.md) |
 | Risk-based Conditional Access | [Lab 07d](../PHASE-3-ENTRA-P2/07d-risk-based-conditional-access.md) |
-| Adaptive authentication, risk signals | [Adaptive Authentication guide](../PHASE-3-ENTRA-P2/07c-adaptive-authentication.md) |
+| Adaptive authentication, risk signals | [Adaptive Authentication guide](../PHASE-3-ENTRA-P2/guide-adaptive-authentication.md) |
 
 ### Audit and Monitoring
 | Concept | Where |
@@ -44,10 +44,10 @@ For definitions, see the [IAM Glossary](IAM_GLOSSARY.md). For the full lab list,
 | Concept | Where |
 |---------|-------|
 | Access reviews | [Lab 17a](../PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md) |
-| Identity governance (IGA) | [IGA guide](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) |
-| Segregation of duties | [IGA guide](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) |
-| Non-human identity governance | [IGA guide](../PHASE-4-GOVERNANCE/17a-identity-governance-administration.md) |
-| GRC integration, audit evidence | [GRC Integration](../17b-grc-integration.md) |
+| Identity governance (IGA) | [IGA guide](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md) |
+| Segregation of duties | [IGA guide](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md) |
+| Non-human identity governance | [IGA guide](../PHASE-4-GOVERNANCE/guide-identity-governance-administration.md) |
+| GRC integration, audit evidence | [GRC Integration](../PHASE-4-GOVERNANCE/guide-grc-integration.md) |
 
 ---
 
