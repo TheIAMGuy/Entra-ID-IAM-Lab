@@ -1,6 +1,6 @@
 {
-  "comment": "PLACEHOLDER: Access review configuration from Lab 17a — Identity Governance",
-  "status": "PLACEHOLDER — Requires Entra ID Governance license",
+  "comment": "PLACEHOLDER: Access review configuration from Lab 17a — Set Up Your First Access Review",
+  "status": "PLACEHOLDER — Requires Entra ID P2 or Entra ID Governance",
   "description": "Replace this file with your access review configuration after completing Lab 17a",
   "expected_content": {
     "displayName": "Quarterly User Access Review",
@@ -33,7 +33,7 @@
       }
     }
   },
-  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md",
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md",
   "how_to_export": "Identity > Identity Governance > Access reviews > your review > Export configuration",
-  "todo": "Export your access review configuration and replace this placeholder when Governance license is active"
+  "todo": "Export your access review configuration and replace this placeholder when your licence allows it"
 }

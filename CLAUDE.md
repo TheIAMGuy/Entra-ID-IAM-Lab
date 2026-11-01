@@ -296,6 +296,7 @@ Entra-ID-IAM-Lab/
 ├── CONTRIBUTING.md                         (contribution guidelines)
 ├── LICENSE
 ├── docs/
+│   ├── 17b-grc-integration.md
 │   ├── PHASE-1-FREE-TIER/
 │   │   ├── 01-environment-setup.md
 │   │   ├── 02-identity-provisioning-joiner.md
@@ -306,26 +307,36 @@ Entra-ID-IAM-Lab/
 │   │   └── 06-identity-lifecycle-mover-leaver.md
 │   ├── PHASE-3-ENTRA-P2/
 │   │   ├── 07-audit-logging-monitoring.md
-│   │   ├── 07a-multi-factor-authentication.md
-│   │   └── 07c-adaptive-authentication.md
+│   │   ├── 07a-configure-totp-mfa.md
+│   │   ├── 07a-multi-factor-authentication.md      (concept guide)
+│   │   ├── 07b-enable-authenticator-push-mfa.md
+│   │   ├── 07c-conditional-access-policy.md
+│   │   ├── 07c-adaptive-authentication.md          (concept guide)
+│   │   └── 07d-risk-based-conditional-access.md
 │   ├── PHASE-4-GOVERNANCE/
-│   │   └── 17a-identity-governance-administration.md
+│   │   ├── 17a-set-up-access-reviews.md
+│   │   └── 17a-identity-governance-administration.md  (concept guide)
 │   └── REFERENCE/
-│       ├── IAM_GLOSSARY.md
-│       ├── CONCEPT_INDEX.md
-│       ├── LABS_INDEX.md
 │       ├── BEGINNER_GUIDE.md
-│       └── [other reference docs]
-├── examples/                               (COMING: working configs per phase)
+│       ├── CONCEPT_INDEX.md
+│       ├── FURTHER_READING.md
+│       ├── IAM_GLOSSARY.md
+│       ├── LABS_INDEX.md
+│       └── QUICKSTART.md
+├── examples/                               (sample exported configs per phase)
 │   ├── phase-1-free/
 │   ├── phase-2-p1/
-│   └── ...
+│   ├── phase-3-p2/
+│   └── phase-4-governance/
 └── templates/
     ├── CLAUDE.md.template
     ├── CLAUDE.local.md.template
     ├── CONTENT_TEMPLATE.md
     ├── WRITING_GUIDELINES.md
-    └── [policy & script templates]
+    ├── naming-standards/
+    ├── policies/
+    ├── scripts/
+    └── settings.json.template
 ```
 
 ---
@@ -356,5 +367,5 @@ Use this when asking Claude Code to add or modify a lab:
 
 ---
 
-**Last updated:** 2026-07-27  
+**Last updated:** 2026-11-01  
 **For:** GitHub repository: https://github.com/TheIAMGuy/Entra-ID-IAM-Lab

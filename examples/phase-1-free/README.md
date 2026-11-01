@@ -6,7 +6,6 @@ Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning,
 
 - `users-example.json` — User objects created in Lab 02 (Joiner scenario)
 - `groups-example.json` — Groups created in Lab 03 (department groups)
-- `rbac-assignments-example.json` — Role assignments for Lab 04 (User Admin, Global Reader)
 
 ## How to Use
 
@@ -19,7 +18,6 @@ Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning,
 
 - [PLACEHOLDER: Screenshot of users created in Lab 02]
 - [PLACEHOLDER: Screenshot of groups created in Lab 03]
-- [PLACEHOLDER: Screenshot of RBAC role assignments from Lab 04]
 
 ## Notes
 

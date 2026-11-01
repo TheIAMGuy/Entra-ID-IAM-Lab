@@ -1,34 +1,25 @@
 # Phase 4 — Identity Governance Examples
 
-**Note:** These examples require **Entra ID Governance license**. Placeholder files below — add your configurations when licensing is available.
+**Note:** This is a placeholder file. Access reviews require Entra ID P2 or Entra ID Governance. Replace the placeholder with your own export after completing the lab.
 
-Working examples from **Lab 17a**: Identity Governance Administration, Access Reviews, and Entitlement Management.
+Example from **Lab 17a**: Access Reviews.
 
 ## Files
 
-- `access-review-configuration-example.json` — Access review policy configuration [PLACEHOLDER]
-- `entitlement-management-example.json` — Entitlement management settings [PLACEHOLDER]
-- `access-certification-example.json` — Access certification workflow [PLACEHOLDER]
-- `nhi-governance-example.json` — Non-Human Identity (NHI) governance configurations [PLACEHOLDER]
+- `access-review-configuration-example.json` — Access review configuration [PLACEHOLDER]
 
 ## How to Use
 
-1. When you obtain Governance licensing, complete Lab 17a
-2. Configure access reviews, entitlement management, and access certifications
-3. Export configurations as JSON
-4. Replace placeholder files with your actual configs
+1. Complete Lab 17a in a tenant with the required licence
+2. Export your access review configuration as JSON
+3. Replace the placeholder file with your export
 
 ## Screenshots
 
 - [PLACEHOLDER: Screenshot of Access Reviews configuration]
-- [PLACEHOLDER: Screenshot of Entitlement Management policies]
-- [PLACEHOLDER: Screenshot of Access Certification in progress]
-- [PLACEHOLDER: Screenshot of Non-Human Identity governance (service principals, workloads)]
+- [PLACEHOLDER: Screenshot of an access review in progress]
 
 ## Lab Reference
 
-- [Lab 17a — Identity Governance Administration](../../docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
-
-## Notes
-
-Entra ID Governance license required. This phase focuses on automating access decisions and governance at scale.
+- [Lab 17a — Set Up Your First Access Review](../../docs/PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md)
+- [Identity Governance Administration (concept guide)](../../docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)

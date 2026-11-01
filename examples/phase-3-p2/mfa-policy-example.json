@@ -1,6 +1,6 @@
 {
-  "comment": "PLACEHOLDER: MFA enforcement policy from Lab 07a — Multi-Factor Authentication",
-  "status": "PLACEHOLDER — Requires Entra ID P2 license",
+  "comment": "PLACEHOLDER: MFA enforcement policy from Lab 07a — Configure TOTP-Based MFA",
+  "status": "PLACEHOLDER — Security defaults are free; policy-based MFA enforcement requires Entra ID P1 or higher",
   "description": "Replace this file with your exported MFA policy configuration after completing Lab 07a",
   "expected_content": {
     "displayName": "Require MFA for All Users",
@@ -25,7 +25,7 @@
       ]
     }
   },
-  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md",
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-3-ENTRA-P2/07a-configure-totp-mfa.md",
   "how_to_export": "Security > Conditional Access > your policy > (PowerShell export via Microsoft Graph)",
-  "todo": "Export your MFA policy JSON and replace this placeholder when P2 license is active"
+  "todo": "Export your MFA policy JSON and replace this placeholder when your licence allows it"
 }

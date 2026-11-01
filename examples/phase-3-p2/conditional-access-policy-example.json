@@ -1,6 +1,6 @@
 {
-  "comment": "PLACEHOLDER: Conditional Access policy from Lab 07c — Adaptive Authentication",
-  "status": "PLACEHOLDER — Requires Entra ID P2 license",
+  "comment": "PLACEHOLDER: Conditional Access policy from Labs 07c and 07d — Conditional Access",
+  "status": "PLACEHOLDER — Conditional Access requires Entra ID P1; risk-based conditions require Entra ID P2",
   "description": "Replace this file with your exported Conditional Access policy after completing Lab 07c",
   "expected_content": {
     "displayName": "Risk-Based Conditional Access Policy",
@@ -28,7 +28,7 @@
       ]
     }
   },
-  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-3-ENTRA-P2/07c-adaptive-authentication.md",
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-3-ENTRA-P2/07d-risk-based-conditional-access.md",
   "how_to_export": "Security > Conditional Access > your policy > (PowerShell export or manual JSON export)",
-  "todo": "Export your Conditional Access policy JSON and replace this placeholder when P2 license is active"
+  "todo": "Export your Conditional Access policy JSON and replace this placeholder when your licence allows it"
 }
