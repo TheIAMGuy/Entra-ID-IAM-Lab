@@ -1,10 +1,10 @@
 # Entra ID Cloud Identity & Access Management Lab
 
-Welcome! This hands-on lab will help you master enterprise Identity and Access Management (IAM) using Microsoft Entra ID. Whether you're new to identity or an experienced architect, you'll build a production-aligned IAM environment, progressing from fundamentals to enterprise-scale governance.
+Welcome! This hands-on lab will help you understand the basics of IAM using Microsoft Entra ID.
 
 ## What is This Lab?
 
-This is a **progressive, hands-on learning journey** through complete enterprise IAM. You'll implement the full **Joiner-Mover-Leaver (JML) lifecycle**, **group-based RBAC**, **privileged access management**, **enterprise application provisioning**, **compliance audit logging**, and advanced governance — the same workflows IAM teams use in production.
+This is a **hands-on lab**. You'll implement the full **Joiner-Mover-Leaver (JML) lifecycle**, **group-based RBAC**, **privileged access management**, **application provisioning**, **compliance audit logging**, and governance — the same workflows IAM teams use in production.
 
 The lab is organised in **6 phases**, progressing from free-tier foundations to enterprise-scale identity governance. Each phase builds on the previous one, with no distractions or optional detours.
 
