@@ -151,7 +151,7 @@ Cross-cutting docs (not phase-specific):
 - Phase 3 → [07-audit-logging-monitoring.md](docs/PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md)
 
 **Want examples?**
-- See [examples/](examples/) folder for sample configs, policies, and scripts
+- See [examples/](examples/) folder for sample configurations (several are placeholders to replace with your own exports)
 
 **Want templates?**
 - See [templates/](templates/) folder for reusable CLAUDE.md, policies, and document templates
@@ -189,19 +189,22 @@ Before starting the labs:
 ## Examples & Templates
 
 ### Examples
-Find ready-to-use configurations in [examples/](examples/):
-- **phase-1-free/** — User provisioning, group RBAC samples
-- **phase-2-p1/** — PAM roles, app provisioning examples
-- And more for each phase...
+Sample JSON configurations in [examples/](examples/):
+- **phase-1-free/** — Users and groups
+- **phase-2-p1/** — Role assignments, app provisioning, mover/leaver
+- **phase-3-p2/** — MFA and Conditional Access (placeholders)
+- **phase-4-governance/** — Access review (placeholder)
 
-Copy, adapt, and use in your own tenant.
+Adapt them to your own tenant. The placeholder files show the expected structure; replace them with your own exports.
 
 ### Templates
 Find reusable templates in [templates/](templates/):
 - **CONTENT_TEMPLATE.md** — Structure for new lab docs
-- **group-naming-template.txt** — Naming conventions
-- **policy-template.json** — Policy structure template
-- And more...
+- **WRITING_GUIDELINES.md** — Writing style for lab docs
+- **naming-standards/GROUP_NAMING_CONVENTION.md** — Group naming conventions
+- **policies/CONDITIONAL_ACCESS_TEMPLATE.json** — Conditional Access policy template
+- **scripts/BULK_OPERATIONS_TEMPLATE.ps1** — Bulk operations script template
+- **CLAUDE.md.template**, **CLAUDE.local.md.template**, **settings.json.template** — Claude Code project templates
 
 ---
 
