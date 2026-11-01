@@ -1,16 +1,14 @@
 ---
 title: Identity Governance Administration - IGA Platforms
-part: 8
 section: Compliance & Audit
 difficulty: Advanced
 estimated_reading_time: 40
 estimated_lab_time: N/A
 prerequisites:
-  - 17-compliance-frameworks-mapping.md
-  - 12-identity-governance-administration-process.md
+  - 17a-set-up-access-reviews.md
 learning_objectives:
   - Understand Identity Governance Administration (IGA) platforms
-  - Compare IGA platforms (SailPoint, Okta, ServiceNow)
+  - Understand Microsoft Entra ID Governance and how other IGA platforms compare
   - Implement access reviews and certifications
   - Configure identity analytics
   - Design IGA program structure
@@ -20,7 +18,7 @@ learning_objectives:
 
 ## Introduction
 
-Identity Governance Administration (IGA) platforms automate access governance: periodic reviews, certifications, risk scoring, and compliance reporting. Rather than manual spreadsheets, IGA uses technology to determine who has access, whether it's appropriate, and enforce decisions. This document explains IGA concepts, major platforms, and implementation strategies.
+Identity Governance Administration (IGA) platforms automate access governance: periodic reviews, certifications, risk scoring, and compliance reporting. Rather than manual spreadsheets, IGA uses technology to determine who has access, whether it's appropriate, and enforce decisions. This document explains IGA concepts, what Microsoft Entra ID Governance provides, how other platforms compare at a high level, and implementation strategies.
 
 **Learning Objectives:**
 - Understand IGA platform capabilities
@@ -30,17 +28,16 @@ Identity Governance Administration (IGA) platforms automate access governance: p
 - Design IGA governance program
 - Extend governance to non-human identities (workloads, applications)
 
-## ⚠️ Non-Human Identity (NHI) Governance - Emerging Critical Practice
+## Non-Human Identity (NHI) Governance
 
-**New in 2024-2025:** Modern IGA must include non-human identities (service principals, managed identities, workload identities, machine credentials). A [2025 Omada survey](https://www.lumos.com/identity-matters/identity-governance/identity-governance-automation) found that governance programs ignoring NHI are "structurally incomplete."
+Governance programs that only review people leave workloads unreviewed. Service principals, managed identities and application credentials often have standing privileges and no named owner.
 
-**What this means:**
-- Service principals have exploded in scale (thousands per organization)
-- Most organizations have 30-50% entitlements in disconnected systems (coverage gap)
-- Non-human identity privilege exposure rivals human privilege exposure
-- Your governance program MUST include NHI in access reviews, risk scoring, and certifications
+**What this means in practice:**
+- Include non-human identities in your inventory and in review scope where the platform supports it. In Microsoft Entra, privileged Entra role reviews through Privileged Identity Management can include service principals, which needs Entra ID P2 or Entra ID Governance.
+- Give every service principal an owner who can attest that it is still needed.
+- Prefer managed identities and workload identity federation over long-lived secrets. See [Workload ID Protection](https://learn.microsoft.com/en-us/entra/id-protection/concept-workload-identity-risk) for the risk detections Microsoft provides for service principals.
 
-**In this Phase 4 context:** When configuring access reviews, include non-human identities: service principals, managed identities, API keys, CI/CD credentials. A complete IGA program reviews humans AND workloads.
+This repository does not currently include a workload identity lab.
 
 ---
 
@@ -60,9 +57,11 @@ Quarterly Access Review Flow:
 6. Audit log: Review completed, decisions recorded
 ```
 
-### Risk Scoring
+### Risk Scoring (illustrative model)
 
-**Automated algorithm ranks risky access:**
+The scores below show how an IGA platform might rank access for reviewers. The weights are examples, not a Microsoft Entra feature. Entra access reviews instead give reviewers recommendations based on criteria such as last sign-in.
+
+**Example ranking:**
 
 ```
 Risk Score = User Risk + Role Risk + Anomaly Risk
@@ -91,82 +90,61 @@ Conflict: User is Approver + Clerk
   Action: Continue monitoring, no action required
 ```
 
-## IGA Platform Comparison
+## Microsoft Entra ID Governance
 
-| Platform | Focus | Connectors | Certifications | Reporting | Cost |
-|----------|-------|-----------|---|---|---|
-| **SailPoint IdentityIQ** | Enterprise IGA | 500+ | Native | Extensive | $500K+ |
-| **Okta Identity Governance** | Cloud IAM + IGA | Cloud-native | Simple | Good | Per-user pricing |
-| **ServiceNow Identity** | ITSM + IGA | 100+ | Workflows | Integrated | Enterprise |
-| **Deloitte Cloud IAM** | Governance focus | 200+ | Advanced | Compliance-focused | Consulting + platform |
-| **Saviynt** | Cloud/hybrid | 300+ | Native | Risk-focused | Mid-market |
+Microsoft Entra ID Governance is the IGA capability in Microsoft Entra. It covers four areas.
 
-### SailPoint IdentityIQ
+### Access Reviews
 
-**Mature, comprehensive IGA platform:**
+Access reviews let you recertify access on a schedule. You create them in the place that matches the resource:
 
-**Capabilities:**
-- 500+ connectors (AD, Azure, Salesforce, SAP, etc.)
-- Advanced access reviews (delegated, ad-hoc, scheduled)
-- Risk analytics (user risk, role risk, anomalies)
-- SoD conflict detection
-- Automated remediation workflows
-- Compliance reporting (SOX, GDPR, HIPAA)
+| What you review | Reviewers can be | Created in |
+|-----------------|------------------|-----------|
+| Security group and Microsoft 365 group members | Specified reviewers, group owners, self-review | Access reviews |
+| Users assigned to an enterprise application | Specified reviewers, self-review | Access reviews |
+| Microsoft Entra roles and Azure resource roles | Specified reviewers, self-review | Privileged Identity Management |
+| Access package assignments | Specified reviewers, group members, self-review | Entitlement management |
 
-**Access Review Example:**
+Useful settings:
+- **Recurrence:** Weekly, monthly, quarterly or annually
+- **Recommendations:** Show reviewers signals such as last sign-in to help them decide
+- **Auto apply results:** Remove denied users automatically when the review ends
+- **If reviewers don't respond:** No change, remove access, approve access, or take recommendations. Combining *remove access* or *take recommendations* with auto apply can revoke everything if reviewers don't respond, so test first.
+- **Limits:** Results can't be applied to groups synced from on-premises Active Directory, to mail-enabled groups, or to users who hold access through nested groups.
 
-```
-Review: "Q1 2024 IT Department Access"
-Target: All IT department users
-Frequency: Quarterly
-Reviewers: Department managers
-Items per review: 5-10 role assignments
-Certification deadline: 14 days
-Auto-remediation: Remove non-certified access after 21 days
-```
+Lab 17a walks through creating a review.
 
-### Okta Identity Governance
+### Entitlement Management
 
-**Cloud-native, integrated with Okta:**
+Entitlement management bundles access into **access packages** held in **catalogs**. Each package has policies that set who can request it, who approves, how long access lasts, and whether recurring reviews apply. It can also assign access automatically based on user attributes, and it supports **separation of duties checks**: a package can be marked incompatible with another package or a group, so a user who already has one can't request the other.
 
-**Capabilities:**
-- Built-in to Okta platform
-- Access reviews (basic to advanced)
-- Delegated certifications
-- Risk signals from Okta (sign-in risk, device risk)
-- Native analytics
-- Compliance templates (SOX, GDPR)
+### Lifecycle Workflows
 
-**Configuration:**
+Lifecycle workflows automate joiner, mover and leaver tasks. A workflow has tasks (for example, send a welcome email, generate a Temporary Access Pass, add or remove groups, disable or delete the account, remove licences) and execution conditions (a trigger such as `employeeHireDate` or `employeeLeaveDateTime`, and a scope). Custom task extensions can call out to Azure Logic Apps for other systems.
 
-```yaml
-AccessReviewPolicy:
-  Name: "Quarterly Okta Access Review"
-  Schedule: Every 3 months
-  Scope: All Okta application access
-  Reviewers: Application owner or manager
-  Items: Okta app assignments for each user
-  Timeline: 14 days to review
-  Enforcement: Remove non-certified access
-```
+### Privileged Identity Management
 
-### ServiceNow Identity Governance
+PIM provides just-in-time, time-bound activation of privileged roles with approval and access reviews. This repository's Lab 04 assigns roles permanently and does not cover PIM.
 
-**Integrated with ITSM (Service Catalog, Change Management):**
+### Licensing
 
-**Capabilities:**
-- Access request and provisioning
-- Approval workflows
-- Access certifications
-- Identity analytics
-- Integrated with ITSM workflows
-- Change management integration
+Access reviews need Entra ID Governance or Entra Suite, and some capabilities work with Entra ID P2. Entitlement management and lifecycle workflows need Entra ID Governance, with some entitlement management capabilities available with P2. See [Microsoft Entra ID Governance licensing fundamentals](https://learn.microsoft.com/en-us/entra/id-governance/licensing-fundamentals).
 
-**Common scenarios:**
-- Employee onboarding: New hire request → Auto-provision
-- Offboarding: Exit process → Auto-deprovision
-- Role change: HR update → Recertify access
-- Access request: Employee request → Approval → Provision
+## Other IGA Platforms
+
+Dedicated IGA vendors such as SailPoint, Saviynt, Okta Identity Governance and ServiceNow compete with or complement Entra ID Governance, particularly where you need connectors to many non-Microsoft systems, deep role mining or policy-based SoD across applications such as SAP.
+
+Typical differences to evaluate:
+
+| Area | Questions to ask |
+|------|------------------|
+| Connectors | Does the platform have supported connectors for your actual applications? |
+| Certifications | Can reviews cover entitlements inside applications, not just group membership? |
+| SoD | Are conflicts evaluated across applications, or only within one directory? |
+| Fit | Does it integrate with your IdP, HR system and ITSM? |
+| Cost | How is it licensed (per identity, per module), and what are implementation costs? |
+
+Features, connector counts and pricing change often. Get current figures from each vendor rather than from this guide.
 
 ## Access Review Workflow
 
@@ -203,7 +181,7 @@ Approve if:
 
 **1. Notification:**
 ```
-Reviewer notification: "You have 15 items to review by 2024-01-31"
+Reviewer notification: "You have 15 items to review by <date>"
 Includes: User list, current roles, business justification, risk score
 ```
 
@@ -223,7 +201,7 @@ For each user:
 Manager certifies: "I have reviewed the access above.
 All listed users require their current access for their job role.
 Any access I have marked as Revoke should be removed immediately."
-Signed: [Digital signature], Date: 2024-01-28
+Signed: [Digital signature], Date: <date>
 ```
 
 ### Enforcement Phase
@@ -245,7 +223,7 @@ Post-review:
 
 **3. Reporting:**
 ```
-- Review completion rate (target: 100%)
+- Review completion rate (set a target)
 - Access changes (X approvals, Y revocations)
 - Risk addressed (Y high-risk roles certified/revoked)
 - Compliance: Review completed per policy
@@ -309,8 +287,8 @@ Action Items:
 ### Phase 1: Foundation (Months 1-3)
 
 ```
-1. Select IGA platform
-2. Configure connectors to major systems
+1. Select the IGA approach (for example Entra ID Governance)
+2. Configure connectors or provisioning for major systems
 3. Identify users and roles
 4. Define access review process
 5. First pilot review (IT department)
@@ -351,31 +329,26 @@ Action Items:
 
 ## Related Documents
 
-**Prerequisites:**
-- Compliance Frameworks - Compliance requirements
-- RBAC - Role-based access structure
-
-**Next Steps:**
-- [GRC Integration](guide-grc-integration.md) - Risk and compliance management
-- Incident Response - Security incident handling
+- [Lab 17a — Set Up Your First Access Review](17a-set-up-access-reviews.md)
+- [GRC Integration](guide-grc-integration.md) — risk and compliance management
 
 ## FAQ
 
 **Q: How often should we do access reviews?**
 
-A: Minimum annually (compliance). Quarterly for high-risk, monthly for critical systems.
+A: Match the frequency to the risk and to your compliance requirements. A common pattern is more frequent reviews (for example quarterly) for privileged access and external users, and less frequent (annual) for low-risk access.
 
 **Q: What's the cost of IGA platforms?**
 
-A: $500K-2M+ annually for enterprise (SailPoint), or per-user pricing for cloud (Okta).
+A: It varies widely by vendor, scale and scope, and many vendors don't publish prices. For Microsoft, see the [Microsoft Entra plans and pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing) page. Ask other vendors for a quote.
 
 **Q: Can we use Excel instead of IGA platform?**
 
-A: Not recommended. Manual process error-prone, audit findings likely. IGA worthwhile investment.
+A: For a small environment a documented, repeatable process can work. As scale and audit pressure grow, manual reviews become error-prone and hard to evidence, which is where tooling helps.
 
 **Q: What if reviewer doesn't respond?**
 
-A: Escalate to manager's manager, then compliance. If timeout, escalate to CISO.
+A: Configure the review's escalation and default decision. In Entra access reviews, "If reviewers don't respond" sets the outcome, and fallback reviewers can be specified.
 
 ## Next Steps
 
@@ -387,4 +360,4 @@ A: Escalate to manager's manager, then compliance. If timeout, escalate to CISO.
 6. Implement automated remediation
 7. Plan quarterly review cycles
 
-IGA automates access governance and dramatically improves compliance.
+IGA automates access governance and produces evidence that access is reviewed and removed when it is no longer needed.

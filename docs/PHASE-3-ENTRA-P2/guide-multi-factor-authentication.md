@@ -1,13 +1,11 @@
 ---
 title: Multi-Factor Authentication - Implementation & Best Practices
-part: 2
 section: Authentication & Security
 difficulty: Intermediate
 estimated_reading_time: 45
 estimated_lab_time: 75
 prerequisites:
-  - 07-authentication-fundamentals.md
-  - 01-environment-setup.md
+  - ../PHASE-1-FREE-TIER/01-environment-setup.md
 learning_objectives:
   - Understand MFA methods and their security characteristics
   - Configure MFA policies in Microsoft Entra ID
@@ -50,51 +48,51 @@ MFA encompasses multiple authentication methods, each with different security pr
 
 Time-based one-time passwords (TOTP) generate six-digit codes that change every 30 seconds. Users install an authenticator app (Microsoft Authenticator, Google Authenticator, Duo Mobile) on their phone and enter the code when prompted. TOTP requires no backend integration beyond Entra ID—the algorithm is standard across all apps.
 
-**Strengths:** Cost-free for users, works offline, high security, no SMS infrastructure needed, no SIM swap vulnerability. **Weaknesses:** Users must manually enter codes (friction), codes expire after 30 seconds, can't scale to thousands of simultaneous users due to time sync issues.
+**Strengths:** Cost-free for users, works offline, no SMS infrastructure needed, no SIM swap exposure. **Weaknesses:** Users must manually enter codes (friction), codes expire after 30 seconds, and codes can be phished and replayed in real time, so TOTP is not phishing-resistant.
 
-**Implementation:** TOTP is configured in Entra ID as "Authenticator app" under Multi-factor authentication settings. Users install Microsoft Authenticator or compatible app and scan a QR code during registration. Entra ID validates the TOTP code when the user logs in.
+**Implementation:** Verification codes come from the Microsoft Authenticator app or from other OATH TOTP apps registered as software OATH tokens. Manage which methods are available in **Entra ID → Authentication methods → Policies**. Users register at their Security info page and scan a QR code. Entra ID validates the code at sign-in.
 
 ### SMS and Phone Call
 
 SMS sends a one-time code via text message; phone call uses voice to communicate the code. Both are human-readable and require no app installation, making them accessible to all users. SMS is cheaper than phone calls.
 
-**Strengths:** No app installation required, familiar to all users, universally available. **Weaknesses:** SMS is intercepted through SIM swap attacks, phone calls can be intercepted or spoofed, SMS delivery is not instantaneous (2-10 seconds delay), users can't MFA on unsupported devices.
+**Strengths:** No app installation required, familiar to all users, universally available. **Weaknesses:** SMS is intercepted through SIM swap attacks, phone calls can be intercepted or spoofed, SMS delivery can be delayed, and the method is being retired (see below).
 
 **Implementation:** SMS and phone call are configured under Entra ID MFA settings. Users register a phone number during setup. When MFA is triggered, Entra ID initiates an SMS delivery or outbound call.
 
-**Security Note:** Microsoft deprecated pure SMS/phone call for first-factor authentication in 2024. SMS is acceptable as a secondary factor (when combined with something stronger like TOTP) but not as the only MFA method.
+**Security Note:** Microsoft no longer positions SMS and voice as secure authentication methods. Microsoft-provided SMS and voice delivery is scheduled to be retired on **February 1, 2027** for most users (July 1, 2027 for Global Administrators and external users), after which users whose only MFA method is SMS or voice must register a passkey to keep signing in. From September 1, 2026, passkeys become the default experience. Plan to move users to Microsoft Authenticator or passkeys. See [Passkeys by default and retirement of Microsoft-provided SMS and voice authentication](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-sms-voice-retirement).
 
 ### Push Notifications to Mobile Apps
 
-Push notifications are the gold standard for user experience. When a user attempts to sign in, a notification appears on their registered device asking "Is this you?" Users tap "Approve" or "Deny." No codes to enter, no time pressure.
+Push notifications are convenient for users. When a user attempts to sign in, a notification appears on their registered device. Microsoft Authenticator push notifications use **number matching**: the sign-in page shows a number, and the user enters it in the app to approve. Users can't opt out of number matching, which protects against MFA fatigue attacks where an attacker spams approval requests.
 
-**Strengths:** Best user experience (no codes), fast (2-3 seconds), high security (device possession + user action), works even if phone service is unavailable. **Weaknesses:** Requires a smartphone and app installation, notifications can be missed if phone is on silent, requires backend integration.
+**Strengths:** No codes to type, fast, stronger than SMS or voice, and number matching resists accidental or fatigue-driven approvals. **Weaknesses:** Requires a smartphone, the app and a data connection, notifications can be missed if the phone is on silent, and push is still phishable by a real-time attacker proxy, so it is not phishing-resistant.
 
-**Implementation:** Push notifications are the default in Microsoft Authenticator. Users install Authenticator, register during MFA setup, and respond to in-app prompts during sign-in. Entra ID supports push notifications for Authenticator app and corporate portals.
+**Implementation:** Push notifications are the default mode in Microsoft Authenticator. Users install Authenticator, register at Security info, and respond to in-app prompts during sign-in. Admins control the method in the Authentication methods policy.
 
 ### Biometric Authentication
 
-Biometric methods (fingerprint, facial recognition) combine device possession with biological verification. Users unlock their phone using their biometric, then approve MFA via that same unlock. Biometric is highly resistant to social engineering.
+Biometrics (fingerprint, facial recognition) are not a standalone Entra ID method. They unlock a device-bound credential: for example, Microsoft Authenticator or a passkey asks the user for a biometric or PIN on the device before approving a sign-in, and Windows Hello for Business uses a PIN or biometric to unlock a key stored on the device.
 
-**Strengths:** High security, excellent UX (1-2 seconds), resistant to SIM swap and phishing, prevents unauthorized use even if phone is lost. **Weaknesses:** Requires modern smartphone, biometric sensors can fail in low light, setup friction for users unfamiliar with biometric.
+**Strengths:** Fast, convenient, and the biometric never leaves the device. **Weaknesses:** Requires a modern device, sensors can fail, and the protection depends on the underlying credential (passkey or Windows Hello is phishing-resistant; a push approval is not).
 
-**Implementation:** Microsoft Authenticator supports biometric approval on iPhones (Face ID) and devices (fingerprint). Enable "Require approval" and "Use biometric" in Authenticator settings during registration.
+**Implementation:** Use passkeys (FIDO2), Windows Hello for Business, or passkeys in Microsoft Authenticator. Enable them in the Authentication methods policy and register them at Security info.
 
-### Hardware Security Keys
+### Hardware Security Keys (Passkeys / FIDO2)
 
-Hardware security keys (FIDO2 USB tokens) are physical devices that users plug into computers or tap to phones. They use cryptographic algorithms to prove device possession. FIDO2 keys are phishing-resistant—the key only authenticates to the correct domain.
+Hardware security keys (FIDO2 USB, NFC or Bluetooth tokens) are physical devices that users plug into computers or tap to phones. They use cryptographic algorithms to prove device possession. FIDO2 keys are phishing-resistant—the key only authenticates to the correct domain.
 
-**Strengths:** Phishing-resistant (highest security), works on any device via USB/NFC, no codes or notifications. **Weaknesses:** High cost ($50-100 per key), users must carry keys, loss of key = locked out, not universally adopted yet.
+**Strengths:** Phishing-resistant (highest security), works on any device via USB/NFC, no codes or notifications. **Weaknesses:** Hardware cost, users must carry keys, and a lost key needs a recovery process (for example a Temporary Access Pass).
 
-**Implementation:** Microsoft Entra ID supports FIDO2 security keys for Windows, macOS, and mobile devices. Register keys in Security Info. During sign-in, users insert or tap the key when prompted.
+**Implementation:** Microsoft Entra ID supports passkeys (FIDO2) on security keys, in Microsoft Authenticator, and as synced passkeys. Enable the Passkey (FIDO2) method in the Authentication methods policy, then users register in Security info. During sign-in, users insert or tap the key when prompted.
 
 ### Passwordless Phone Sign-In
 
-Microsoft Authenticator supports passwordless sign-in: users open the app, see a sign-in request with a number, and approve by entering their PIN or biometric. No password, no code needed.
+Microsoft Authenticator supports passwordless phone sign-in: the user is shown a number on the sign-in page, selects it in the app, and approves with biometric or PIN. No password is needed.
 
-**Strengths:** Zero knowledge proof (most secure), best UX, works everywhere Authenticator is available, no codes. **Weaknesses:** Requires Authenticator app and PIN/biometric setup, enterprise rollout more complex than traditional MFA.
+**Strengths:** No password to steal or reuse, number matching and device unlock built in. **Weaknesses:** Requires the Authenticator app and device PIN or biometric, and it is not phishing-resistant the way passkeys are.
 
-**Implementation:** Enable "Passwordless phone sign-in" in Authenticator settings. Users register during setup, then replace password entry with Authenticator approval during sign-in.
+**Implementation:** In the Microsoft Authenticator method of the Authentication methods policy, set the authentication mode to allow passwordless. Users register during setup, then replace password entry with Authenticator approval.
 
 ## Configuring MFA in Microsoft Entra ID
 
@@ -116,39 +114,42 @@ Conditional Access (recommended) enforces MFA based on conditions: user group, d
 
 **Configuration Steps:**
 
-1. In Entra ID admin center, navigate to Protection → Conditional Access
-2. Click "Create new policy"
+1. In the Microsoft Entra admin center, navigate to **Entra ID → Conditional Access → Policies**
+2. Click "New policy"
 3. **Assignments:**
-   - Select users/groups (e.g., "All guests")
+   - Select users/groups (e.g., guests or external users, with emergency access accounts excluded)
    - Select cloud apps (e.g., Microsoft 365, custom SaaS)
    - Select conditions (location, device, risk level)
 4. **Access controls:**
    - Grant → "Require MFA"
    - Optional: Require compliant device
-   - Optional: Require Entra ID joined device
+   - Optional: Require Microsoft Entra hybrid joined device
 5. **Session controls** (optional):
-   - Require app enforced restrictions
-   - Use anomaly detection
+   - Sign-in frequency
+   - Persistent browser session
+   - Use app enforced restrictions (Exchange Online and SharePoint Online)
 6. Enable policy and test
 
 **Advantage:** Granular, scalable, exception-friendly (can exclude users/groups).
 
 ### Method 3: Security Defaults
 
-Security Defaults is a baseline that requires MFA for all users, with exceptions for service accounts. Enable Security Defaults for organizations without Conditional Access licensing.
+Security defaults are preconfigured settings available to every tenant at no extra cost. They require all users to register for MFA, require administrators to do MFA, prompt other users for MFA when necessary, block legacy authentication, and protect privileged activities such as Azure portal access. Enable them for organizations without Conditional Access licensing.
 
-**Limitations:** One-size-fits-all approach, no granular conditions, can't exclude users except by role. Suitable for smaller organizations.
+**Limitations:** On or off only, no granular conditions, no custom exclusions (only Microsoft Entra Connect sync accounts are excluded), and users can only register using the Microsoft Authenticator notification option. Security defaults can't be on at the same time as Conditional Access policies, and you can't turn them on while Conditional Access policies exist. See [Security defaults in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/security-defaults).
 
 ## Adaptive MFA Based on Risk
 
 Risk-based MFA requires MFA only when sign-in risk is detected. This balances security and usability: low-risk sign-ins proceed without MFA; high-risk sign-ins require stronger authentication.
 
 **Risk Factors Detected by Entra ID:**
-- **Impossible travel:** User logged in from two locations too far apart to travel in time
-- **Atypical sign-in properties:** Country, OS, or browser different from usual
-- **Leaked credentials:** User's password found in breach databases
-- **Anonymous IP:** Sign-in from Tor, VPN, or proxy
-- **Malware-linked IP:** Sign-in from known malware-infected device
+- **Atypical travel:** Two sign-ins from locations too far apart for the elapsed time
+- **Unfamiliar sign-in properties:** Properties the user hasn't recently used
+- **Leaked credentials:** User's credentials found in a breach (a user-risk detection)
+- **Anonymous IP address:** Sign-in from Tor or an anonymous VPN
+- **Malicious IP address:** Sign-in from an IP address with known malicious activity
+
+Most risk detections need Microsoft Entra ID P2. See [What are risk detections?](https://learn.microsoft.com/en-us/entra/id-protection/concept-identity-protection-risks).
 
 **Conditional Access Policy for Risk:**
 
@@ -163,7 +164,7 @@ Risk-based MFA requires MFA only when sign-in risk is detected. This balances se
 
 **Estimated Time:** 75 minutes
 
-**Prerequisites:** Microsoft Entra ID tenant with admin access, test users, Conditional Access licensing (Premium P1+)
+**Prerequisites:** Microsoft Entra ID tenant with admin access, test users, Conditional Access licensing (Entra ID P1 or higher), and at least one external guest account for the in-scope test
 
 **Lab Objectives:**
 - Configure MFA methods in Entra ID
@@ -193,7 +194,7 @@ Status: Approved for sign-in notifications and password reset
 
 ### Step 2: Create a Conditional Access Policy (20 minutes)
 
-1. In Entra ID admin center, go to **Protection → Conditional Access**
+1. In the Microsoft Entra admin center, go to **Entra ID → Conditional Access → Policies**
 2. Click **"+ New policy"**
 3. **Name:** "MFA for Guest Users"
 4. **Assignments:**
@@ -237,8 +238,8 @@ Session: Active
 1. In same private browser, sign out
 2. Sign in with a user NOT in the "Guest users" group
 3. Verify you can sign in WITHOUT MFA requirement
-4. Check sign-in logs in Entra ID: **Protection → Sign-in logs**
-5. Filter by the user and verify "MFA requirement" = Unsatisfied
+4. Check sign-in logs in Entra ID: **Entra ID → Monitoring & health → Sign-in logs**
+5. Filter by the user and open the sign-in. The **Authentication requirement** shows "Single-factor authentication" and the policy shows as not applied.
 
 **Expected Output:**
 ```
@@ -251,7 +252,7 @@ Status: Allowed (not in policy scope)
 
 ### Step 5: Verify Policy Compliance (10 minutes)
 
-1. In Entra ID admin center, go to **Protection → Conditional Access**
+1. In the Microsoft Entra admin center, go to **Entra ID → Conditional Access → Policies**
 2. Click on "MFA for Guest Users" policy
 3. Review **Insights and recommendations:**
    - **Users affected:** Count of guest users
@@ -265,7 +266,7 @@ Policy: MFA for Guest Users
 Users affected: <number>
 Policies requiring MFA: 1 of 1
 Last evaluation: <timestamp>
-Success rate: 99.8%
+Success rate: <illustrative value>
 ```
 
 ### Troubleshooting Common Issues
@@ -273,8 +274,8 @@ Success rate: 99.8%
 | Issue | Cause | Solution |
 |-------|-------|----------|
 | "MFA required but no methods registered" | User hasn't set up Authenticator | Have user register in Security Info |
-| "Authenticator code expired" | 30-second TOTP window passed | User must re-request code |
-| "Push notification not received" | Phone offline or app not installed | Have user use phone call or app-based backup |
+| "Authenticator code rejected" | Code from a previous 30-second window, or the phone clock is wrong | Enter the new code shown, and check the device time is set automatically |
+| "Push notification not received" | Phone offline or app not installed | Have the user use a verification code from the app or another registered method |
 | "Policy not enforcing MFA" | User excluded from policy or policy disabled | Verify policy is "On" and user is in-scope |
 | "Can't access Security Info page" | Browser cookies blocked or incognito mode | Clear cookies or use normal browser mode |
 
@@ -311,9 +312,9 @@ Successful MFA rollout follows a phased approach that minimizes disruption:
 
 ## Best Practices for MFA Deployment
 
-**1. Provide Multiple Methods:** Users have different preferences and device types. Offer TOTP, SMS, push notifications, and biometric to maximize adoption.
+**1. Provide Multiple Methods:** Users lose phones. Register at least two methods per user, and favour Microsoft Authenticator and passkeys over SMS and voice.
 
-**2. Implement Progressive Enrollment:** Don't require all methods at once. Allow users to start with app-based and add SMS or biometric later.
+**2. Implement Progressive Enrollment:** Don't require all methods at once. Allow users to start with the Authenticator app and add a passkey or second method later.
 
 **3. Use Risk-Based Enforcement:** Require MFA only when risk is detected, not for all sign-ins. This reduces friction while maintaining security.
 
@@ -327,44 +328,30 @@ Successful MFA rollout follows a phased approach that minimizes disruption:
 
 **8. Test Thoroughly Before Rollout:** Pilot MFA with IT team first. Identify issues in controlled environment before broad deployment.
 
-**9. Have Backup Methods:** Users lose phones, apps crash, networks fail. Ensure backup authentication methods (backup codes, secondary phone).
+**9. Have Backup Methods:** Users lose phones, apps crash, networks fail. Ensure users register more than one method, and plan recovery with a Temporary Access Pass issued by an administrator or Microsoft Entra account recovery.
 
 **10. Communicate Ongoing:** Regular communications about MFA benefits, new features, and troubleshooting tips maintain momentum and adoption.
 
 ## Compliance & Standards Alignment
 
-**NIST Cybersecurity Framework 2.0:**
-- **Protect (P):** MFA is a core protection mechanism for identity (Domain 10)
-- **Detect (D):** Risk-based MFA detects unusual sign-in patterns
+MFA is a common control in security frameworks, but wording and numbering change between versions, so verify against the current standard before citing it.
 
-**ISO 27001:2022:**
-- **A.5.2.2:** MFA for privileged access (required for Level 3 maturity)
-- **A.9.2.1:** MFA for user authentication (recommended control)
-
-**Gartner IAM Framework:**
-- **Access Management:** MFA is foundational for modern access control
-- **IVIP:** Risk-based MFA incorporates intelligence for threat detection
-
-**Standards Requiring MFA:**
-- **HIPAA:** MFA required for administrative access
-- **PCI DSS 3.2.1:** MFA required for remote access to cardholder environment
-- **SOC 2:** MFA strongly recommended for user authentication
-- **GDPR:** MFA is a technical safeguard for personal data protection
+- **NIST CSF 2.0:** Identity management, authentication and access control sit under the Protect function (category PR.AA).
+- **ISO/IEC 27001:2022:** Annex A controls on authentication information and secure authentication (5.17, 8.5) and privileged access rights (8.2).
+- **PCI DSS v4.0.1:** Requirement 8 covers identifying and authenticating users, including MFA for access into the cardholder data environment. PCI DSS v3.2.1 has been retired.
+- **HIPAA Security Rule:** Requires person or entity authentication (45 CFR 164.312(d)) and does not name MFA specifically.
+- **GDPR:** Article 32 requires appropriate technical measures for security of processing. MFA is a common way to meet it, not a stated requirement.
 
 ## Related Documents
 
-**Prerequisites:**
-- Authentication Fundamentals - Core authentication concepts and factors
-- [Environment Setup & Prerequisites](../PHASE-1-FREE-TIER/01-environment-setup.md) - Entra ID tenant setup
+**Hands-on labs:**
+- [Lab 01 — Environment Setup](../PHASE-1-FREE-TIER/01-environment-setup.md)
+- [Lab 07a — Configure TOTP-Based MFA](07a-configure-totp-mfa.md)
+- [Lab 07b — Authenticator App Push MFA](07b-enable-authenticator-push-mfa.md)
+- [Lab 07c — Conditional Access Policy](07c-conditional-access-policy.md)
 
-**Next Steps:**
-- Passwordless Authentication - Move beyond passwords entirely
-- [Conditional Access Policies](07c-conditional-access-policy.md) - Advanced policy enforcement
-- Identity Risk Detection - Detect and respond to risky sign-ins
-
-**Related Domains:**
-- Domain 10: Authentication - Part of authentication domain
-- Domain 9: Conditional Access - Enforcement mechanism for MFA
+**Next:**
+- [Adaptive Authentication guide](guide-adaptive-authentication.md) — risk-based Conditional Access
 
 ## Further Reading
 
@@ -374,26 +361,26 @@ Successful MFA rollout follows a phased approach that minimizes disruption:
 - [Microsoft Authenticator App Guide](https://learn.microsoft.com/en-us/entra/identity/authentication/user-help-auth-app-overview)
 
 **Industry Standards:**
-- [NIST SP 800-63-3: Authentication and Lifecycle Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-63-3.pdf)
+- [NIST SP 800-63: Digital Identity Guidelines](https://pages.nist.gov/800-63-4/)
 - [OWASP: Authentication Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html)
 
-**Microsoft Security Research:**
-- [Your Pa$$word Doesn't Matter](https://techcommunity.microsoft.com/blog/azure-active-directoryidentity/your-password-doesnt-matter/139151)
-- [Security Lessons from 100,000 Hacked Accounts](https://www.microsoft.com/en-us/research/publication/the-world-of-the-password-hacker/)
+**Microsoft Learn:**
+- [Mandatory multifactor authentication for Azure and admin portals](https://learn.microsoft.com/en-us/entra/identity/authentication/concept-mandatory-multifactor-authentication)
+- [Plan a Microsoft Entra multifactor authentication deployment](https://learn.microsoft.com/en-us/entra/identity/authentication/howto-mfa-getstarted)
 
 ## FAQ
 
 **Q: Should we use SMS for MFA?**
 
-A: SMS is acceptable as a fallback method but not as the only MFA. SMS is vulnerable to SIM swap attacks. Recommend pairing SMS with stronger methods like TOTP or push notifications.
+A: Avoid it where you can. Microsoft recommends moving away from SMS and voice, and Microsoft-provided SMS and voice delivery is being retired from February 1, 2027. Use Microsoft Authenticator or passkeys, and treat SMS as a temporary fallback only.
 
 **Q: How do we handle users who don't have smartphones?**
 
-A: For non-smartphone users, consider phone call MFA as backup, hardware security keys for highly sensitive roles, or risk-based policies that don't require MFA for low-risk access. Have a help desk process to verify identity before granting exceptions.
+A: Use hardware security keys (passkeys) or Windows Hello for Business. Phone-based methods are being retired, so a telephony provider is a last resort. Have a help desk process to verify identity before granting exceptions.
 
 **Q: Can we require MFA without Conditional Access?**
 
-A: Yes, you can enable per-user MFA or Security Defaults. However, Conditional Access provides granular control and better UX. We recommend Conditional Access for most organizations.
+A: Yes. Security defaults are free and per-user MFA is available, though Microsoft discourages per-user MFA when Conditional Access is an option. Conditional Access (Entra ID P1) provides granular control and is the recommended approach.
 
 **Q: How do we handle MFA for service accounts?**
 
@@ -401,11 +388,11 @@ A: Service accounts can't respond to interactive MFA prompts. Use alternatives: 
 
 **Q: What if a user loses their registered phone?**
 
-A: Users should register a backup phone during setup. If they lose both, they can use backup codes or contact help desk with identity verification to reset MFA methods. Plan for this in your support process.
+A: Users should register more than one method. Entra ID work accounts don't have backup codes. If a user loses every method, an administrator can issue a Temporary Access Pass or reset their methods after verifying identity, or the user can use Microsoft Entra account recovery where enabled.
 
 **Q: Does MFA work with all SaaS applications?**
 
-A: MFA works for Entra ID-connected apps (through Conditional Access) but not all legacy apps. If users access apps that don't support MFA, use app-level MFA or conditional access to block access from non-MFA devices.
+A: MFA applies to apps that sign in through Entra ID using modern authentication. Legacy authentication protocols can't do MFA, so block them with Conditional Access (or security defaults) and move apps to modern authentication.
 
 ## Next Steps
 
@@ -416,4 +403,4 @@ A: MFA works for Entra ID-connected apps (through Conditional Access) but not al
 5. Establish help desk support for MFA issues
 6. Monitor adoption and adjust policies monthly
 
-MFA is not a one-time implementation—it's an ongoing program. Start with pilot, measure adoption, adjust based on feedback, and scale gradually. Your goal is 95%+ adoption within 6 months.
+MFA is not a one-time implementation—it's an ongoing program. Start with pilot, measure adoption, adjust based on feedback, and scale gradually. Set a measurable adoption target and track it.

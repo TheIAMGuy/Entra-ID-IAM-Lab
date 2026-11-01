@@ -1,6 +1,6 @@
 # Phase 1 — Free Tier Examples
 
-Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning, and Group-Based RBAC.
+Placeholder examples for **Labs 01–03**: Environment Setup, Identity Provisioning, and Group-Based RBAC.
 
 ## Files
 
@@ -21,4 +21,4 @@ Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning,
 
 ## Notes
 
-These examples are exported from a test Entra ID tenant. Your tenant IDs will differ.
+These files are placeholders that show the expected structure and use the users and groups from the labs. Replace them with exports from your own tenant; your tenant IDs will differ.

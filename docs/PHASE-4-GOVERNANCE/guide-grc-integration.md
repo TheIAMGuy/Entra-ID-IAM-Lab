@@ -1,12 +1,10 @@
 ---
 title: GRC Integration - Governance, Risk, and Compliance Management
-part: 8
 section: Compliance & Audit
 difficulty: Advanced
 estimated_reading_time: 30
 estimated_lab_time: N/A
 prerequisites:
-  - 17-compliance-frameworks-mapping.md
   - guide-identity-governance-administration.md
 learning_objectives:
   - Understand GRC platform concepts
@@ -20,7 +18,7 @@ learning_objectives:
 
 ## Introduction
 
-Governance, Risk, and Compliance (GRC) platforms consolidate policy, compliance, and risk management. Instead of disparate spreadsheets, GRC brings together: governance policies (approved by board), risk assessments (enterprise risk), compliance requirements (HIPAA, GDPR, SOX), and controls (technical and operational). This document explains GRC concepts and integration with identity governance.
+Governance, Risk, and Compliance (GRC) platforms consolidate policy, compliance, and risk management. Instead of disparate spreadsheets, GRC brings together: governance policies (approved by board), risk assessments (enterprise risk), compliance requirements (HIPAA, GDPR, SOX), and controls (technical and operational). This document explains GRC concepts and how identity governance feeds them. The examples are illustrative; adapt them to your own policies and the current text of each standard.
 
 **Learning Objectives:**
 - Understand GRC platform capabilities
@@ -76,30 +74,33 @@ Risk: Identity sprawl (unused accounts)
 **Regulatory requirements mapped to controls:**
 
 ```
-HIPAA Requirement: User access must be controlled
-  Mapping: HIPAA 164.308(a)(4) - Identify information access needs
-  Control: RBAC (Domain 4)
+HIPAA Requirement: Manage who can access electronic PHI
+  Mapping: HIPAA Security Rule 164.308(a)(4) - Information access management
+  Control: Group-based RBAC (Lab 03)
   Evidence: Role assignments, access review records
-  Status: Compliant (verified in last audit)
+  Status: <assessed by your auditor>
 
 PCI DSS Requirement: Unique user IDs for accountability
-  Mapping: PCI DSS 7.1 - Restrict access to cardholder data
-  Control: No shared accounts (Domain 1)
+  Mapping: PCI DSS v4.0.1 Requirement 8.2.1 - Unique ID for each user
+  Control: No shared accounts, individual provisioning (Lab 02)
   Evidence: User account audit, enforcement policy
-  Status: Compliant
+  Status: <assessed by your auditor>
 ```
 
 ## GRC Platforms
 
 ### Major Platforms
 
-| Platform | Focus | Connectors | Audit | Reporting |
-|----------|-------|-----------|-------|-----------|
-| **Archer GRC** | Enterprise GRC | 100+ | Native | Comprehensive |
-| **Workiva** | Compliance reporting | 200+ | Integrated | Strong |
-| **AuditBoard** | Audit workflows | 50+ | Native | Audit-focused |
-| **Deloitte GRC** | Risk & Compliance | Custom | IAM-integrated | Consulting |
-| **LogicGate** | Risk & Audit | 100+ | Workflow-based | Good |
+Common GRC platforms include Archer, ServiceNow GRC, Workiva, AuditBoard and LogicGate. Compare them on:
+
+| Area | Questions to ask |
+|------|------------------|
+| Fit | Does it support the frameworks you must report against? |
+| Integration | Can it ingest evidence from your identity platform (for example via Microsoft Graph, exports or Log Analytics)? |
+| Audit workflow | Does it support evidence requests, testing and issue tracking? |
+| Cost | How is it licensed, and what does implementation cost? |
+
+Features, integrations and pricing change often. Get current details from each vendor.
 
 ### ServiceNow GRC Module
 
@@ -133,14 +134,13 @@ ServiceNow ITSM
 ### Example: HIPAA Compliance Mapping
 
 ```
-HIPAA Requirement (164.308(a)(4)):
-  "Implement policies and procedures to manage information access"
+HIPAA Security Rule 164.308(a)(4) - Information access management
 
 Identity Controls:
-  ✓ Domain 3 (RBAC): Grant access by role
-  ✓ Domain 7 (Least Privilege): Remove unnecessary permissions
-  ✓ Domain 12 (IGA): Access reviews quarterly
-  ✓ Domain 13 (Audit): Log all access
+  ✓ Group-based RBAC (Lab 03): Grant access by group
+  ✓ Privileged roles (Lab 04): Scoped administrative roles
+  ✓ Access reviews (Lab 17a): Recurring recertification
+  ✓ Audit logs (Lab 07): Record access changes
 
 Evidence Gathered:
   - Role definitions (approved by management)
@@ -148,30 +148,26 @@ Evidence Gathered:
   - Audit logs (access granted/revoked)
   - Exception approval process
 
-Compliance Status: COMPLIANT
-Verified: Annual audit
-Next audit: 2025-03-31
+Compliance Status: <assessed by your auditor>
 ```
 
 ### Example: PCI DSS Mapping
 
 ```
-PCI DSS 8.1:
-  "Ensure each individual accessing cardholder data is assigned unique ID"
+PCI DSS v4.0.1 Requirement 8 - Identify users and authenticate access
 
 Identity Controls:
-  ✓ Domain 1 (Provisioning): Each user gets unique account
-  ✓ Domain 10 (Authentication): MFA required
-  ✓ Domain 13 (Audit): Access audit trail
+  ✓ Provisioning (Lab 02): Each user gets a unique account
+  ✓ Authentication (Labs 07a-07d): MFA and Conditional Access
+  ✓ Audit logs (Lab 07): Access audit trail
 
 Evidence:
   - User list (no shared accounts)
   - MFA implementation report
   - Sign-in logs
 
-Compliance Status: COMPLIANT
-Scope: 50 users with PCI access
-Next review: 2024-06-30
+Compliance Status: <assessed by your auditor>
+Scope: <users with access to the cardholder data environment>
 ```
 
 ## Risk Scoring
@@ -270,6 +266,8 @@ Q4: Remediation & Close
 
 **What auditors need:**
 
+Microsoft Entra keeps audit and sign-in logs for 7 days on Free tenants and 30 days on P1 and P2. If your retention requirement is longer, export the logs with diagnostic settings to a storage account, Log Analytics workspace or SIEM. See [Microsoft Entra data retention](https://learn.microsoft.com/en-us/entra/identity/monitoring-health/reference-reports-data-retention).
+
 ```
 Access Control Evidence:
   ✓ Role definitions
@@ -287,7 +285,7 @@ Authentication Evidence:
 Audit Trail Evidence:
   ✓ User creation/deletion logs
   ✓ Role assignment/removal logs
-  ✓ Sign-in logs (6+ months)
+  ✓ Sign-in logs (retained per your policy; see note below)
   ✓ Admin action logs
   ✓ Policy change logs
 ```
@@ -346,25 +344,21 @@ Audit Report
 5. **Regular Assessment** - Annual minimum, quarterly reviews
 6. **Remediation Tracking** - Monitor closure of findings
 7. **Executive Reporting** - Heat maps and dashboards for leadership
-8. **Audit Trail** - Evidence preserved for 7+ years
+8. **Audit Trail** - Keep evidence for as long as your regulations and policies require
 9. **Policy Enforcement** - Technical controls for policy compliance
 10. **Continuous Improvement** - Use audit findings to improve
 
 ## Related Documents
 
-**Prerequisites:**
-- Compliance Frameworks - Compliance requirements
-- [IGA Platforms](guide-identity-governance-administration.md) - Access governance
-
-**Next Steps:**
-- Incident Response - Security incident handling
-- Risk Scoring - Advanced risk analytics
+- [Identity Governance Administration guide](guide-identity-governance-administration.md)
+- [Lab 17a — Set Up Your First Access Review](17a-set-up-access-reviews.md)
+- [Lab 07 — Audit Logging & Monitoring](../PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md)
 
 ## FAQ
 
 **Q: Should we use GRC platform or manage compliance manually?**
 
-A: GRC platform essential at scale (500+ users, multiple frameworks). Automates evidence, improves efficiency.
+A: It depends on scale and how many frameworks you report against. A small program can start with documented controls and exported evidence. Tooling pays off as the number of controls, systems and audits grows.
 
 **Q: How often to conduct audits?**
 
@@ -372,11 +366,11 @@ A: Minimum annually. High-risk areas quarterly. Continuous monitoring for critic
 
 **Q: What's the cost of GRC platforms?**
 
-A: $50K-200K+ annually depending on scale and features.
+A: It varies widely by vendor and scope. Ask vendors for a quote.
 
 **Q: Can we use spreadsheets instead?**
 
-A: Not recommended. Error-prone, audit trail weak, evidence fragmented.
+A: You can for a small scope, but evidence is easy to lose and hard to keep consistent. Keep a clear owner, version control and dated exports if you do.
 
 ## Next Steps
 

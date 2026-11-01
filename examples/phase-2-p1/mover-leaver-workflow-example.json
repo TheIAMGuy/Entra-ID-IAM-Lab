@@ -1,42 +1,57 @@
 {
-  "comment": "PLACEHOLDER: Identity lifecycle changes from Lab 06 — Mover/Leaver workflow",
-  "description": "Replace this file with your exported user changes after completing Lab 06",
+  "comment": "PLACEHOLDER: Identity lifecycle changes from Lab 06 — Mover and Leaver",
+  "description": "Replace this file with your own record of the changes after completing Lab 06. Values match the lab scenario.",
   "workflow_example": {
-    "scenario": "Mover (Bob Glasgow: Finance → IT)",
-    "steps": [
-      {
-        "step": 1,
-        "description": "Update user attributes (jobTitle, department)",
-        "user_id": "bob-glasgow-id",
-        "changes": {
-          "jobTitle": "IT Support Specialist",
-          "department": "IT"
+    "mover": {
+      "scenario": "John Smith transfers from HR to Finance",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Update user attributes",
+          "changes": {
+            "department": "Finance"
+          }
+        },
+        {
+          "step": 2,
+          "action": "Remove from group",
+          "group": "HR-Team"
+        },
+        {
+          "step": 3,
+          "action": "Add to group",
+          "group": "Finance-Team"
+        },
+        {
+          "step": 4,
+          "action": "Remove application assignment",
+          "app": "HR-App"
+        },
+        {
+          "step": 5,
+          "action": "Add application assignment",
+          "app": "Finance-App"
         }
-      },
-      {
-        "step": 2,
-        "description": "Add to new department group",
-        "action": "Add member to group",
-        "group": "grp-IT-Team",
-        "user": "Bob Glasgow"
-      },
-      {
-        "step": 3,
-        "description": "Remove from old department group",
-        "action": "Remove member from group",
-        "group": "grp-Finance-Team",
-        "user": "Bob Glasgow"
-      },
-      {
-        "step": 4,
-        "description": "Update application role assignment",
-        "action": "Change app role",
-        "app": "Test Enterprise App",
-        "old_role": "Finance User",
-        "new_role": "IT Support User"
-      }
-    ]
+      ]
+    },
+    "leaver": {
+      "scenario": "Eve Smith leaves the organisation",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Disable the account (accountEnabled = false)"
+        },
+        {
+          "step": 2,
+          "action": "Remove from all groups"
+        },
+        {
+          "step": 3,
+          "action": "Remove application access"
+        }
+      ]
+    }
   },
   "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/06-identity-lifecycle-mover-leaver.md",
-  "audit_verification": "Verify changes in Audit Log: 'Update user', 'Add member to group', 'Remove member from group', 'Add app role assignment'"
+  "audit_verification": "Check the audit log for the matching Update user, Remove member from group, Add member to group and app role assignment events."
 }
