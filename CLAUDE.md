@@ -20,7 +20,7 @@ When you ask Claude Code to upload or create a lab, it will follow this structur
 - Reference materials and templates
 - No code delivery (content only)
 
-**Progression:** Free → P1 License → P2 License → Governance → Specialist → Capstone Design
+**Progression:** Free → P1 License → P2 License → Governance
 
 ---
 
@@ -65,7 +65,7 @@ For simpler Phase 1–3 labs, front matter is optional; omit if the header provi
 **Objective:** [One-sentence goal — what will the learner be able to do?]
 
 **Time:** [X–Y minutes]  
-**Difficulty:** [Beginner | Beginner–Intermediate | Intermediate | Intermediate–Advanced | Advanced | Professional Capstone]  
+**Difficulty:** [Beginner | Beginner–Intermediate | Intermediate | Intermediate–Advanced | Advanced]  
 **Cost:** [Free | Free Trial | Paid Licence | Usage Based]
 
 ---
@@ -198,14 +198,6 @@ If any item is unchecked, revisit the steps above.
 4. Links back to relevant labs
 5. External resources if applicable
 
-### For Capstone Design (Phase 6)
-1. Introduction (design challenge)
-2. Key Design Decisions table
-3. Production Considerations (evolution beyond lab)
-4. Architecture patterns
-5. Governance and lifecycle workflow
-6. Compliance and risk considerations
-
 ---
 
 ## Content Standards
@@ -318,11 +310,6 @@ Entra-ID-IAM-Lab/
 │   │   └── 07c-adaptive-authentication.md
 │   ├── PHASE-4-GOVERNANCE/
 │   │   └── 17a-identity-governance-administration.md
-│   ├── PHASE-5-SPECIALIST/
-│   │   ├── 11a-workload-identity.md
-│   │   └── 12-b2b-external-identities.md
-│   ├── PHASE-6-CAPSTONE/
-│   │   └── KEY_DESIGN_DECISIONS.md
 │   └── REFERENCE/
 │       ├── IAM_GLOSSARY.md
 │       ├── CONCEPT_INDEX.md

@@ -122,33 +122,7 @@ New-MgIdentityGovernanceAccessReviewDefinition -BodyParameter $accessReview
 
 ---
 
-## Phase 5 (Specialist)
-
-### Workload Identity (Managed Identity)
-
-```powershell
-# Create system-assigned managed identity for Function App
-# (In Entra ID admin center: Function App → Identity → System-assigned)
-
-# Grant permissions
-$rg = "myResourceGroup"
-$mi = Get-AzUserAssignedIdentity -ResourceGroupName $rg -Name "myFunctionIdentity"
-New-AzRoleAssignment -ObjectId $mi.PrincipalId -RoleDefinitionName "Key Vault Secrets Officer" -Scope "/subscriptions/xxx/resourceGroups/$rg"
-```
-
-### B2B Guest User
-
-```powershell
-$invitationUrl = New-MgInvitation -InvitedUserEmailAddress "partner@externaldomain.com" `
-    -SendInvitationMessage $true `
-    -InviteRedirectUrl "https://myapp.azurewebsites.net" | Select-Object InviteRedeemUrl
-
-Write-Host "Send this URL to guest: $($invitationUrl.InviteRedeemUrl)"
-```
-
----
-
-## Phase 6: Reference Commands
+## Reference Commands
 
 ### Get All Users
 ```powershell
