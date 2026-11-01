@@ -15,7 +15,7 @@ The lab is organised in **6 phases**, progressing from free-tier foundations to 
 - 🚀 **Complete Lifecycle** — Master the full Joiner-Mover-Leaver identity workflow
 - 👥 **Hands-On Access Control** — Group-based RBAC and delegated administration you can use immediately
 - 📋 **Compliance Ready** — Audit logging and traceability for real compliance frameworks
-- 🎯 **Portfolio Project** — Enterprise capstone project you can showcase
+- 🎯 **Portfolio Project** — Hands-on Entra ID IAM lab you can showcase
 - ☁️ **Cloud-Native** — Modern cloud identity using Microsoft Entra ID
 
 ## The 6-Phase Progression
@@ -28,10 +28,6 @@ Phase 2: Entra ID P1        → Privileged access, applications, lifecycle
 Phase 3: Entra ID P2        → MFA, risk, conditional access
          ↓
 Phase 4: Identity Governance → Access reviews, entitlement mgmt
-         ↓
-Phase 5: Specialist Identity → Workload, B2B, verified ID
-         ↓
-Phase 6: Enterprise Capstone → Design a complete enterprise system
 ```
 
 ---
@@ -50,9 +46,9 @@ Phase 6: Enterprise Capstone → Design a complete enterprise system
 - Build MFA and risk intelligence skills
 
 ### Building a Portfolio Project?
-**Head here:** [Phase 6: Enterprise Capstone](docs/PHASE-6-CAPSTONE/KEY_DESIGN_DECISIONS.md)
-- Design a complete enterprise IAM system
-- Integrate Phases 1-5 into one cohesive architecture
+**Head here:** [Phase 1: Environment Setup](docs/PHASE-1-FREE-TIER/01-environment-setup.md)
+- Work through Phases 1-4 in order
+- Document your implementation decisions
 
 ### Need This NOW (2-Hour Fast Path)?
 **Quick start:** [QUICKSTART.md](docs/REFERENCE/QUICKSTART.md)
@@ -72,7 +68,6 @@ Choose your path and follow the links in order:
 4. [Phase 2: Privileged Access](docs/PHASE-2-ENTRA-P1/04-privileged-access-management.md)
 5. [Phase 2: Application Access](docs/PHASE-2-ENTRA-P1/05-application-access-management.md)
 6. [Phase 3: Audit & Monitoring](docs/PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md)
-7. [Phase 6: Capstone Design](docs/PHASE-6-CAPSTONE/KEY_DESIGN_DECISIONS.md)
 
 **Estimated time:** 12–16 hours  
 **Best for:** Identity newcomers, students, people transitioning into IAM
@@ -82,10 +77,8 @@ Choose your path and follow the links in order:
 ### **Path 2: Experienced Identity Person**
 1. [QUICKSTART.md](docs/REFERENCE/QUICKSTART.md) — Refresh on Entra specifics
 2. [Phase 2: Privileged Access](docs/PHASE-2-ENTRA-P1/04-privileged-access-management.md)
-3. [Phase 3: MFA & Risk](docs/PHASE-3-ENTRA-P2/07a-multi-factor-authentication.md)
-4. [Phase 4: Identity Governance](docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md)
-5. [Phase 5: Workload Identity](docs/PHASE-5-SPECIALIST/11a-workload-identity.md)
-6. [Phase 6: Capstone Design](docs/PHASE-6-CAPSTONE/KEY_DESIGN_DECISIONS.md)
+3. [Phase 3: MFA & Risk](docs/PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md)
+4. [Phase 4: Identity Governance](docs/PHASE-4-GOVERNANCE/guide-identity-governance-administration.md)
 
 **Estimated time:** 6–8 hours  
 **Best for:** Identity architects, consultants, people familiar with IAM concepts
@@ -93,10 +86,9 @@ Choose your path and follow the links in order:
 ---
 
 ### **Path 3: Building a Enterprise IAM Portfolio Project**
-1. Start with [Phase 6 Capstone](docs/PHASE-6-CAPSTONE/KEY_DESIGN_DECISIONS.md) to understand enterprise requirements
-2. Go back and work through Phases 1–5 in order
-3. Document your implementation decisions
-4. Record screenshots and create a portfolio write-up
+1. Work through Phases 1–4 in order
+2. Document your implementation decisions
+3. Record screenshots and create a portfolio write-up
 
 **Estimated time:** 20–24 hours (includes documentation)  
 **Best for:** Career transitions, job interviews, demonstrating hands-on experience
@@ -112,19 +104,15 @@ Each phase contains only **essential hands-on content** — no optional distract
 - **PHASE-1-FREE-TIER/** — Foundations: setup, users, groups, RBAC (2–3 hours)
 - **PHASE-2-ENTRA-P1/** — Privileged access, applications, lifecycle (3–4 hours)
 - **PHASE-3-ENTRA-P2/** — Security & audit: MFA, risk, conditional access (2–3 hours)
-  - ⚠️ **CRITICAL:** Microsoft mandating MFA for all sign-ins October 1, 2025. Plan your rollout now.
+  - ℹ️ Microsoft enforces mandatory MFA for Azure and admin portal sign-ins (Phase 1 from October 2024, Phase 2 from October 1, 2025). See the [MFA guide](docs/PHASE-3-ENTRA-P2/guide-multi-factor-authentication.md).
 - **PHASE-4-GOVERNANCE/** — Access reviews, entitlement management, governance (2–3 hours)
   - ⭐ **NEW:** Non-Human Identity (NHI) governance—extend reviews to service principals, workloads, API keys
-- **PHASE-5-SPECIALIST/** — Workload identity, B2B external identities (2–3 hours)
-  - ⚠️ **UPDATE:** Azure AD B2C end-of-sale May 1, 2025 → migrate to Microsoft Entra External ID for customers
-- **PHASE-6-CAPSTONE/** — Enterprise design capstone project (3–4 hours)
 
 ### Reference
 Cross-cutting docs (not phase-specific):
 - [IAM_GLOSSARY.md](docs/REFERENCE/IAM_GLOSSARY.md) — Definitions of all IAM terms
 - [CONCEPT_INDEX.md](docs/REFERENCE/CONCEPT_INDEX.md) — Find concepts across phases
-- [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md) — Master index of all content
-- [HANDS_ON_LAB_SCENARIOS.md](docs/REFERENCE/HANDS_ON_LAB_SCENARIOS.md) — Scenario-based exercises
+- [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md) — Index of all 12 labs and concept guides
 - [FURTHER_READING.md](docs/REFERENCE/FURTHER_READING.md) — External resources
 
 ---
@@ -140,14 +128,12 @@ Cross-cutting docs (not phase-specific):
 | **Conditional Access** | Phase 3 | Risk-based access decisions in real time |
 | **Access Reviews** | Phase 4 | Compliance: who *should* still have access? |
 | **Identity Governance** | Phase 4 | Automating access decisions at scale |
-| **Workload Identity** | Phase 5 | Apps & services authenticating securely |
-| **B2B & External Identity** | Phase 5 | Partner and customer access patterns |
 
 ---
 
 ## Quick Reference
 
-### The 6 Phases at a Glance
+### The 4 Phases at a Glance
 
 | Phase | License | What You Build | Estimated Hours |
 |-------|---------|-----------------|-----------------|
@@ -155,9 +141,7 @@ Cross-cutting docs (not phase-specific):
 | 2 | P1 | Privileged roles, apps, JML lifecycle | 3–4 |
 | 3 | P2 | MFA, risk detection, conditional access | 2–3 |
 | 4 | Governance | Access reviews, entitlement management | 2–3 |
-| 5 | Specialist | Workload identity, B2B, verified ID | 2–3 |
-| 6 | Any | Enterprise design capstone | 3–4 |
-| **Total** | — | **Complete enterprise IAM system** | **14–20 hours** |
+| **Total** | — | **Core Entra ID IAM lab** | **9–13 hours** |
 
 ### Key Files by Phase
 
@@ -167,7 +151,7 @@ Cross-cutting docs (not phase-specific):
 - Phase 3 → [07-audit-logging-monitoring.md](docs/PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md)
 
 **Want examples?**
-- See [examples/](examples/) folder for sample configs, policies, and scripts
+- See [examples/](examples/) folder for sample configurations (several are placeholders to replace with your own exports)
 
 **Want templates?**
 - See [templates/](templates/) folder for reusable CLAUDE.md, policies, and document templates
@@ -184,8 +168,6 @@ Cross-cutting docs (not phase-specific):
 | **Applications** | 2 | Provision enterprise apps and manage user access ✓ |
 | **Security & Audit** | 3 | Enforce MFA, detect risky access, audit trails ✓ |
 | **Governance** | 4 | Run access reviews, manage entitlements ✓ |
-| **Cloud-Native Identity** | 5 | Authenticate workloads, B2B partners, external users ✓ |
-| **Enterprise Design** | 6 | Architect a complete IAM system | ✓ |
 
 ---
 
@@ -207,19 +189,22 @@ Before starting the labs:
 ## Examples & Templates
 
 ### Examples
-Find ready-to-use configurations in [examples/](examples/):
-- **phase-1-free/** — User provisioning, group RBAC samples
-- **phase-2-p1/** — PAM roles, app provisioning examples
-- And more for each phase...
+Sample JSON configurations in [examples/](examples/):
+- **phase-1-free/** — Users and groups
+- **phase-2-p1/** — Role assignments, app provisioning, mover/leaver
+- **phase-3-p2/** — MFA and Conditional Access (placeholders)
+- **phase-4-governance/** — Access review (placeholder)
 
-Copy, adapt, and use in your own tenant.
+Adapt them to your own tenant. The placeholder files show the expected structure; replace them with your own exports.
 
 ### Templates
 Find reusable templates in [templates/](templates/):
 - **CONTENT_TEMPLATE.md** — Structure for new lab docs
-- **group-naming-template.txt** — Naming conventions
-- **policy-template.json** — Policy structure template
-- And more...
+- **WRITING_GUIDELINES.md** — Writing style for lab docs
+- **naming-standards/GROUP_NAMING_CONVENTION.md** — Group naming conventions
+- **policies/CONDITIONAL_ACCESS_TEMPLATE.json** — Conditional Access policy template
+- **scripts/BULK_OPERATIONS_TEMPLATE.ps1** — Bulk operations script template
+- **CLAUDE.md.template**, **CLAUDE.local.md.template**, **settings.json.template** — Claude Code project templates
 
 ---
 
@@ -229,7 +214,7 @@ Find reusable templates in [templates/](templates/):
 - 🔍 **Looking for a concept?** Check [CONCEPT_INDEX.md](docs/REFERENCE/CONCEPT_INDEX.md)
 - ❓ **Need a definition?** See [IAM_GLOSSARY.md](docs/REFERENCE/IAM_GLOSSARY.md)
 - 🔗 **Want external resources?** See [FURTHER_READING.md](docs/REFERENCE/FURTHER_READING.md)
-- 💡 **Specific scenario?** Check [HANDS_ON_LAB_SCENARIOS.md](docs/REFERENCE/HANDS_ON_LAB_SCENARIOS.md)
+- 💡 **Want the full list of labs?** See [LABS_INDEX.md](docs/REFERENCE/LABS_INDEX.md)
 
 ---
 
@@ -264,7 +249,5 @@ This lab is licensed under the [MIT License](LICENSE) — feel free to share, ad
 👉 **First time?** Begin with [Phase 1: Environment Setup](docs/PHASE-1-FREE-TIER/01-environment-setup.md)
 
 👉 **Know the basics?** Jump to [QUICKSTART.md](docs/REFERENCE/QUICKSTART.md)
-
-👉 **Building a capstone?** Go to [Phase 6: Enterprise Design](docs/PHASE-6-CAPSTONE/KEY_DESIGN_DECISIONS.md)
 
 Happy learning! 🎉

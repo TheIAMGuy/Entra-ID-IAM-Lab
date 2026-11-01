@@ -1,12 +1,11 @@
 # Phase 1 — Free Tier Examples
 
-Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning, and Group-Based RBAC.
+Placeholder examples for **Labs 01–03**: Environment Setup, Identity Provisioning, and Group-Based RBAC.
 
 ## Files
 
 - `users-example.json` — User objects created in Lab 02 (Joiner scenario)
 - `groups-example.json` — Groups created in Lab 03 (department groups)
-- `rbac-assignments-example.json` — Role assignments for Lab 04 (User Admin, Global Reader)
 
 ## How to Use
 
@@ -19,8 +18,7 @@ Working examples from **Lab 01–03**: Environment Setup, Identity Provisioning,
 
 - [PLACEHOLDER: Screenshot of users created in Lab 02]
 - [PLACEHOLDER: Screenshot of groups created in Lab 03]
-- [PLACEHOLDER: Screenshot of RBAC role assignments from Lab 04]
 
 ## Notes
 
-These examples are exported from a test Entra ID tenant. Your tenant IDs will differ.
+These files are placeholders that show the expected structure and use the users and groups from the labs. Replace them with exports from your own tenant; your tenant IDs will differ.

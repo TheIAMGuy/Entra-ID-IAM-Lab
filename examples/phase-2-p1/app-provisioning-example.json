@@ -1,46 +1,28 @@
 {
-  "comment": "PLACEHOLDER: Enterprise application provisioning configuration from Lab 05",
-  "description": "Replace this file with your exported application registration after completing Lab 05",
+  "comment": "PLACEHOLDER: Enterprise applications from Lab 05 — Application Access Management",
+  "description": "Replace this file with your own exported applications after completing Lab 05. Values match the applications in the lab.",
   "expected_content": {
-    "application": {
-      "id": "app-object-id",
-      "displayName": "Test Enterprise App",
-      "description": "Example enterprise application for provisioning lab",
-      "signInAudience": "AzureADMultipleOrgs",
-      "appRoles": [
-        {
-          "id": "app-role-id",
-          "displayName": "Admin",
-          "description": "Administrator access",
-          "value": "Admin",
-          "allowedMemberTypes": [
-            "User",
-            "Application"
-          ]
-        },
-        {
-          "id": "app-role-id",
-          "displayName": "User",
-          "description": "Regular user access",
-          "value": "User",
-          "allowedMemberTypes": [
-            "User"
-          ]
-        }
-      ],
-      "requiredResourceAccess": [
-        {
-          "resourceAppId": "00000002-0000-0ff1-ce00-000000000000",
-          "resourceAccess": [
-            {
-              "id": "graph-permission-id",
-              "type": "Scope"
-            }
-          ]
-        }
-      ]
-    }
+    "applications": [
+      {
+        "id": "app-object-id",
+        "displayName": "HR-App",
+        "description": "Simulated internal HR system",
+        "servicePrincipalId": "service-principal-id"
+      },
+      {
+        "id": "app-object-id",
+        "displayName": "Finance-App",
+        "description": "Simulated internal Finance system",
+        "servicePrincipalId": "service-principal-id"
+      },
+      {
+        "id": "app-object-id",
+        "displayName": "Sales-App",
+        "description": "Simulated internal Sales system",
+        "servicePrincipalId": "service-principal-id"
+      }
+    ]
   },
   "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-2-ENTRA-P1/05-application-access-management.md",
-  "how_to_export": "App registrations > your app > Export manifest"
+  "how_to_export": "Microsoft Graph GET /servicePrincipals?$filter=displayName eq 'HR-App', or Entra ID > Enterprise apps"
 }

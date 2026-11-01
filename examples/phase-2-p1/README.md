@@ -1,6 +1,6 @@
 # Phase 2 — Entra ID P1 Examples
 
-Working examples from **Lab 04–06**: Privileged Access Management, Application Access Management, and Identity Lifecycle (Mover/Leaver).
+Placeholder examples for **Labs 04–06**: Privileged Access Management, Application Access Management, and Identity Lifecycle (Mover/Leaver).
 
 ## Files
 
@@ -25,4 +25,4 @@ Working examples from **Lab 04–06**: Privileged Access Management, Application
 
 ## Notes
 
-These examples use P1 license features. Your tenant IDs will differ from these examples.
+These files are placeholders that show the expected structure and use the users, groups and applications from the labs. Replace them with exports from your own tenant; your IDs will differ. The labs themselves use free features, but group-based application assignment needs Entra ID P1 or P2.

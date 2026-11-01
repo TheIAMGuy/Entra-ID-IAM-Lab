@@ -4,7 +4,7 @@
 
 **Time:** 30–40 minutes  
 **Difficulty:** Intermediate  
-**Cost:** Free (access reviews available with Governance license or free trial)
+**Cost:** Paid Licence — Entra ID P2 or Entra ID Governance (free trial available)
 
 ---
 
@@ -191,7 +191,7 @@ This is a compliance requirement for SOC 2, ISO 27001, HIPAA, and PCI DSS certif
 
 ## Next Steps
 
-→ You've completed Phase 4 fundamentals! Proceed to [Phase 5 — Specialist Identity](../PHASE-5-SPECIALIST/11a-workload-identity.md)
+→ You've completed Phase 4 fundamentals!
 
 **Or review:**
 - [Audit Logging](../PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md) for detailed access review audit entries

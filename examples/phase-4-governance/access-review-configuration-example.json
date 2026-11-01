@@ -1,17 +1,18 @@
 {
-  "comment": "PLACEHOLDER: Access review configuration from Lab 17a — Identity Governance",
-  "status": "PLACEHOLDER — Requires Entra ID Governance license",
-  "description": "Replace this file with your access review configuration after completing Lab 17a",
+  "comment": "PLACEHOLDER: Access review from Lab 17a — Set Up Your First Access Review",
+  "status": "PLACEHOLDER — Requires Entra ID P2 or Entra ID Governance",
+  "description": "Replace this file with your own exported access review after completing Lab 17a. The shape follows the Microsoft Graph accessReviewScheduleDefinition resource.",
   "expected_content": {
-    "displayName": "Quarterly User Access Review",
-    "description": "Review all user access to cloud applications quarterly",
+    "displayName": "Quarterly application access review",
+    "descriptionForAdmins": "Review user access to HR-App every quarter",
     "scope": {
-      "query": "/v1/me/ownedObjects/microsoft.graph.accessReviewScheduleDefinition?$filter=contains(tolower(displayName), 'user access')",
-      "type": "principalAccess"
+      "@odata.type": "#microsoft.graph.accessReviewQueryScope",
+      "query": "/groups/{group-id}/transitiveMembers",
+      "queryType": "MicrosoftGraph"
     },
     "reviewers": [
       {
-        "query": "/users/manager",
+        "query": "./manager",
         "queryType": "MicrosoftGraph",
         "queryRoot": "decisions"
       }
@@ -22,18 +23,21 @@
       "justificationRequiredOnApproval": true,
       "defaultDecisionEnabled": false,
       "autoApplyDecisionsEnabled": false,
+      "recommendationsEnabled": true,
       "recurrence": {
         "pattern": {
-          "type": "quarterly"
+          "type": "absoluteMonthly",
+          "interval": 3
         },
         "range": {
-          "type": "endDate",
-          "endDate": "2027-12-31"
+          "type": "noEnd",
+          "startDate": "<yyyy-mm-dd>"
         }
       }
     }
   },
-  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-4-GOVERNANCE/17a-identity-governance-administration.md",
-  "how_to_export": "Identity > Identity Governance > Access reviews > your review > Export configuration",
-  "todo": "Export your access review configuration and replace this placeholder when Governance license is active"
+  "note": "A quarterly review is type absoluteMonthly with interval 3. Graph supports only weekly and absoluteMonthly recurrence for access reviews.",
+  "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md",
+  "how_to_export": "Microsoft Graph GET /identityGovernance/accessReviews/definitions/{id}",
+  "todo": "Export your access review configuration and replace this placeholder when your licence allows it"
 }

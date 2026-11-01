@@ -1,26 +1,55 @@
 {
-  "comment": "PLACEHOLDER: User objects exported from Lab 02 — Identity Provisioning (Joiner)",
-  "description": "Replace this file with your exported users.json from the Entra ID Portal after completing Lab 02",
+  "comment": "PLACEHOLDER: User objects from Lab 02 — Identity Provisioning (Joiner)",
+  "description": "Replace this file with your own exported users after completing Lab 02. Values match the users in the lab.",
   "expected_content": {
     "users": [
       {
         "id": "user-id-uuid",
+        "displayName": "John Smith",
+        "userPrincipalName": "John.Smith@yourtenant.onmicrosoft.com",
+        "givenName": "John",
+        "surname": "Smith",
+        "department": "HR",
+        "jobTitle": "HR Coordinator"
+      },
+      {
+        "id": "user-id-uuid",
         "displayName": "Alice Smith",
-        "userPrincipalName": "alice.smith@yourtenant.onmicrosoft.com",
+        "userPrincipalName": "Alice.Smith@yourtenant.onmicrosoft.com",
         "givenName": "Alice",
         "surname": "Smith",
-        "jobTitle": "IT Administrator",
-        "department": "IT"
+        "department": "IT",
+        "jobTitle": "IT Administrator"
       },
       {
         "id": "user-id-uuid",
         "displayName": "Bob Glasgow",
-        "userPrincipalName": "bob.glasgow@yourtenant.onmicrosoft.com",
-        "jobTitle": "Finance Manager",
-        "department": "Finance"
+        "userPrincipalName": "Bob.Glasgow@yourtenant.onmicrosoft.com",
+        "givenName": "Bob",
+        "surname": "Glasgow",
+        "department": "Finance",
+        "jobTitle": "Finance Analyst"
+      },
+      {
+        "id": "user-id-uuid",
+        "displayName": "Charlie Jones",
+        "userPrincipalName": "Charlie.Jones@yourtenant.onmicrosoft.com",
+        "givenName": "Charlie",
+        "surname": "Jones",
+        "department": "Sales",
+        "jobTitle": "Sales Executive"
+      },
+      {
+        "id": "user-id-uuid",
+        "displayName": "Eve Smith",
+        "userPrincipalName": "Eve.Smith@yourtenant.onmicrosoft.com",
+        "givenName": "Eve",
+        "surname": "Smith",
+        "department": "HR",
+        "jobTitle": "Intern"
       }
     ]
   },
   "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-1-FREE-TIER/02-identity-provisioning-joiner.md",
-  "how_to_export": "Microsoft Graph > /users endpoint, or export via Entra ID admin center"
+  "how_to_export": "Microsoft Graph GET /users, or Entra ID > Users > Download users"
 }

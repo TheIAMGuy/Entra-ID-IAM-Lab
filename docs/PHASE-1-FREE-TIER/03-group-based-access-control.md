@@ -122,4 +122,4 @@ Repeat steps 2 and 3 for each remaining group:
 
 ## Next Step
 
-Proceed to [Lab 04 — Privileged Access Management](04-privileged-access-management.md) to assign administrative roles to appropriate users.
+Proceed to [Lab 04 — Privileged Access Management](../PHASE-2-ENTRA-P1/04-privileged-access-management.md) to assign administrative roles to appropriate users.

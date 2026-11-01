@@ -1,30 +1,55 @@
 {
-  "comment": "PLACEHOLDER: Group objects exported from Lab 03 — Group-Based RBAC",
-  "description": "Replace this file with your exported groups.json from the Entra ID Portal after completing Lab 03",
+  "comment": "PLACEHOLDER: Group objects from Lab 03 — Group-Based Access Control",
+  "description": "Replace this file with your own exported groups after completing Lab 03. Values match the groups in the lab.",
   "expected_content": {
     "groups": [
       {
         "id": "group-id-uuid",
-        "displayName": "grp-IT-Admins",
-        "description": "IT department administrators",
+        "displayName": "HR-Team",
+        "description": "Department group for HR employees",
         "mailEnabled": false,
         "securityEnabled": true,
+        "groupTypes": [],
         "members": [
-          "alice.smith@yourtenant.onmicrosoft.com"
+          "John Smith",
+          "Eve Smith"
         ]
       },
       {
         "id": "group-id-uuid",
-        "displayName": "grp-Finance-Team",
-        "description": "Finance department team members",
+        "displayName": "IT-Team",
+        "description": "Department group for IT employees",
         "mailEnabled": false,
         "securityEnabled": true,
+        "groupTypes": [],
         "members": [
-          "bob.glasgow@yourtenant.onmicrosoft.com"
+          "Alice Smith"
+        ]
+      },
+      {
+        "id": "group-id-uuid",
+        "displayName": "Finance-Team",
+        "description": "Department group for Finance employees",
+        "mailEnabled": false,
+        "securityEnabled": true,
+        "groupTypes": [],
+        "members": [
+          "Bob Glasgow"
+        ]
+      },
+      {
+        "id": "group-id-uuid",
+        "displayName": "Sales-Team",
+        "description": "Department group for Sales employees",
+        "mailEnabled": false,
+        "securityEnabled": true,
+        "groupTypes": [],
+        "members": [
+          "Charlie Jones"
         ]
       }
     ]
   },
   "lab_reference": "https://github.com/TheIAMGuy/Entra-ID-IAM-Lab/blob/main/docs/PHASE-1-FREE-TIER/03-group-based-access-control.md",
-  "how_to_export": "Microsoft Graph > /groups endpoint, or export via Entra ID admin center"
+  "how_to_export": "Microsoft Graph GET /groups and GET /groups/{id}/members, or Entra ID > Groups > Download groups"
 }
