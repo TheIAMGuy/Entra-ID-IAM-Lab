@@ -4,7 +4,7 @@
 
 **Time:** 25–30 minutes  
 **Difficulty:** Intermediate–Advanced  
-**Cost:** Free (risk detection available in free tier)
+**Cost:** Paid Licence — Entra ID P2 (free trial available)
 
 ---
 

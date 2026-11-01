@@ -17,13 +17,13 @@ This index lists every hands-on lab in the repository, in the order you should c
 | 05 | [Application Access Management](../PHASE-2-ENTRA-P1/05-application-access-management.md) | 2 – Entra P1 | 20–30 min | Intermediate | Free |
 | 06 | [Identity Lifecycle — Mover & Leaver](../PHASE-2-ENTRA-P1/06-identity-lifecycle-mover-leaver.md) | 2 – Entra P1 | 25–35 min | Intermediate | Free |
 | 07 | [Audit Logging & Monitoring](../PHASE-3-ENTRA-P2/07-audit-logging-monitoring.md) | 3 – Entra P2 | 15–20 min | Beginner–Intermediate | Free |
-| 07a | [Configure TOTP-Based MFA](../PHASE-3-ENTRA-P2/07a-configure-totp-mfa.md) | 3 – Entra P2 | 20–25 min | Intermediate | Check lab header |
-| 07b | [Authenticator App Push MFA](../PHASE-3-ENTRA-P2/07b-enable-authenticator-push-mfa.md) | 3 – Entra P2 | 20–25 min | Intermediate | Check lab header |
-| 07c | [Create Your First Conditional Access Policy](../PHASE-3-ENTRA-P2/07c-conditional-access-policy.md) | 3 – Entra P2 | 25–30 min | Intermediate | Check lab header |
-| 07d | [Risk-Based Conditional Access](../PHASE-3-ENTRA-P2/07d-risk-based-conditional-access.md) | 3 – Entra P2 | 25–30 min | Intermediate–Advanced | Check lab header |
-| 17a | [Set Up Your First Access Review](../PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md) | 4 – Governance | 30–40 min | Intermediate | Check lab header |
+| 07a | [Configure TOTP-Based MFA](../PHASE-3-ENTRA-P2/07a-configure-totp-mfa.md) | 3 – Entra P2 | 20–25 min | Intermediate | Free (security defaults) to P1 |
+| 07b | [Authenticator App Push MFA](../PHASE-3-ENTRA-P2/07b-enable-authenticator-push-mfa.md) | 3 – Entra P2 | 20–25 min | Intermediate | Free (security defaults) to P1 |
+| 07c | [Create Your First Conditional Access Policy](../PHASE-3-ENTRA-P2/07c-conditional-access-policy.md) | 3 – Entra P2 | 25–30 min | Intermediate | Entra ID P1 |
+| 07d | [Risk-Based Conditional Access](../PHASE-3-ENTRA-P2/07d-risk-based-conditional-access.md) | 3 – Entra P2 | 25–30 min | Intermediate–Advanced | Entra ID P2 |
+| 17a | [Set Up Your First Access Review](../PHASE-4-GOVERNANCE/17a-set-up-access-reviews.md) | 4 – Governance | 30–40 min | Intermediate | Entra ID P2 or Governance |
 
-> **Licensing note:** Features such as risk-based Conditional Access, Identity Protection risk detection and access reviews depend on your tenant's Entra ID licence (P1, P2 or Governance), and Microsoft changes licensing from time to time. Confirm your tenant's entitlements in [Microsoft Entra plans and pricing](https://www.microsoft.com/en-us/security/business/microsoft-entra-pricing) before starting the Phase 3 and 4 labs.
+> **Licensing note:** Labs 01–07 use free features. Conditional Access needs Entra ID P1, risk-based Conditional Access needs Entra ID P2, and access reviews need Entra ID P2 or Entra ID Governance. Basic MFA is free through security defaults. Microsoft offers free trials of the Premium tiers. Licensing changes over time, so confirm against [Microsoft Entra licensing](https://learn.microsoft.com/en-us/entra/fundamentals/licensing) before starting Phase 3 and 4.
 
 ---
 

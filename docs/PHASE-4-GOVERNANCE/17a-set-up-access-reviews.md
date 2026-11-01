@@ -4,7 +4,7 @@
 
 **Time:** 30–40 minutes  
 **Difficulty:** Intermediate  
-**Cost:** Free (access reviews available with Governance license or free trial)
+**Cost:** Paid Licence — Entra ID P2 or Entra ID Governance (free trial available)
 
 ---
 

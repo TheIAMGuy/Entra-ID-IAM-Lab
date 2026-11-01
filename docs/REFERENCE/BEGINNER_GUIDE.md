@@ -46,7 +46,6 @@ Work through the 12 labs in the order listed in the [Lab Index](LABS_INDEX.md). 
 - [Quickstart](QUICKSTART.md) — 2-hour fast path
 - [IAM Glossary](IAM_GLOSSARY.md) — term definitions
 - [Concept Index](CONCEPT_INDEX.md) — find a concept across the documents
-- [Framework Mapping](FRAMEWORK_MAPPING.md) — how topics map to NIST, Gartner and compliance frameworks
 - [Further Reading](FURTHER_READING.md) — books, courses and official documentation
 - [`examples/`](../../examples/) — sample JSON configurations for each phase
 - [`templates/`](../../templates/) — policy and script templates

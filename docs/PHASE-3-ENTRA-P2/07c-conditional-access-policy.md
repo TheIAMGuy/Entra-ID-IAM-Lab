@@ -4,7 +4,7 @@
 
 **Time:** 25–30 minutes  
 **Difficulty:** Intermediate  
-**Cost:** Free (CA available in free tier)
+**Cost:** Paid Licence — Entra ID P1 (free trial available)
 
 ---
 

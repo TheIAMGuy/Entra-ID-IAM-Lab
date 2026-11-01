@@ -4,7 +4,7 @@
 
 **Time:** 20–25 minutes  
 **Difficulty:** Intermediate  
-**Cost:** Free (P2 features available in free tier)
+**Cost:** Depends on licence (basic MFA via security defaults is free; granular control needs Entra ID P1 or higher)
 
 ---
 
