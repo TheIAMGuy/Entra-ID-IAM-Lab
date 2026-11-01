@@ -18,7 +18,7 @@ Ensure you have completed [Lab 04 — Privileged Access Management](04-privilege
 
 In enterprise environments, Entra ID acts as the **Identity Provider (IdP)** for business applications. Instead of each application managing its own credentials, applications delegate authentication to Entra ID. This enables **Single Sign-On (SSO)** — users authenticate once and gain access to all their assigned applications without separate logins.
 
-In this lab you will simulate three internal systems — HR-App, Finance-App, and Sales-App — and assign department users to each.
+In this lab you will build three applications — HR-App, Finance-App, and Sales-App — and assign department users to each.
 
 > **Free Tier Note:** Group-based application assignment requires an Entra ID P1 or P2 licence. In this lab, users are assigned directly to applications. In a production environment with P1/P2, you would assign the HR-Team group to HR-App, automatically granting access to all current and future group members.
 
