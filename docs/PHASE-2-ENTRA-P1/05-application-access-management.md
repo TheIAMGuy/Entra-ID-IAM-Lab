@@ -39,7 +39,7 @@ In this lab you will build three applications — HR-App, Finance-App, and Sales
 ### 1. Navigate to Enterprise Applications
 
 1. In the Entra ID admin center, navigate to **Microsoft Entra ID**.
-2. In the left sidebar under **Manage**, select **Enterprise applications**.
+2. In the left sidebar select **Enterprise applications**.
 3. Click **New application**.
 
 ---
