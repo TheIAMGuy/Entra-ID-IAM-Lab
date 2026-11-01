@@ -51,18 +51,22 @@ In this lab you will build three applications — HR-App, Finance-App, and Sales
 3. Select **Integrate any other application you don't find in the gallery (Non-gallery)**.
 4. Click **Create**.
 
+<img width="1096" height="566" alt="image" src="https://github.com/user-attachments/assets/b7ce8837-6c1b-41c5-ac1c-4066feb338da" />
+
 > **Expected result:** The HR-App overview page opens. The application now exists in your tenant.
 
 ---
 
 ### 3. Assign Users to HR-App
 
-1. From the HR-App overview, in the left sidebar under **Manage**, select **Users and groups**.
+1. From the HR-App overview, in the left sidebar select **Users and groups**.
 2. Click **Add user/group**.
 3. Under **Users**, click **None selected**.
 4. Search for **John Smith** and select him.
 5. Search for **Eve Smith** and select her.
 6. Click **Select**, then click **Assign**.
+
+<img width="1077" height="524" alt="image" src="https://github.com/user-attachments/assets/da359cb6-99c0-458f-90db-1342522296ce" />
 
 > **Expected result:** The Users and groups list for HR-App shows John Smith and Eve Smith, both with the role "Default Access".
 
