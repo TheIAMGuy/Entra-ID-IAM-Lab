@@ -10,8 +10,10 @@
 # Install-Module Microsoft.Graph.Groups -Scope CurrentUser
 # Install-Module Microsoft.Graph.Identity.DirectoryManagement -Scope CurrentUser
 
-# Connect to Entra ID
-Connect-MgGraph -Scopes "Directory.ReadWrite.All", "User.ReadWrite.All"
+# Connect to Entra ID with least-privilege scopes.
+# Directory.ReadWrite.All is deliberately not requested: these examples only need user and group access.
+# Trim further for read-only runs (e.g. User.Read.All, Group.Read.All for the export examples).
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All"
 
 # ============================================================================
 # EXAMPLE 1: BULK CREATE USERS
@@ -23,21 +25,27 @@ $newUsers = @(
     @{ DisplayName = "Bob Wilson"; UserPrincipalName = "bob.wilson@contoso.com"; Department = "IT" }
 )
 
-$tempPassword = "TempPassword@12345"
+# Generate a unique random password per user. Never hardcode or commit passwords.
+function New-LabPassword {
+    -join ((48..57) + (65..90) + (97..122) + (33,35,36,37,42) | Get-Random -Count 20 | ForEach-Object { [char]$_ })
+}
 
 foreach ($user in $newUsers) {
+    $tempPassword = New-LabPassword
     try {
         $newMgUser = New-MgUser `
             -DisplayName $user.DisplayName `
             -UserPrincipalName $user.UserPrincipalName `
             -PasswordProfile @{
-                ForceChangePasswordNextSignIn = $false
+                ForceChangePasswordNextSignIn = $true
                 Password = $tempPassword
             } `
             -AccountEnabled `
             -Department $user.Department
 
         Write-Host "✓ Created user: $($user.DisplayName)" -ForegroundColor Green
+        # Hand the temporary password over out-of-band (e.g. secure channel); do not write it to logs or the repo.
+        Write-Host "  Temporary password: $tempPassword"
     } catch {
         Write-Host "✗ Failed to create user: $($user.DisplayName) - $_" -ForegroundColor Red
     }

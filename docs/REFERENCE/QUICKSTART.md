@@ -7,10 +7,14 @@
 ## Phase 1 (Skip if you have a tenant)
 
 ```powershell
-# Create 5 test users
+# Create 5 test users (lab only). Each gets a unique random password, and must change it at first sign-in.
+# Passwords are printed once so you can hand them out; do not reuse or commit them.
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All"
 $users = @("alice.smith@contoso.com", "bob.jones@contoso.com", "charlie.brown@contoso.com", "diana.prince@contoso.com", "eve.wilson@contoso.com")
 foreach ($upn in $users) {
-    New-MgUser -DisplayName $upn.Split("@")[0] -UserPrincipalName $upn -PasswordProfile @{ ForceChangePasswordNextSignIn = $false; Password = "TempPassword123!" } -AccountEnabled
+    $pw = -join ((48..57) + (65..90) + (97..122) + (33,35,36,37,42) | Get-Random -Count 20 | ForEach-Object { [char]$_ })
+    New-MgUser -DisplayName $upn.Split("@")[0] -UserPrincipalName $upn -MailNickname $upn.Split("@")[0] -PasswordProfile @{ ForceChangePasswordNextSignIn = $true; Password = $pw } -AccountEnabled
+    Write-Host "$upn : $pw"
 }
 
 # Create security groups
@@ -160,7 +164,8 @@ Get-MgIdentityConditionalAccessPolicy -All | Select-Object DisplayName, State, C
 **Module not found:** 
 ```powershell
 Install-Module Microsoft.Graph.Identity.Governance -Scope CurrentUser
-Connect-MgGraph -Scopes "Directory.ReadWrite.All", "Policy.ReadWrite.ConditionalAccess"
+# Request only the scopes the lab step needs. Directory.ReadWrite.All is broader than any lab here requires.
+Connect-MgGraph -Scopes "User.ReadWrite.All", "Group.ReadWrite.All", "RoleManagement.ReadWrite.Directory", "Policy.ReadWrite.ConditionalAccess"
 ```
 
 **Permission denied on role assignment:**
